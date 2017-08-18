@@ -123,8 +123,9 @@ $.when(
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url);
+          };
 
-            h2.onclick = function(){ 
+            h2.onclick = function(){
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
@@ -134,14 +135,14 @@ $.when(
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url);
 
 
-              }
-              var span = document.getElementsByClassName("close")[0];
+              };
+
+
+            var span = document.getElementsByClassName("close")[0];
               span.onclick = function() {
                   modal.style.display = "none";
               }
-        };
         });
-
 
         /// Bind all the data to the pop ///
              layer.bindPopup(
