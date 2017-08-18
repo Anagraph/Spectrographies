@@ -133,12 +133,12 @@ $.when(
             var feature_photos_uuid = photos_uuid(feature_photos_url);
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url);
 
-            var span = document.getElementsByClassName("close")[0];
-                span.onclick = function() { 
-                modal.style.display = "none";
-                  }
+
               }
-           
+              var span = document.getElementsByClassName("close")[0];
+              span.onclick = function() {
+                  modal.style.display = "none";
+              }
         };
         });
 
