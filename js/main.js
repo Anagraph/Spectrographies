@@ -1,6 +1,6 @@
 $(function() {
 
-var mapZentoken = L.Mapzen.apiKey = 'mapzen-3CAQoBZ'
+var mapZentoken = L.Mapzen.apiKey = 'mapzen-3CAQoBZ';
 
 
 var map = L.Mapzen.map('map', {
@@ -30,7 +30,7 @@ var stamenToner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-ba
   minZoom: 0,
   maxZoom: 18,
   ext: 'png'
-})
+});
 
 
 
@@ -99,7 +99,9 @@ $.when(
               },
 
 
-         //** create a custom marker **//
+
+
+        //** create a custom marker **//
           onEachFeature: function(feature, layer) {
 
         map.on('popupopen', function (e) {
@@ -108,7 +110,7 @@ $.when(
               var img = document.getElementById('myImg');
               var modal = document.getElementById('myModal');
               var captionText = document.getElementById("caption");
-              var carouselDiv = document.getElementById("carousel-inner")
+              var carouselDiv = document.getElementById("carousel-inner");
 
 
         //** Create the modal on the click function **//
@@ -116,30 +118,29 @@ $.when(
 
             map.closePopup();
             modal.style.display = "block";
-            captionText.innerHTML = img.alt
+            captionText.innerHTML = img.alt;
             
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
-            carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url)
-          }
+            carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url);
 
-          h2.onclick = function(){ 
+            h2.onclick = function(){ 
             map.closePopup();
             modal.style.display = "block";
-            captionText.innerHTML = img.alt
+            captionText.innerHTML = img.alt;
             
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
-            carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url)
-          }
+            carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url);
 
-        // Close Modal Fucntion //
-                var span = document.getElementsByClassName("close")[0];
+            var span = document.getElementsByClassName("close")[0];
                 span.onclick = function() { 
                 modal.style.display = "none";
-                }
+                  }
               }
-          );
+           
+        };
+        });
 
 
         /// Bind all the data to the pop ///
@@ -161,7 +162,7 @@ $.when(
 
                  +'</h4><div id=&quot;attributeContainer&quot;>'
                  // Image section
-                 +'<img class="img-thumbnail "id="myImg"'
+                 +'<img class="img-thumbnail " id="myImg"'
                  // Alt section with all the data for the modal popup
                      +' alt="<div><h2>'
                      +feature.properties.titre
@@ -206,11 +207,11 @@ $.when(
                '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe>')
 
             
-            }  
+             
           /// /// End of layer.bindPopup /// ///
 
 
-
+          }
         });
 
         ////////***** End of marker *****////////
@@ -226,22 +227,22 @@ $.when(
  * @returns {string}
  */
           var introMarker = L.geoJSON();
-          var pseudoData = []
-          var typeData = []
-          var genreData = []
-          var titreData = []
-          var typeAutreData =[]
-          var genreAutreData = []
+          var pseudoData = [];
+          var typeData = [];
+          var genreData = [];
+          var titreData = [];
+          var typeAutreData =[];
+          var genreAutreData = [];
 
 
 
-          marker.eachLayer(function(layer) {
+      marker.eachLayer(function(layer) {
             
-            pseudoData.push(layer.feature.properties.pseudo)
-            typeData.push(layer.feature.properties.type.split(','))
-            genreData.push(layer.feature.properties.genre.split(',')) 
-            titreData.push(layer.feature.properties.titre)
-            typeAutreData.push(layer.feature.properties.type_other.split(','))
+            pseudoData.push(layer.feature.properties.pseudo);
+            typeData.push(layer.feature.properties.type.split(','));
+            genreData.push(layer.feature.properties.genre.split(',')) ;
+            titreData.push(layer.feature.properties.titre);
+            typeAutreData.push(layer.feature.properties.type_other.split(','));
             genreAutreData.push(layer.feature.properties.genre_other.split(','))
           });
 
@@ -261,7 +262,7 @@ $.when(
               i && temp.push(i); // copy each non-empty value to the 'temp' array
 
           genreAD = temp;
-          delete temp
+          delete temp;
 
           /*-----------------------------*/
 
@@ -272,17 +273,17 @@ $.when(
               i && temp.push(i); // copy each non-empty value to the 'temp' array
 
           typeAD = temp;
-          delete temp
+          delete temp;
 
           /*-----------------------------*/
 
 
           /******* Function that merge others *******/
 
-          genreMerged.push.apply(genreMerged, genreAD)
-          console.log(genreMerged)
-          typeMerged.push.apply(typeMerged, typeAD)
-          console.log(typeMerged)
+          genreMerged.push.apply(genreMerged, genreAD);
+          // console.log(genreMerged)
+          typeMerged.push.apply(typeMerged, typeAD);
+          //  console.log(typeMerged)
 
           /*-----------------------------*/
 
@@ -293,7 +294,7 @@ $.when(
               i && temp.push(i); // copy each non-empty value to the 'temp' array
 
           genreMerged = temp;
-          delete temp
+          delete temp;
 
           /*-----------------------------*/
 
@@ -304,7 +305,7 @@ $.when(
               i && temp.push(i); // copy each non-empty value to the 'temp' array
 
           typeMerged = temp;
-          delete temp
+          delete temp;
 
           /*-----------------------------*/
 
@@ -314,7 +315,7 @@ $.when(
             return this.filter(function (value, index, self) { 
               return self.indexOf(value) === index;
             });
-          }
+          };
 
           /*-----------------------------*/
 
@@ -327,14 +328,14 @@ $.when(
               allowClear:true,
               placeholder:'Chercher un participant'
                     })
-           } pBox()
+           } pBox();
 
           function tBox() {
             $('#typeBox').select2(
              {data: typeMerged.unique(),
               allowClear:true
                })
-           } tBox()
+           } tBox();
 
            function gBox() {
             $('#genreBox').select2(
@@ -342,7 +343,7 @@ $.when(
               allowClear:true
 
                })
-           }gBox()
+           }gBox();
 
            function titBox() {
             $('#titreBox').select2(
@@ -351,19 +352,20 @@ $.when(
                allowClear:true,
                placeholder:'Chercher un titre'
                })
-           }titBox()
+           }titBox();
 
-          //return _filteredMarker.addTo(map)
-          markerCluster.addLayer(marker)
-          group.addLayer(marker)
-          map.addLayer(markerCluster)  
-          map.fitBounds(marker.getBounds())
-             });
-        } 
+        //return _filteredMarker.addTo(map)
+        markerCluster.addLayer(marker);
+        group.addLayer(marker);
+        map.addLayer(markerCluster);
+        map.fitBounds(marker.getBounds())
+
+       })
+  } 
 
 
 
-getGeoJSON()
+getGeoJSON();
 
 
 /*---------------- END OF getGeoJSON -----------------*/
@@ -403,7 +405,7 @@ pointToLayer: function(feature, latlng) {
 
 
 filter: function(feature, layer) {
-console.log(value)
+console.log(value);
 
   
   if (feature.properties.pseudo == value) {return feature.properties.pseudo = value}
@@ -418,7 +420,7 @@ console.log(value)
   onEachFeature: function(feature, layer) {
 
     
-var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/"
+var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/";
 // Capture le pop up //
 map.on('popupopen', function (e) {
                  
@@ -426,35 +428,35 @@ map.on('popupopen', function (e) {
       var img = document.getElementById('myImg');
       var modal = document.getElementById('myModal');
       var captionText = document.getElementById("caption");
-      var carouselDiv = document.getElementById("carousel-inner")
+      var carouselDiv = document.getElementById("carousel-inner");
 
   //** Create the modal on the click function **//
           img.onclick = function(){ 
 
             map.closePopup();
             modal.style.display = "block";
-            captionText.innerHTML = img.alt
+            captionText.innerHTML = img.alt;
             
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url)
-          }
+          };
 
           h2.onclick = function(){ 
             map.closePopup();
             modal.style.display = "block";
-            captionText.innerHTML = img.alt
+            captionText.innerHTML = img.alt;
             
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url)
-          }
+          };
 
     // Fonction pour fermer le modal //
       var span = document.getElementsByClassName("close")[0];
       span.onclick = function() { 
       modal.style.display = "none";
-      }
+      };
     
 });
 
@@ -479,7 +481,7 @@ map.on('popupopen', function (e) {
 
          +'</h4><div id=&quot;attributeContainer&quot;>'
          // Image section
-         +'<img class="img-thumbnail "id="myImg"'
+         +'<img class="img-thumbnail " id="myImg"'
          // Alt section with all the data for the modal popup
                  +' alt="<div><h2>'
                  +feature.properties.titre
@@ -524,14 +526,14 @@ map.on('popupopen', function (e) {
        '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe>')
       
         }
-      })
+      });
 
-    markerCluster.clearLayers()
-    map.removeLayer(markerCluster)
-    map.removeLayer(filteredMarker)
-    markerCluster.addLayer(filteredMarker)
-    group.addLayer(filteredMarker)
-    map.addLayer(filteredMarker) 
+    markerCluster.clearLayers();
+    map.removeLayer(markerCluster);
+    map.removeLayer(filteredMarker);
+    markerCluster.addLayer(filteredMarker);
+    group.addLayer(filteredMarker);
+    map.addLayer(filteredMarker) ;
     map.flyToBounds(filteredMarker) 
 
   }
@@ -562,14 +564,14 @@ $(document).click(function(e) {
     $("#participantBox")
     .on("select2:select", function(e) {
 
-    $("#titreBox").val('').trigger("change")
-    $('#genreBox').val([]).trigger("change")
-    $('#typeBox').val([]).trigger("change")
+    $("#titreBox").val('').trigger("change");
+    $('#genreBox').val([]).trigger("change");
+    $('#typeBox').val([]).trigger("change");
 
     value = $(e.currentTarget).val();
 
-    map.removeLayer(marker)
-    getFilterGeoJSON(value)
+    map.removeLayer(marker);
+    getFilterGeoJSON(value);
     map.removeLayer(filteredMarker)
 
     })
@@ -577,12 +579,12 @@ $(document).click(function(e) {
     .on("select2:unselect", function(e) {
 
      $('#participantBox').select2("close");
-     map.removeLayer(filteredMarker)
-     map.removeLayer(marker)
-     map.addLayer(marker)
+     map.removeLayer(filteredMarker);
+     map.removeLayer(marker);
+     map.addLayer(marker);
      map.flyToBounds(marker.getBounds())
 
-    })
+    });
 /*-----------------------------*/
 
 /********  TYPE ********/
@@ -591,15 +593,15 @@ $(document).click(function(e) {
 
     .on("select2:select", function(e) {
 
-     $("#titreBox").val('').trigger("change")
-     $("#participantBox").val('').trigger("change")
-     $('#genreBox').val([]).trigger("change")
+     $("#titreBox").val('').trigger("change");
+     $("#participantBox").val('').trigger("change");
+     $('#genreBox').val([]).trigger("change");
 
 
 
      value = $(e.currentTarget).find("option:selected").val();
-      map.removeLayer(marker)
-      getFilterGeoJSON(value)
+      map.removeLayer(marker);
+      getFilterGeoJSON(value);
       map.removeLayer(filteredMarker)
 
     })
@@ -608,12 +610,12 @@ $(document).click(function(e) {
 
      
       
-     map.removeLayer(filteredMarker)
-     map.removeLayer(marker)
-     map.addLayer(marker)
+     map.removeLayer(filteredMarker);
+     map.removeLayer(marker);
+     map.addLayer(marker);
      map.flyToBounds(marker.getBounds())
 
-    })
+    });
 /*-----------------------------*/
 
 /********  GENRE ********/
@@ -621,25 +623,25 @@ $(document).click(function(e) {
 
     .on("select2:select", function(e) {
 
-    $("#titreBox").val('').trigger("change")
-    $("#participantBox").val('').trigger("change")
-    $('#typeBox').val([]).trigger("change")
+    $("#titreBox").val('').trigger("change");
+    $("#participantBox").val('').trigger("change");
+    $('#typeBox').val([]).trigger("change");
 
     value = $(e.currentTarget).find("option:selected").val();
 
-    map.removeLayer(marker)
-    getFilterGeoJSON(value)
+    map.removeLayer(marker);
+    getFilterGeoJSON(value);
     map.removeLayer(filteredMarker)
     })
 
      .on("select2:unselect", function(e) {
 
-     map.removeLayer(filteredMarker)
-     map.removeLayer(marker)
-     map.addLayer(marker)
+     map.removeLayer(filteredMarker);
+     map.removeLayer(marker);
+     map.addLayer(marker);
      map.flyToBounds(marker.getBounds())
 
-    })
+    });
 
 /*-----------------------------*/
 
@@ -648,22 +650,22 @@ $(document).click(function(e) {
 
     .on("select2:select", function(e) {
 
-    $("#participantBox").val('').trigger("change") 
+    $("#participantBox").val('').trigger("change") ;
 
     value = $(e.currentTarget).val();
      
-    map.removeLayer(marker)
-    getFilterGeoJSON(value)
+    map.removeLayer(marker);
+    getFilterGeoJSON(value);
     map.removeLayer(filteredMarker)
     })
 
     .on("select2:unselect", function(e) {
 
-     map.removeLayer(filteredMarker)
-     map.removeLayer(marker)
-     map.addLayer(marker)
+     map.removeLayer(filteredMarker);
+     map.removeLayer(marker);
+     map.addLayer(marker);
      map.flyToBounds(marker.getBounds())
-    })
+    });
 
 
 /**
@@ -700,7 +702,7 @@ $(document).click(function(e) {
          * @returns {string}
          */
         function divsFromPhotosUrl(photos_url) {
-          var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/"
+          var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/";
           var photos = photos_uuid(photos_url);
           var divsAsText = '';
           var currentDiv;
@@ -716,4 +718,4 @@ $(document).click(function(e) {
 
           return divsAsText;
         }  
-})
+});
