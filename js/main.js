@@ -36,14 +36,16 @@ var stamenToner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-ba
 
 function toggleLayer() {
  var baseMaps = {
-  'MapBox White ': mapBoxWhite,
-  'MapBox Dark  ': mapBoxDark,
-  'MapBox Cyber ': mapBoxCyber,
-  'Stamen Toner ': stamenToner
-  
+
+         'MapBox White ': mapBoxWhite,
+         'MapBox Dark  ': mapBoxDark,
+         'MapBox Cyber ': mapBoxCyber,
+         'Stamen Toner ': stamenToner
+
+
  };
 
- L.control.layers(baseMaps).addTo(map);
+ L.control.layers(null,baseMaps).addTo(map);
 }
 toggleLayer();
 
