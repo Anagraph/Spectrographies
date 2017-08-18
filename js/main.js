@@ -17,7 +17,7 @@ var map = L.Mapzen.map('map', {
 });*/
 
 var map = L.map('map', {
-          zoomControl: true}).setView([45.5314, -73.6750], 9);
+          zoomControl: true})
 
 
 
@@ -112,6 +112,7 @@ map.on('popupopen', function (e) {
       var carouselDiv = document.getElementById("carousel-inner")
 
     // Fonction pour creer le contenu du modal //
+
 img.onclick = function(){ 
            map.closePopup();
            modal.style.display = "block";
@@ -132,8 +133,6 @@ img.onclick = function(){
           test()
 
 
-
-
 var k
 
 function divsFromPhotosUrl(k) {
@@ -148,13 +147,7 @@ function divsFromPhotosUrl(k) {
      return currentDiv;
    }}
 
-
-
-
-
-
-
-    // Fonction pour fermer le modal //
+// Fonction pour fermer le modal //
       var span = document.getElementsByClassName("close")[0];
       span.onclick = function() { 
       modal.style.display = "none";
@@ -260,8 +253,8 @@ marker.eachLayer(function(layer) {
 //////Merging the Two Dimentional Arrays///////////
 var genreMerged = [].concat.apply([], genreData);
 var typeMerged = [].concat.apply([], typeData);
-var typeAD = [].concat.apply([], genreAutreData);
-var genreAD = [].concat.apply([], typeAutreData);
+var typeAD = [].concat.apply([], typeAutreData);
+var genreAD = [].concat.apply([], genreAutreData);
 
 /////////////////////////////////////////////////
 
@@ -291,12 +284,33 @@ delete temp
 /////////Function that merge others//////////
 
 genreMerged.push.apply(genreMerged, genreAD)
+console.log(genreMerged)
 typeMerged.push.apply(typeMerged, typeAD)
-
+console.log(typeMerged)
 
 //////////////////////////////////////////
 
+////Function that delete empty values////
+temp = [];
 
+for(let i of genreMerged)
+    i && temp.push(i); // copy each non-empty value to the 'temp' array
+
+genreMerged = temp;
+delete temp
+
+////////////////////////////////////////
+
+////Function that delete empty values////
+temp = [];
+
+for(let i of typeMerged)
+    i && temp.push(i); // copy each non-empty value to the 'temp' array
+
+typeMerged = temp;
+delete temp
+
+////////////////////////////////////////
 
 Array.prototype.unique = function() {
   return this.filter(function (value, index, self) { 
@@ -310,7 +324,7 @@ Array.prototype.unique = function() {
 
  function pBox() {
   $('#participantBox').select2(
-   {data: pseudoData,
+   {data: pseudoData.unique(),
     allowClear:true,
     placeholder:'Chercher un participant'
           })
@@ -334,7 +348,7 @@ function tBox() {
  function titBox() {
   $('#titreBox').select2(
    {
-     data: titreData,
+     data: titreData.unique(),
      allowClear:true,
      placeholder:'Chercher un titre'
      })
@@ -345,7 +359,7 @@ function tBox() {
 markerCluster.addLayer(marker)
 group.addLayer(marker)
 map.addLayer(markerCluster)  
-//map.fitBounds(marker.getBounds())
+map.fitBounds(marker.getBounds())
 
 
    });
@@ -390,11 +404,11 @@ console.log(value)
 
   
   if (feature.properties.pseudo == value) {return feature.properties.pseudo = value}
-  else if (feature.properties.type == value) { return feature.properties.type = value}
-  else if (feature.properties.genre == value) { return feature.properties.genre = value }
+  else if (feature.properties.type.includes(value)) { return feature.properties.type = value}
+  else if (feature.properties.genre.includes(value))  { return feature.properties.genre = value }
   else if (feature.properties.titre == value) { return feature.properties.titre = value}
-  else if (feature.properties.type_other == value) { return feature.properties.type_other = value}
-  else if (feature.properties.genre_other == value) { return feature.properties.genre_other == value}
+  else if (feature.properties.type_other.includes(value))  { return feature.properties.type_other = value}
+  else if (feature.properties.genre_other.includes(value))  { return feature.properties.genre_other == value}
       
     },
 
@@ -402,12 +416,8 @@ console.log(value)
 
     
 var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/"
-
 // Fonction qui récupère le UUID de chaque photos
-
-
 var x 
-
 // Capture le pop up //
 map.on('popupopen', function (e) {
                  
@@ -417,7 +427,7 @@ map.on('popupopen', function (e) {
       var captionText = document.getElementById("caption");
       var carouselDiv = document.getElementById("carousel-inner")
 
-    // Fonction pour creer le contenu du modal //
+// Fonction pour creer le contenu du modal //
 img.onclick = function(){ 
            map.closePopup();
            modal.style.display = "block";
@@ -425,19 +435,18 @@ img.onclick = function(){
            //carouselDiv.innerHTML = photoCount()
            var x= (e.popup._source.feature.properties.photos_url)
            var j
-          function photos_uuid(j){
-              j = x
-              for(var i = 0; i < j.length; i++) {
-            return x.substring(70).split('%2C')}
-            }
 
-          function test(){for(var i = 0; i < divsFromPhotosUrl(x).length ; i++) {
-           return carouselDiv.innerHTML = divsFromPhotosUrl(photos_uuid(x))
-         }}
- 
-          test()
+              function photos_uuid(j){
+                  j = x
+                  for(var i = 0; i < j.length; i++) {
+                return x.substring(70).split('%2C')}
+                }
 
-
+              function test(){for(var i = 0; i < divsFromPhotosUrl(x).length ; i++) {
+               return carouselDiv.innerHTML = divsFromPhotosUrl(photos_uuid(x))
+             }}
+     
+              test()
 
 
 var k
@@ -539,10 +548,20 @@ function divsFromPhotosUrl(k) {
 
 //////////////////////
 
+markerCluster.clearLayers()
 map.removeLayer(markerCluster)
-//group.addLayer(filteredMarker)
-map.addLayer(filteredMarker)  
-map.flyToBounds(filteredMarker.getBounds())
+map.removeLayer(filteredMarker)
+markerCluster.addLayer(filteredMarker)
+group.addLayer(filteredMarker)
+map.addLayer(filteredMarker) 
+map.flyToBounds(filteredMarker) 
+
+
+//filteredMarker.clearLayers()
+//group.addLayer(filteredMarker)*/
+
+
+//map.flyToBounds(filteredMarker.getBounds())
    
 }
 )}
@@ -557,71 +576,114 @@ $(document).click(function(e) {
     }
 });
 
-$("#participantBox").on("select2:select", function(e) {
 
- value = $(e.currentTarget).val();
- 
-getFilterGeoJSON(value)
+    //////////////////participant SEARCH BOX////////////////////////
 
-});
+    $("#participantBox")
+    .on("select2:select", function(e) {
 
-$("#participantBox").on("select2:unselect", function(e) {
+    $("#titreBox").val('').trigger("change")
+    $('#genreBox').val([]).trigger("change")
+    $('#typeBox').val([]).trigger("change")
 
- map.removeLayer(filteredMarker)
- map.addLayer(marker)
- map.flyToBounds(marker.getBounds())
+    value = $(e.currentTarget).val();
 
-});
+    map.removeLayer(marker)
+    getFilterGeoJSON(value)
+    map.removeLayer(filteredMarker)
 
-$("#typeBox").on("select2:select", function(e) {
+    })
 
- value = $(e.currentTarget).find("option:selected").val();
-  console.log(value)
-  getFilterGeoJSON(value)
+    .on("select2:unselect", function(e) {
 
-});
+     $('#participantBox').select2("close");
+     map.removeLayer(filteredMarker)
+     map.removeLayer(marker)
+     map.addLayer(marker)
+     map.flyToBounds(marker.getBounds())
 
-$("#typeBox").on("select2:unselect", function(e) {
-
-map.removeLayer(filteredMarker)
- map.addLayer(marker)
- map.flyToBounds(marker.getBounds())
-
-});
+    })
 
 
-$("#genreBox").on("select2:select", function(e) {
 
- value = $(e.currentTarget).find("option:selected").val();
- console.log(value)
- getFilterGeoJSON(value)
 
-});
 
-$("#genreBox").on("select2:unselect", function(e) {
+    //////////////////TYPE SEARCH BOX////////////////////////
 
- value = $(e.currentTarget).val();
- 
- map.removeLayer(filteredMarker)
- map.addLayer(marker)
- map.flyToBounds(marker.getBounds())
+    $("#typeBox")
 
-});
+    .on("select2:select", function(e) {
 
-$("#titreBox").on("select2:select", function(e) {
+     $("#titreBox").val('').trigger("change")
+     $("#participantBox").val('').trigger("change")
+     $('#genreBox').val([]).trigger("change")
 
- value = $(e.currentTarget).val();
- 
-getFilterGeoJSON(value)
 
-});
 
-$("#titreBox").on("select2:unselect", function(e) {
+     value = $(e.currentTarget).find("option:selected").val();
+      map.removeLayer(marker)
+      getFilterGeoJSON(value)
+      map.removeLayer(filteredMarker)
 
- map.removeLayer(filteredMarker)
- map.addLayer(marker)
- map.flyToBounds(marker.getBounds())
+    })
 
-});
+    .on("select2:unselect", function(e) {
 
+     
+      
+     map.removeLayer(filteredMarker)
+     map.removeLayer(marker)
+     map.addLayer(marker)
+     map.flyToBounds(marker.getBounds())
+
+    })
+    /////////////////////////////////////////////////////////
+
+    //////////////////genreBox SEARCH BOX////////////////////////
+    $("#genreBox")
+
+    .on("select2:select", function(e) {
+
+    $("#titreBox").val('').trigger("change")
+    $("#participantBox").val('').trigger("change")
+    $('#typeBox').val([]).trigger("change")
+
+    value = $(e.currentTarget).find("option:selected").val();
+
+    map.removeLayer(marker)
+    getFilterGeoJSON(value)
+    map.removeLayer(filteredMarker)
+    })
+
+     .on("select2:unselect", function(e) {
+
+     map.removeLayer(filteredMarker)
+     map.removeLayer(marker)
+     map.addLayer(marker)
+     map.flyToBounds(marker.getBounds())
+
+    })
+
+
+    //////////////////titre SEARCH BOX////////////////////////
+    $("#titreBox")
+
+    .on("select2:select", function(e) {
+
+    $("#participantBox").val('').trigger("change") 
+
+    value = $(e.currentTarget).val();
+     
+    map.removeLayer(marker)
+    getFilterGeoJSON(value)
+    map.removeLayer(filteredMarker)
+    })
+
+    .on("select2:unselect", function(e) {
+
+     map.removeLayer(filteredMarker)
+     map.removeLayer(marker)
+     map.addLayer(marker)
+     map.flyToBounds(marker.getBounds())
+    })
 })
