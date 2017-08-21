@@ -68,7 +68,7 @@ $.when(
 
         /**
          * Remove null values from the Fulcrum API Endpoint
-         * 
+         *
          **/
 
           (function removeNull(o) {
@@ -97,7 +97,7 @@ $.when(
                   prefix: 'glyphicon'
                 });
 
-                return L.marker(latlng, {icon:customMarker})       
+                return L.marker(latlng, {icon:customMarker})
               },
 
 
@@ -107,7 +107,7 @@ $.when(
           onEachFeature: function(feature, layer) {
 
         map.on('popupopen', function (e) {
-                         
+
               var h2 = document.getElementById('titrePopUp');
               var img = document.getElementById('myImg');
               var modal = document.getElementById('myModal');
@@ -116,12 +116,12 @@ $.when(
 
 
         //** Create the modal on the click function **//
-          img.onclick = function(){ 
+          img.onclick = function(){
 
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
-            
+
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url);
@@ -131,7 +131,7 @@ $.when(
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
-            
+
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url);
@@ -147,76 +147,111 @@ $.when(
         });
 
         /// Bind all the data to the pop ///
-             layer.bindPopup(
-             '<div class="row"><div class="well col" id="popUpOpen"><a href="#" id="titrePopUp"><h2>'
-
-          // Pop Up Content
-
-               +feature.properties.titre
-               +'</h2></a><h3 style="display:inline">'
-               +feature.properties.genre
-               +' & '
-               +feature.properties.type
-               +'</h3><h4> Par : '
-               +feature.properties.pseudo
+        layer.bindPopup(
+        '<div id="popUpOpen" class="">'
 
 
-          // Modal Section Content //
+        +'<div class="panel panel-default"><div id="popUpPanel" class="panel-heading "> '
+        +'<a href="#" id="titrePopUp">'
+        +'<h2>'
 
-                 +'</h4><div id=&quot;attributeContainer&quot;class="well col">'
-                 // Image section
-                 +'<img class="img-thumbnail img-responsive col-sm-10" id="myImg"'
-                 // Alt section with all the data for the modal popup
-                     +' alt="<div><h2>'
-                     +feature.properties.titre
-                     +'</h2><br><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                     +feature.properties.genre
-                     +'</h4><br><br><h3 style=&quot;display: inline !important;&quot;> Type : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                     +feature.properties.type
-                     +'</h4><br><h3> Contexte : </h3><p>'
-                     +feature.properties.description_contexte
-                     +'</p><div class=&quot;well&quot; style=&quot;margin-top:15px !important&quot;><div class=&quot;col-sm-8 well &quot; ><h3 style=&quot;display: inline !important;&quot;> Auteur : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                     +feature.properties.pseudo
-                      // Autoportrait //
-                     +'</h4></div><div class=&quot;col-sm-4 well&quot;><img  id=&quot;selfie&quot; class=&quot;img-thumbnail&quot; src=&quot;'
-                     +feature.properties.autoportrait_url.replace('view?photos=','')
-                     +'&quot;</img></div><div class=&quot;col well&quot;><h3> Relation au lieu : </h3><p>'
-                     +feature.properties.relation_au_lieu_appartenance
-                     +'</p></div></div></div>'
-                     // Audio //
-                     +'<div class=&quot;col  well&quot;>'
-                     +'<audio controls controls controlsList=&quot;nodownload&quot;><source src=&quot;'
-                     +feature.properties.audio_url.replace('view?audio=','')
-                     //+feature.properties.audio_url.replace('view?audio=','')
-                     +'&quot;</audio></div></div></div>'
-                     // End of alt attribution
-          // Caroussel
-                 +'" src="'
-                 //+photosPreURL+first
-                 +feature.properties.photos_url.substring(0,106).replace('view?photos=','') 
-                 +'"></img>'   
-                
-          // Socials // 
+        // Pop Up Content
 
-            //Facbook
-             +'<iframe src="https://www.facebook.com/plugins/share_button.php?href='
-               + feature.properties.photos_url.replace('view?photos=','')
-               +'&layout=button&size=small&mobile_iframe=false&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'
+          +feature.properties.titre
+          +'</h2></a></div>'
+          +'<div class="panel-body">'
+          +'<h3 style="display:inline">'
+          +feature.properties.genre
+          +' & '
+          +feature.properties.type
+          +'</h3>'
 
-               +'  '
-            //Twitter 
-               +'<iframe id="tweet-button" allowtransparency="true" frameborder="0" scrolling="no"  src="http://platform.twitter.com/widgets/tweet_button.html?url='
-               +feature.properties.photos_url.replace('view?photos=','')+
-               '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe></div></div>')
+          +'<div class=""><h4> Par : '
+          +feature.properties.pseudo
+          +'</h4></div></div>'
 
-            
-             
-          /// /// End of layer.bindPopup /// ///
+         // Modal Section Content //
 
 
-          }
-        });
 
+
+
+            // Image section
+            +'<div id="popUpImg" class="media"><img class=" img-thumbnail img-responsive d-flex center-block" id="myImg"'
+            // Alt section with all the data for the modal popup
+                    +' alt="'
+                    +'<div class=&quot;panel panel-default&quot;><div class=&quot;panel-heading&quot;>'
+                    +'<h2>'
+                    +feature.properties.titre
+                    +'</h2></div>'
+                    +'<br>'
+                    +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
+                    +feature.properties.genre
+                    +'</h4><br><br><h3 style=&quot;display: inline !important;&quot;> Type : </h3><h4 style=&quot;display: inline !important;&quot;>'
+                    +feature.properties.type
+                    +'</h4><br><h3> Contexte : </h3><p>'
+                    +feature.properties.description_contexte
+                    +'</p>'
+                    +'<div class=&quot;panel panel-default &quot; >'
+                    +'<div class=&quot;panel-heading col-sm-12 &quot;>'
+                    +'<h3 style=&quot;display: inline !important;&quot;> Auteur : </h3><h4 style=&quot;display: inline !important;&quot;>'
+                    +feature.properties.pseudo
+                     // Autoportrait //
+                    +'</h4></div>'
+                    +'<div class=&quot;panel-body&quot;>'
+                      +'<div class=&quot; row &quot;>'
+
+                      +'<div class=&quot; col-sm-6 &quot;>'
+                          +'<h3> Relation au lieu : </h3><p>'
+                            +feature.properties.relation_au_lieu_appartenance
+                              +'</p></div>'
+
+                      +'<div  class= &quot;col-sm-6 align-content-center&quot;>'
+                          +'<h3></h3><img  id=&quot;selfie&quot; class=&quot;  img-thumbnail  d-flex center-block &quot; src=&quot;'
+                            +feature.properties.autoportrait_url.replace('view?photos=','')
+                            +'&quot;</img>'
+                          +'</div>'
+
+                    +'</div></div>'
+                    +'</div></div>'
+                    // Audio //
+                    +'<div class=&quot;row &quot;>'
+                    +'<div class=&quot;col-sm-10 col-sm-push-1 well text-center&quot;>'
+                    //+'<audio controls controls controlsList=&quot;nodownload&quot;><source src=&quot;'
+                    +'<audio controls><source src=&quot;'
+                    +feature.properties.audio_url.replace('view?audio=','')
+                    //+feature.properties.audio_url.replace('view?audio=','')
+                    +'&quot;</audio></div></div></div></div></div></div>'
+                    // End of alt attribution
+                    // Caroussel
+            +'" src="'
+            //+photosPreURL+first
+            +feature.properties.photos_url.substring(0,106).replace('view?photos=','')
+            +'"></img>'
+
+        // Socials //
+
+        //Facbook
+                     /*+'<iframe src="https://www.facebook.com/plugins/share_button.php?href='
+                       + feature.properties.photos_url.replace('view?photos=','')
+                       +'&layout=button&size=small&mobile_iframe=false&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'
+
+                       +'  '
+                    //Twitter
+                       +'<iframe id="tweet-button" allowtransparency="true" frameborder="0" scrolling="no"  src="http://platform.twitter.com/widgets/tweet_button.html?url='
+                       +feature.properties.photos_url.replace('view?photos=','')+
+                       '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe></div></div>')*/
+
+         +'<div class="row"><div class="col-sm-12 center-block text-center">'
+         +'<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>'
+         +'<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>'
+         +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
+                            +'</div></div></div></div></div>'
+
+      )
+
+           }
+         });
         ////////***** End of marker *****////////
 
 
@@ -225,7 +260,7 @@ $.when(
 
 /**
  * Create a array for every desired properties
- * 
+ *
  * @param photos_url
  * @returns {string}
  */
@@ -240,7 +275,7 @@ $.when(
 
 
       marker.eachLayer(function(layer) {
-            
+
             pseudoData.push(layer.feature.properties.pseudo);
             typeData.push(layer.feature.properties.type.split(','));
             genreData.push(layer.feature.properties.genre.split(',')) ;
@@ -315,7 +350,7 @@ $.when(
 
           /******* Function that create unique values within the given array *******/
           Array.prototype.unique = function() {
-            return this.filter(function (value, index, self) { 
+            return this.filter(function (value, index, self) {
               return self.indexOf(value) === index;
             });
           };
@@ -364,7 +399,7 @@ $.when(
         map.fitBounds(marker.getBounds())
 
        })
-  } 
+  }
 
 
 
@@ -398,35 +433,35 @@ pointToLayer: function(feature, latlng) {
      var customMarker = new L.ExtraMarkers.icon(
      {
           icon: 'glyphicon-eye-open',
-          markerColor: 'green-light',
+          markerColor: 'yellow',
           shape: 'penta',
           prefix: 'glyphicon'
         });
 
-        return L.marker(latlng, {icon:customMarker})       
+        return L.marker(latlng, {icon:customMarker})
       },
 
 
 filter: function(feature, layer) {
 console.log(value);
 
-  
+
   if (feature.properties.pseudo == value) {return feature.properties.pseudo = value}
   else if (feature.properties.type.includes(value)) { return feature.properties.type = value}
   else if (feature.properties.genre.includes(value))  { return feature.properties.genre = value }
   else if (feature.properties.titre == value) { return feature.properties.titre = value}
   else if (feature.properties.type_other.includes(value))  { return feature.properties.type_other = value}
   else if (feature.properties.genre_other.includes(value))  { return feature.properties.genre_other == value}
-      
+
     },
 
   onEachFeature: function(feature, layer) {
 
-    
+
 var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/";
 // Capture le pop up //
 map.on('popupopen', function (e) {
-                 
+
       var h2 = document.getElementById('titrePopUp');
       var img = document.getElementById('myImg');
       var modal = document.getElementById('myModal');
@@ -434,22 +469,22 @@ map.on('popupopen', function (e) {
       var carouselDiv = document.getElementById("carousel-inner");
 
   //** Create the modal on the click function **//
-          img.onclick = function(){ 
+          img.onclick = function(){
 
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
-            
+
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url)
           };
 
-          h2.onclick = function(){ 
+          h2.onclick = function(){
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
-            
+
             var feature_photos_url = e.popup._source.feature.properties.photos_url;
             var feature_photos_uuid = photos_uuid(feature_photos_url);
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url)
@@ -457,79 +492,119 @@ map.on('popupopen', function (e) {
 
     // Fonction pour fermer le modal //
       var span = document.getElementsByClassName("close")[0];
-      span.onclick = function() { 
+      span.onclick = function() {
       modal.style.display = "none";
       };
-    
+
 });
 
 ///////// START Bind tout le data dans le pop up /////////
 
-     layer.bindPopup(
-     '<div id="popUpOpen"><a href="#" id="titrePopUp"><h2>'
-
-     // Pop Up Content
-
-       +feature.properties.titre
-       +'</h2></a><h3 style="display:inline">'
-       +feature.properties.genre
-       +' & '
-       +feature.properties.type
-       +'</h3><h4> Par : '
-       +feature.properties.pseudo
+layer.bindPopup(
+'<div id="popUpOpen" class="">'
 
 
-      // Modal Section Content //
++'<div class="panel panel-default"><div id="selectPopUpPanel" class="panel-heading "> '
++'<a href="#" id="titrePopUp">'
++'<h2>'
+
+// Pop Up Content
+
+  +feature.properties.titre
+  +'</h2></a></div>'
+  +'<div class="panel-body">'
+  +'<h3 style="display:inline">'
+  +feature.properties.genre
+  +' & '
+  +feature.properties.type
+  +'</h3>'
+
+  +'<div class=""><h4> Par : '
+  +feature.properties.pseudo
+  +'</h4></div></div>'
+
+ // Modal Section Content //
 
 
-         +'</h4><div id=&quot;attributeContainer&quot;>'
-         // Image section
-         +'<img class="img-thumbnail" id="myImg"'
-         // Alt section with all the data for the modal popup
-                 +' alt="<div><h2>'
-                 +feature.properties.titre
-                 +'</h2><br><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                 +feature.properties.genre
-                 +'</h4><br><br><h3 style=&quot;display: inline !important;&quot;> Type : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                 +feature.properties.type
-                 +'</h4><br><h3> Contexte : </h3><p>'
-                 +feature.properties.description_contexte
-                 +'</p><div class=&quot;well&quot; style=&quot;margin-top:15px !important&quot;><div class=&quot;col-sm-8 well &quot; ><h3 style=&quot;display: inline !important;&quot;> Auteur : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                 +feature.properties.pseudo
-                  // Autoportrait //
-                 +'</h4></div><div class=&quot;col-sm-4 well&quot;><img  id=&quot;selfie&quot; class=&quot;img-thumbnail&quot; src=&quot;'
-                 +feature.properties.autoportrait_url.replace('view?photos=','')
-                 +'&quot;</img></div><div class=&quot;col well&quot;><h3> Relation au lieu : </h3><p>'
-                 +feature.properties.relation_au_lieu_appartenance
-                 +'</p></div></div></div>'
-                 // Audio //
-                 +'<div class=&quot;col  well&quot;>'
-                 +'<audio controls controls controlsList=&quot;nodownload&quot;><source src=&quot;'
-                 +feature.properties.audio_url.replace('view?audio=','')
-                 //+feature.properties.audio_url.replace('view?audio=','')
-                 +'&quot;</audio></div></div></div>'
-                 // End of alt attribution
-                 // Caroussel
-         +'" src="'
-         //+photosPreURL+first
-         +feature.properties.photos_url.substring(0,106).replace('view?photos=','') 
-         +'"></div></img>'   
-        
-    // Socials // 
 
-      //Facbook
-     +'<iframe src="https://www.facebook.com/plugins/share_button.php?href='
-       + feature.properties.photos_url.replace('view?photos=','')
-       +'&layout=button&size=small&mobile_iframe=false&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'
 
-       +'  '
-      //Twitter 
-       +'<iframe id="tweet-button" allowtransparency="true" frameborder="0" scrolling="no"  src="http://platform.twitter.com/widgets/tweet_button.html?url='
-       +feature.properties.photos_url.replace('view?photos=','')+
-       '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe>')
-      
-        }
-      });
+
+    // Image section
+    +'<div id="popUpImg" class="media"><img class=" img-thumbnail img-responsive d-flex center-block" id="myImg"'
+    // Alt section with all the data for the modal popup
+            +' alt="'
+            +'<div class=&quot;panel panel-default&quot;><div class=&quot;panel-heading&quot;>'
+            +'<h2>'
+            +feature.properties.titre
+            +'</h2></div>'
+            +'<br>'
+            +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
+            +feature.properties.genre
+            +'</h4><br><br><h3 style=&quot;display: inline !important;&quot;> Type : </h3><h4 style=&quot;display: inline !important;&quot;>'
+            +feature.properties.type
+            +'</h4><br><h3> Contexte : </h3><p>'
+            +feature.properties.description_contexte
+            +'</p>'
+            +'<div class=&quot;panel panel-default &quot; >'
+            +'<div class=&quot;panel-heading col-sm-12 &quot;>'
+            +'<h3 style=&quot;display: inline !important;&quot;> Auteur : </h3><h4 style=&quot;display: inline !important;&quot;>'
+            +feature.properties.pseudo
+             // Autoportrait //
+            +'</h4></div>'
+            +'<div class=&quot;panel-body&quot;>'
+              +'<div class=&quot; row &quot;>'
+
+              +'<div class=&quot; col-sm-6 &quot;>'
+                  +'<h3> Relation au lieu : </h3><p>'
+                    +feature.properties.relation_au_lieu_appartenance
+                      +'</p></div>'
+
+              +'<div  class= &quot;col-sm-6 align-content-center&quot;>'
+                  +'<h3></h3><img  id=&quot;selfie&quot; class=&quot;  img-thumbnail  d-flex center-block &quot; src=&quot;'
+                    +feature.properties.autoportrait_url.replace('view?photos=','')
+                    +'&quot;</img>'
+                  +'</div>'
+
+            +'</div></div>'
+            +'</div></div>'
+            // Audio //
+            +'<div class=&quot;row &quot;>'
+            +'<div class=&quot;col-sm-10 col-sm-push-1 well text-center&quot;>'
+            //+'<audio controls controls controlsList=&quot;nodownload&quot;><source src=&quot;'
+            +'<audio controls><source src=&quot;'
+            +feature.properties.audio_url.replace('view?audio=','')
+            //+feature.properties.audio_url.replace('view?audio=','')
+            +'&quot;</audio></div></div></div></div></div></div>'
+            // End of alt attribution
+            // Caroussel
+    +'" src="'
+    //+photosPreURL+first
+    +feature.properties.photos_url.substring(0,106).replace('view?photos=','')
+    +'"></img>'
+
+// Socials //
+
+//Facbook
+             /*+'<iframe src="https://www.facebook.com/plugins/share_button.php?href='
+               + feature.properties.photos_url.replace('view?photos=','')
+               +'&layout=button&size=small&mobile_iframe=false&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'
+
+               +'  '
+            //Twitter
+               +'<iframe id="tweet-button" allowtransparency="true" frameborder="0" scrolling="no"  src="http://platform.twitter.com/widgets/tweet_button.html?url='
+               +feature.properties.photos_url.replace('view?photos=','')+
+               '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe></div></div>')*/
+
+ +'<div class="row"><div class="col-sm-12 center-block text-center">'
+ +'<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>'
+ +'<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>'
+ +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
+                    +'</div></div></div></div></div>'
+
+)
+
+   }
+ });
 
     markerCluster.clearLayers();
     map.removeLayer(markerCluster);
@@ -537,7 +612,7 @@ map.on('popupopen', function (e) {
     markerCluster.addLayer(filteredMarker);
     group.addLayer(filteredMarker);
     map.addLayer(filteredMarker) ;
-    map.flyToBounds(filteredMarker) 
+    map.flyToBounds(filteredMarker)
 
   }
 )}
@@ -545,20 +620,20 @@ map.on('popupopen', function (e) {
 
 
 // Click outside the header info div collapse //
-
+/*
 $(document).click(function(e) {
     if (!$(e.target).is('a')) {
-        $('.collapse').collapse('hide');        
+        $('.collapse').collapse('hide');
     }
 });
-
+*/
 
 /**
  * Create JQuery functions for the SearchBoxes
- * 
  *
- * @param name :  
- * @param url : 
+ *
+ * @param name :
+ * @param url :
  * @returns {*}
  */
 
@@ -611,8 +686,8 @@ $(document).click(function(e) {
 
     .on("select2:unselect", function(e) {
 
-     
-      
+
+
      map.removeLayer(filteredMarker);
      map.removeLayer(marker);
      map.addLayer(marker);
@@ -656,7 +731,7 @@ $(document).click(function(e) {
     $("#participantBox").val('').trigger("change") ;
 
     value = $(e.currentTarget).val();
-     
+
     map.removeLayer(marker);
     getFilterGeoJSON(value);
     map.removeLayer(filteredMarker)
@@ -711,16 +786,14 @@ $(document).click(function(e) {
           var currentDiv;
           for (var i = 0; i < photos.length; i++) {
             if (i == 0) {
-              currentDiv = '<div class="item active"><img src="' + baseURL + photos[i] + '" id="img' + i + '" ></div>';
+              currentDiv = '<div class="item active"><img class="d-block img-fluid" src="' + baseURL + photos[i] + '" id="img' + i + '" ></div>';
             } else {
-              currentDiv = '<div class="item"><img src="' + baseURL + photos[i] + '" id="img' + i + '" ></div>';
+              currentDiv = '<div class="item"><img class="d-block img-fluid" src="' + baseURL + photos[i] + '" id="img' + i + '" ></div>';
             }
 
             divsAsText = divsAsText + currentDiv;
           }
 
           return divsAsText;
-        }  
+        }
 });
-
-

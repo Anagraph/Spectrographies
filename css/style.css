@@ -3,9 +3,24 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: black;
+  background-color: white;
 }
 
+#popUpPanel{
+
+  background: linear-gradient(to bottom right, #3185ce, #70a8d8);
+
+}
+
+#selectPopUpPanel{
+
+  background: linear-gradient(to bottom right, #ffae00,#ffcb5e);
+
+}
+
+.panel  a  {
+  color: white!important
+}
 
 h2{
     font-size: 2.33em;
@@ -24,23 +39,27 @@ h3{
 }
 
 
-.attributeContainer{
-
-
-
-}
 
 .navbar .navbar-header {
 
 background-color: rgba(255, 255, 255,1);
 
 }
+/*
+.well{
 
+margin: 1px;
+background: transparent;
+background-color: transparent;
+border: transparent;
+border-color: transparent;
+}*/
 
 #popUpOpen{
     margin:auto;
     width:auto !important;
-    height: 300px !important;
+    height: auto !important;
+    background-color: transparent !important;
 }
 
 
@@ -228,30 +247,73 @@ bottom:0;
 }
 
 
+    .leaflet-popup-close-button {
+        display : none
+    }
+    .leaflet-popup-content-wrapper {
+        padding       : 0;
+        text-align    : left;
+        border-radius : 0;
+        &, .leaflet-popup-tip {
+            background : transparent;
+            box-shadow : none;
+        }
+    }
+    .leaflet-popup-content {
+        margin: 0;
+    }
+    .leaflet-popup-tip-container {
+        margin : 0;
+        width  : auto;
+        height : auto;
+        display : none;
+    }
+    .leaflet-popup-tip {
+        display : none;
+    }
 
-.leaflet-popup-content-wrapper,.leaflet-popup-content
+
+
+/*
+.leaflet-popup{
+
+  border-radius: 0.5 !important;
+  border-color: transparent !important;
+  border-with: 0 !important;
+}
+
+ .leaflet-popup-content-wrapper, .leaflet-popup-content
  {
-   -webkit-border-radius: 0 !important;
-   -moz-border-radius: 0 !important;
-    border-radius: 0 !important;
-    background-color: rgba(255,255,255,0.8)
-    
+   -webkit-border-radius: 0.5 !important;
+   -moz-border-radius: 0.5 !important;
+    border-radius: 0.5 !important;
+    border-color: transparent !important;
+    border-with: 0 !important;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  /*  background-color: rgba(0,255,255,0.5)
+
+
+ }*/
+
+
+
+
+ #popUpImg{
+
+ margin: 0;
 
  }
 
 #myImg {
 
-    margin: 5px;
-    border-radius: 1px;
-    cursor: pointer;
-    transition: 0.3s;
-    /*transform: scale(0.5, 0.5);
-      -ms-transform: scale(0.5, 0.5);
-      -webkit-transform: scale(0.5, 0.5);*/
+    width: 66%;
+    height: auto;
+
 }
 
 #myImg:hover {opacity: 0.7;}
-
 
 
 
@@ -293,10 +355,10 @@ bottom:0;
   width: 90%;
   margin-left:5%;
   margin-bottom: 5%;
-  
+
 }
 
-.modalContainer{ 
+.modalContainer{
 /*background-color: black !important;*/
 align-items: center !important;
 margin-top: 75px !important;
@@ -329,7 +391,7 @@ margin-bottom: 50px;
 }
 
 /* Add Animation */
-.modal-content, #caption {    
+.modal-content, #caption {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -337,12 +399,12 @@ margin-bottom: 50px;
 }
 
 @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
+    from {-webkit-transform:scale(0)}
     to {-webkit-transform:scale(1)}
 }
 
 @keyframes zoom {
-    from {transform:scale(0)} 
+    from {transform:scale(0)}
     to {transform:scale(1)}
 }
 
@@ -365,15 +427,24 @@ margin-bottom: 50px;
 }
 
 #selfie{
-
- max-height: 20%;
- width: auto;
-
+ max-height: 50% !important ;
+ max-width: 50% !important ;
 }
 
+.img-thumbnail{
+
+  margin-bottom: 10px !important;
+}
+
+/*.panel .panel-heading{
+
+  background-color: grey;
+}
+*/
+.panel{
 
 
-
+}
 
 /***************** END OF THE MODAL ********************/
 
@@ -418,10 +489,9 @@ margin-bottom: 50px;
 #navBarLeft{
   margin:auto;
   height: 100%;
-  
+
   width: 15%;
   top: 15%;
   left: 0;
   bottom: 0;
 }
-
