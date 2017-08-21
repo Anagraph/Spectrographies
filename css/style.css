@@ -3,20 +3,48 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: white;
+  background-color: black;
 }
 
 
-/* h3{
+h2{
+    font-size: 2.33em;
 
-  display: inline !important;
-}*/
+}
+
+h3{
+    font-size: 1.66em;
+
+
+}
+
+ h4{
+    font-size: 1.5em;
+
+}
+
+
+.attributeContainer{
+
+
+
+}
 
 .navbar .navbar-header {
 
 background-color: rgba(255, 255, 255,1);
 
 }
+
+
+#popUpOpen{
+    margin:auto;
+    width:auto !important;
+    height: 300px !important;
+}
+
+
+
 
 /* Portrait phones and smaller */
 @media (min-width: 0px) and  (max-width: 359px) {
@@ -34,6 +62,7 @@ background-color: rgba(255, 255, 255,1);
  bottom: 0 !important;
  left: 0 !important;
  margin:0 !important;
+ border-color: black;
   }
 
 
@@ -111,7 +140,7 @@ background-color: rgba(255, 255, 255,1);
 
 
 #map{
-
+ border-color: black;
  width: 75% !important;
  height: 92% !important;
  bottom: 0 !important;
@@ -133,7 +162,7 @@ background-color: rgba(255, 255, 255,1);
 @media (min-width: 1200px) and (max-width: 1599px) {
 
 #map{
-
+ border-color: black;
  width: 80% !important;
  height: 93% !important;
  bottom: 0 !important;
@@ -154,32 +183,27 @@ background-color: rgba(255, 255, 255,1);
 /* Extra Large desktops and laptops */
 @media (min-width: 1600px) and (max-width: 1980px) {
 
-#map{
+  .map{
+    border-width: 5px !important  ;
+ border-color: black !important;
+   width: 50% !important;
+   height: 93% !important;
+   bottom: 0 !important;
+   left: 20% !important;
+   margin:0 !important;
+    }
 
- width: 80% !important;
- height: 93% !important;
- bottom: 0 !important;
- left: 20% !important;
- margin:0 !important;
+  #navBarLeft{
+    height: 101% !important;;
+    width: 20% !important;
+    left: 0 !important;;
+
   }
-
-#navBarLeft{
-  height: 101% !important;;
-  width: 20% !important;
-  left: 0 !important;;
-
-
 }
-
-
-}
-
-
-
 
 
 #map{
-
+ border-color: black;
  position:absolute;
  width:85%;
  left: 15%;
@@ -216,8 +240,9 @@ bottom:0;
  }
 
 #myImg {
-    margin-bottom: 15px;
-    border-radius: 5px;
+
+    margin: 5px;
+    border-radius: 1px;
     cursor: pointer;
     transition: 0.3s;
     /*transform: scale(0.5, 0.5);
@@ -226,6 +251,18 @@ bottom:0;
 }
 
 #myImg:hover {opacity: 0.7;}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /***************** THE MODAL ********************/
 

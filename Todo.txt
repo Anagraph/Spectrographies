@@ -10,20 +10,26 @@
   
   SLIDER
   
-Filtrer seulement avec le layer
-clearfilter la croix dans 
-griser les autres quand j ai fais un choix
-Filtre sur le mot lui meme
-multi 
+  FILTER 
 
-button reset all
-
-pop up dans le marker du filtre
-
-mapzen JS
-https://mapzen.com/documentation/mapzen-js/get-started/
+ - griser les autres quand j ai fais un choix
+ -  multifeatures = bug
 
 
-ajouter le pop up sur les selected
 
-Bug sur le select unique mais feature multiple : ex il existe de marker de type "Histoire" Return Uncaught TypeError: Cannot read property 'lat' of undefined
+
+setStyle based on filter
+
+function toggleLayer() {
+
+    var groupedOverlays = {
+        "Landmarks": {
+            'MapBox White ': mapBoxWhite,
+            'MapBox Dark  ': mapBoxDark,
+            'MapBox Cyber ': mapBoxCyber,
+            'Stamen Toner ': stamenToner
+        }
+    };
+ L.control.layers(groupedOverlays).addTo(map);
+}
+toggleLayer();

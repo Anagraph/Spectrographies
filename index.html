@@ -44,7 +44,7 @@
        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script>
     <script src="js/main.js"></script>
 
-    <div class="container-fluid" id="map"> </div>
+    <div class="container-fluid map" id="map"> </div>
 
 
     <!-- Left Menu -->
@@ -212,9 +212,15 @@
             </div>
         </div>
     </div>
+
 <script type="text/javascript">
 
+    var nua = navigator.userAgent;
+    var is_android = ((nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
+    if(is_android) {
+        $('select.form-control').removeClass('form-control').css('width', '100%');
 
+    }
 
      
 </script>

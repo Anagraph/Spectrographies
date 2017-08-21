@@ -148,7 +148,7 @@ $.when(
 
         /// Bind all the data to the pop ///
              layer.bindPopup(
-             '<div id="popUpOpen"><a href="#" id="titrePopUp"><h2>'
+             '<div class="row"><div class="well col" id="popUpOpen"><a href="#" id="titrePopUp"><h2>'
 
           // Pop Up Content
 
@@ -163,9 +163,9 @@ $.when(
 
           // Modal Section Content //
 
-                 +'</h4><div id=&quot;attributeContainer&quot;>'
+                 +'</h4><div id=&quot;attributeContainer&quot;class="well col">'
                  // Image section
-                 +'<img class="img-thumbnail " id="myImg"'
+                 +'<img class="img-thumbnail img-responsive col-sm-10" id="myImg"'
                  // Alt section with all the data for the modal popup
                      +' alt="<div><h2>'
                      +feature.properties.titre
@@ -194,7 +194,7 @@ $.when(
                  +'" src="'
                  //+photosPreURL+first
                  +feature.properties.photos_url.substring(0,106).replace('view?photos=','') 
-                 +'"></div></img>'   
+                 +'"></img>'   
                 
           // Socials // 
 
@@ -207,7 +207,7 @@ $.when(
             //Twitter 
                +'<iframe id="tweet-button" allowtransparency="true" frameborder="0" scrolling="no"  src="http://platform.twitter.com/widgets/tweet_button.html?url='
                +feature.properties.photos_url.replace('view?photos=','')+
-               '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe>')
+               '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe></div></div>')
 
             
              
@@ -484,7 +484,7 @@ map.on('popupopen', function (e) {
 
          +'</h4><div id=&quot;attributeContainer&quot;>'
          // Image section
-         +'<img class="img-thumbnail " id="myImg"'
+         +'<img class="img-thumbnail" id="myImg"'
          // Alt section with all the data for the modal popup
                  +' alt="<div><h2>'
                  +feature.properties.titre
@@ -722,3 +722,5 @@ $(document).click(function(e) {
           return divsAsText;
         }  
 });
+
+
