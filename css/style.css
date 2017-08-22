@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: black;
+  background-color: white;
 }
 
 #popUpPanel{
@@ -45,15 +45,7 @@ h3{
 background-color: rgba(255, 255, 255,1);
 
 }
-/*
-.well{
 
-margin: 1px;
-background: transparent;
-background-color: transparent;
-border: transparent;
-border-color: transparent;
-}*/
 
 #popUpOpen{
     margin:auto;
@@ -68,12 +60,39 @@ border-color: transparent;
 /* Portrait phones and smaller */
 @media (min-width: 0px) and  (max-width: 359px) {
 
+  #menu{
+    display: none !important;
+    visibility: hidden !important;
+  }
+  h1{
+      font-size: 1.5em;
 
-#menu{
-  display: none !important;
-  visibility: hidden !important;
+  }
+
+
+
+  h2{
+      font-size: 1.25em;
+
+  }
+
+  h3{
+      font-size: 1.12em;
+
+
+  }
+
+   h4{
+      font-size: 1em;
+
+  }
+
+  #map{
+   height:88% !important;
+    }
+#navBarTop{
+     height:7% !important;
 }
-
 
 }
 
@@ -86,6 +105,35 @@ border-color: transparent;
     visibility: hidden !important;
   }
 
+  h1{
+      font-size: 1.5em;
+
+  }
+
+
+
+  h2{
+      font-size: 1.25em;
+
+  }
+
+  h3{
+      font-size: 1.12em;
+
+
+  }
+
+   h4{
+      font-size: 1em;
+
+  }
+
+  #map{
+   height:91% !important;
+    }
+#navBarTop{
+     height:7% !important;
+}
 
 }
 
@@ -96,6 +144,33 @@ border-color: transparent;
   display: none !important;
   visibility: hidden !important;
 }
+h1{
+    font-size: 1.5em;
+
+}
+
+
+
+h2{
+    font-size: 1.25em;
+
+}
+
+h3{
+    font-size: 1.12em;
+
+
+}
+
+ h4{
+    font-size: 1em;
+
+}
+
+#map{
+
+   height:91% !important;
+  }
 
 }
 
@@ -105,7 +180,10 @@ border-color: transparent;
 
 
 
+  #map{
 
+   height:93% !important;
+    }
 
 }
 
@@ -113,11 +191,22 @@ border-color: transparent;
 /* Landscape tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
 
+  #map{
+   height:92% !important;
+    }
 
-}
+  }
+
+
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) and (max-width: 1599px) {
+
+  #map{
+
+   height:94% !important;
+    }
+
 
 
 }
@@ -126,7 +215,13 @@ border-color: transparent;
 @media (min-width: 1600px) and (max-width: 1980px) {
 
 
-}
+  #map{
+
+   height:93% !important;
+
+    }
+
+  }
 
 
 #map{
@@ -141,10 +236,12 @@ border-color: transparent;
   }
 
 #menu{
+
 position:fixed;
-bottom:25%;
-left:2%;
-height: 500px;
+margin-left: 2%;
+margin-top: 10%;
+max-height: 25%;
+
 z-index: 1;
 
 }
@@ -253,7 +350,10 @@ color:#428bca !important;
 
  }*/
 
+#imgContainer{
 
+
+}
 
 
  #popUpImg{
@@ -275,6 +375,7 @@ color:#428bca !important;
 
 /* The Modal (background) */
 .modal {
+
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 100; /* Sit on top */
@@ -294,6 +395,7 @@ color:#428bca !important;
 
 
 #modalContent {
+  z-index: 101;
   margin-top: 25px!important;
   align-items: center !important;
   display: inline-block !important;
@@ -314,24 +416,16 @@ margin-bottom: 50px;
 
 #imgContainer{
 /*  align-items: center !important;*/
-  margin-top: 50px !important;
+  z-index: 101;
+  margin: 50 5 50 5 !important;
 }
-
-/*
-.modal-content {
-    margin-top:50px;
-    margin-left: 50px;
-    display: inline-block;
-    width: 50%;
-    max-width: 400px;
-}*/
-
 
 
 
 /* Caption of Modal Image */
 #caption {
-    margin: auto;
+
+    margin: 50 5 50 5;
 
 }
 
@@ -358,15 +452,14 @@ margin-bottom: 50px;
     position: absolute;
     top: 25px;
     right: 45px;
-    color: #f1f1f1;
+    color: white;
     font-size: 75px;
     font-weight: bold;
     transition: 0.3s;
 }
 
-.close:hover,
-.close:focus {
-    color: #bbb;
+.close:hover, .close:focus {
+    color: grey;
     text-decoration: none;
     cursor: pointer;
 }

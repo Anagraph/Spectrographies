@@ -4,8 +4,8 @@ var mapZentoken = L.Mapzen.apiKey = 'mapzen-3CAQoBZ';
 
 
 var map = L.Mapzen.map('map', {
-  //center: [45.5237019,-73.6197287],
-  //zoom: 12,
+  center: [45.5237019,-73.6197287],
+  zoom: 14,
   minZoom:10,
   maxZoom: 18,
   tangramOptions: {
@@ -137,6 +137,7 @@ $.when(
               var carouselDiv = document.getElementById("carousel-inner");
 
 
+
         //** Create the modal on the click function **//
           img.onclick = function(){
 
@@ -161,7 +162,13 @@ $.when(
 
               };
 
+                /* Auto close on click is too strict
 
+                              $('#modalContent').on('click' , function() {
+                                modal.style.display = "none";
+                              });
+
+                */
             var span = document.getElementsByClassName("close")[0];
               span.onclick = function() {
                   modal.style.display = "none";
@@ -228,7 +235,7 @@ $.when(
                       +'<div class=&quot; row &quot;>'
 
                       +'<div class=&quot; col-sm-6 &quot;>'
-                          +'<h3> Relation au lieu : </h3><p>'
+                          +'<h3> Relation au lieu </h3><p>'
                             +feature.properties.relation_au_lieu
                               +'</p></div>'
 
@@ -426,7 +433,7 @@ $.when(
         markerCluster.addLayer(marker);
         group.addLayer(marker);
         map.addLayer(markerCluster);
-        map.fitBounds(marker.getBounds())
+        //map.fitBounds(markerCluster.getBounds())
 
        })
   }
@@ -520,6 +527,8 @@ map.on('popupopen', function (e) {
             carouselDiv.innerHTML = divsFromPhotosUrl(feature_photos_url)
           };
 
+
+
     // Fonction pour fermer le modal //
       var span = document.getElementsByClassName("close")[0];
       span.onclick = function() {
@@ -602,7 +611,7 @@ layer.bindPopup(
               +'<div class=&quot; row &quot;>'
 
               +'<div class=&quot; col-sm-6 &quot;>'
-                  +'<h3> Relation au lieu : </h3><p>'
+                  +'<h3> Relation au lieu </h3><p>'
                     +feature.properties.relation_au_lieu
                       +'</p></div>'
 
@@ -708,8 +717,8 @@ $(document).click(function(e) {
      map.removeLayer(filteredMarker);
      map.removeLayer(marker);
      map.addLayer(marker);
-     map.flyToBounds(marker.getBounds())
-
+    // map.setView([45.5237019,-73.6197287], 15)
+    map.flyTo([45.5237019,-73.6197287], 15)
     });
 /*-----------------------------*/
 
@@ -736,7 +745,7 @@ $(document).click(function(e) {
      map.removeLayer(filteredMarker);
      map.removeLayer(marker);
      map.addLayer(marker);
-     map.flyToBounds(marker.getBounds())
+     map.flyTo([45.5237019,-73.6197287], 15)
 
     });
 /*-----------------------------*/
@@ -762,7 +771,7 @@ $(document).click(function(e) {
      map.removeLayer(filteredMarker);
      map.removeLayer(marker);
      map.addLayer(marker);
-     map.flyToBounds(marker.getBounds())
+     map.flyTo([45.5237019,-73.6197287], 15)
 
     });
 
@@ -789,7 +798,7 @@ $(document).click(function(e) {
      map.removeLayer(filteredMarker);
      map.removeLayer(marker);
      map.addLayer(marker);
-     map.flyToBounds(marker.getBounds())
+     map.flyTo([45.5237019,-73.6197287], 15)
     });
 
 
@@ -843,10 +852,6 @@ $(document).click(function(e) {
 
           return divsAsText;
         }
-
-
-
-
 
 
 
