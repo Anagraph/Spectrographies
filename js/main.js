@@ -125,6 +125,11 @@ $.when(
 
         map.on('popupopen', function (e) {
 
+          /***** !! Auto Pan to the center of the popup ToolTip !! *****/
+          var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
+          px.y -= e.popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+          map.panTo(map.unproject(px),{animate: true}); // pan to new center
+
               var h2 = document.getElementById('titrePopUp');
               var img = document.getElementById('myImg');
               var modal = document.getElementById('myModal');
@@ -269,7 +274,7 @@ $.when(
          +'<a class="btn btn-social-icon" href="mailto:?subject=Spectrographie(s)&amp;body=Visitez&nbsp;notre&nbsp;page&nbsp;internet&nbsp;Spetrographies&nbsp;-&nbsp;Visit&nbsp;our&nbsp;webpage&nbsp;Spectrographies&nbsp;%0D%0A %0D%0A http://vt.anagraph.io/static/Spectrographies" target="_blank""><i class="fa fa-envelope-o"></i></a>'
                             +'</div></div></div></div></div>'
 
-      )
+      ),{autoPan:true}
            }
          });
         ////////***** End of marker *****////////
