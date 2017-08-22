@@ -141,10 +141,10 @@ border-color: transparent;
   }
 
 #menu{
-position:absolute;
-bottom:2%;
+position:fixed;
+bottom:25%;
 left:2%;
-height: 85%;
+height: 500px;
 z-index: 1;
 
 }
