@@ -32,6 +32,15 @@ var stamenToner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-ba
   ext: 'png'
 });
 
+ fbFunction = function fbshareCurrentPage()
+        {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '   ',
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+        return false; }
+
+ tweetFunction =    function tweetCurrentPage()
+                {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)   '+escape(window.location.href),'',
+                'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                return false; }
 
 
 function toggleLayer() {
@@ -66,6 +75,8 @@ function getGeoJSON() {
 $.when(
  $.getJSON('https://web.fulcrumapp.com/shares/3a4bbd0435c58166.geojson')).done(function(theGeoJSON) {
 
+
+
         /**
          * Remove null values from the Fulcrum API Endpoint
          *
@@ -77,6 +88,7 @@ $.when(
                     if ( typeof o[key] === 'object' ) removeNull(o[key]);
                 }
              })(theGeoJSON);
+
 
 
 
@@ -150,10 +162,14 @@ $.when(
                   modal.style.display = "none";
               }
         });
-console.log()
+
+
         /// Bind all the data to the pop ///
         layer.bindPopup(
-        '<div id="popUpOpen" class="">'
+
+
+
+        '<div id=&quot;popUpOpen" class="">'
 
 
         +'<div class="panel panel-default"><div id="popUpPanel" class="panel-heading "> '
@@ -243,8 +259,13 @@ console.log()
 
         // Socials //
          +'<div class="row"><div id="socials" class="col-sm-12 center-block text-center">'
-         +'<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>'
-         +'<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>'
+
+         +'<a class="btn btn-social-icon btn-facebook" href="'
+         +'javascript:'
+         +'fbFunction()'
+         +'"><i class="fa fa-facebook"></i></a>'
+
+         +'<a class="btn btn-social-icon btn-twitter"  href="javascript:tweetFunction()" target="_blank"><i class="fa fa-twitter"></i></a>'
          +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
                             +'</div></div></div></div></div>'
 
@@ -504,15 +525,6 @@ map.on('popupopen', function (e) {
 
 
       ////////Socials function ////////////
-              function fbshareCurrentPage()
-                  		{window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '',
-                  		'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-                  		return false; }
-
-              		function tweetCurrentPage()
-                              {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)'+escape(window.location.href),'',
-                              'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-                              return false; }
 
 
 });
@@ -520,6 +532,15 @@ map.on('popupopen', function (e) {
 ///////// START Bind tout le data dans le pop up /////////
 
 
+var fbFunction = function fbshareCurrentPage()
+        {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '',
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+        return false; }
+
+var tweetFunction =    function tweetCurrentPage()
+                {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)'+escape(window.location.href),'',
+                'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                return false; }
 
 layer.bindPopup(
 '<div id="popUpOpen" class="">'
@@ -611,14 +632,19 @@ layer.bindPopup(
             +feature.properties.photos_url.substring(0,106).replace('view?photos=','')
             +'"></img></div>'
 
-        // Socials //
-         +'<div class="row"><div id="socials" class="col-sm-12 center-block text-center">'
-         +'<a class="btn btn-social-icon btn-facebook" href="javascript:fbshareCurrentPage()" target="_blank"><i class="fa fa-facebook"></i></a>'
-         +'<a class="btn btn-social-icon btn-twitter"  href="javascript:tweetCurrentPage()" target="_blank"><i class="fa fa-twitter"></i></a>'
-         +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
-                            +'</div></div></div></div></div>'
+            // Socials //
+             +'<div class="row"><div id="socials" class="col-sm-12 center-block text-center">'
 
-)
+             +'<a class="btn btn-social-icon btn-facebook" href="'
+             +'javascript:'
+             +'fbFunction()'
+             +'"><i class="fa fa-facebook"></i></a>'
+
+             +'<a class="btn btn-social-icon btn-twitter"  href="javascript:tweetFunction()" target="_blank"><i class="fa fa-twitter"></i></a>'
+             +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
+                                +'</div></div></div></div></div>'
+
+          )
 
    }
  });
