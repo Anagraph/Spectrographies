@@ -101,7 +101,12 @@ $.when(
               },
 
 
+              filter: function(feature, layer) {
 
+
+                if (feature.properties.status == 'Published') {return true}
+                else {return false}
+              },
 
         //** create a custom marker **//
           onEachFeature: function(feature, layer) {
@@ -439,18 +444,17 @@ pointToLayer: function(feature, latlng) {
       },
 
 
+
 filter: function(feature, layer) {
-console.log(value);
 
-
+if (feature.properties.status =="Published"){
   if (feature.properties.pseudo == value) {return feature.properties.pseudo = value}
   else if (feature.properties.type.includes(value)) { return feature.properties.type = value}
   else if (feature.properties.genre.includes(value))  { return feature.properties.genre = value }
   else if (feature.properties.titre == value) { return feature.properties.titre = value}
   else if (feature.properties.type_other.includes(value))  { return feature.properties.type_other = value}
   else if (feature.properties.genre_other.includes(value))  { return feature.properties.genre_other == value}
-
-    },
+}},
 
   onEachFeature: function(feature, layer) {
 
