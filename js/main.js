@@ -266,11 +266,10 @@ $.when(
          +'"><i class="fa fa-facebook"></i></a>'
 
          +'<a class="btn btn-social-icon btn-twitter"  href="javascript:tweetFunction()" target="_blank"><i class="fa fa-twitter"></i></a>'
-         +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
+         +'<a class="btn btn-social-icon" href="mailto:?subject=Spectrographie(s)&amp;body=Visitez&nbsp;notre&nbsp;page&nbsp;internet&nbsp;Spetrographies&nbsp;-&nbsp;Visit&nbsp;our&nbsp;webpage&nbsp;Spectrographies&nbsp;%0D%0A %0D%0A http://vt.anagraph.io/static/Spectrographies" target="_blank""><i class="fa fa-envelope-o"></i></a>'
                             +'</div></div></div></div></div>'
 
       )
-
            }
          });
         ////////***** End of marker *****////////
@@ -641,7 +640,8 @@ layer.bindPopup(
              +'"><i class="fa fa-facebook"></i></a>'
 
              +'<a class="btn btn-social-icon btn-twitter"  href="javascript:tweetFunction()" target="_blank"><i class="fa fa-twitter"></i></a>'
-             +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
+             +'<a class="btn btn-social-icon" href="mailto:?subject=Spectrographie(s)&amp;body=Visitez&nbsp;notre&nbsp;page&nbsp;internet&nbsp;Spetrographies&nbsp;-&nbsp;Visit&nbsp;our&nbsp;webpage&nbsp;Spectrographies&nbsp;%0D%0A %0D%0A http://vt.anagraph.io/static/Spectrographies" target="_blank""><i class="fa fa-envelope-o"></i></a>'
+
                                 +'</div></div></div></div></div>'
 
           )
