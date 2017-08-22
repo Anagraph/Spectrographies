@@ -213,36 +213,31 @@ $.when(
                           +'</div>'
 
                     +'</div></div>'
-                    +'</div></div>'
+
                     // Audio //
                     +'<div class=&quot;row &quot;>'
-                    +'<div class=&quot;col-sm-10 col-sm-push-1 well text-center&quot;>'
+                    +'<div class=&quot; hidden-xs col-sm-10 col-sm-push-1 well text-center&quot;>'
                     //+'<audio controls controls controlsList=&quot;nodownload&quot;><source src=&quot;'
-                    +'<audio controls><source src=&quot;'
+                    +'<audio controls  controls controlsList=&quot;nodownload&quot;><source src=&quot;'
                     +feature.properties.audio_url.replace('view?audio=','')
                     //+feature.properties.audio_url.replace('view?audio=','')
-                    +'&quot;</audio></div></div></div></div></div></div>'
+                    +'&quot;</audio></div>'
+                    +'<div class=&quot;visible-xs well col-xs-8 col-xs-push-2 align-content-center&quot;>'
+                    +'<audio id=&quot;audioXS&quot; controls><source src=&quot;'
+                    +feature.properties.audio_url.replace('view?audio=','')
+
+                                //+feature.properties.audio_url.replace('view?audio=','')
+                    +'&quot;</audio></div>'
+                    +'</div></div></div></div></div>'
                     // End of alt attribution
                     // Caroussel
             +'" src="'
             //+photosPreURL+first
             +feature.properties.photos_url.substring(0,106).replace('view?photos=','')
-            +'"></img>'
+            +'"></img></div>'
 
         // Socials //
-
-        //Facbook
-                     /*+'<iframe src="https://www.facebook.com/plugins/share_button.php?href='
-                       + feature.properties.photos_url.replace('view?photos=','')
-                       +'&layout=button&size=small&mobile_iframe=false&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'
-
-                       +'  '
-                    //Twitter
-                       +'<iframe id="tweet-button" allowtransparency="true" frameborder="0" scrolling="no"  src="http://platform.twitter.com/widgets/tweet_button.html?url='
-                       +feature.properties.photos_url.replace('view?photos=','')+
-                       '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe></div></div>')*/
-
-         +'<div class="row"><div class="col-sm-12 center-block text-center">'
+         +'<div class="row"><div id="socials" class="col-sm-12 center-block text-center">'
          +'<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>'
          +'<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>'
          +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
@@ -566,40 +561,35 @@ layer.bindPopup(
                   +'</div>'
 
             +'</div></div>'
-            +'</div></div>'
+
             // Audio //
             +'<div class=&quot;row &quot;>'
-            +'<div class=&quot;col-sm-10 col-sm-push-1 well text-center&quot;>'
+            +'<div class=&quot; hidden-xs col-sm-10 col-sm-push-1 well text-center&quot;>'
             //+'<audio controls controls controlsList=&quot;nodownload&quot;><source src=&quot;'
-            +'<audio controls><source src=&quot;'
+            +'<audio controls  controls controlsList=&quot;nodownload&quot;><source src=&quot;'
             +feature.properties.audio_url.replace('view?audio=','')
             //+feature.properties.audio_url.replace('view?audio=','')
-            +'&quot;</audio></div></div></div></div></div></div>'
+            +'&quot;</audio></div>'
+            +'<div class=&quot;visible-xs well col-xs-8 col-xs-push-2 align-content-center&quot;>'
+            +'<audio id=&quot;audioXS&quot; controls><source src=&quot;'
+            +feature.properties.audio_url.replace('view?audio=','')
+
+                        //+feature.properties.audio_url.replace('view?audio=','')
+            +'&quot;</audio></div>'
+            +'</div></div></div></div></div>'
             // End of alt attribution
             // Caroussel
-    +'" src="'
-    //+photosPreURL+first
-    +feature.properties.photos_url.substring(0,106).replace('view?photos=','')
-    +'"></img>'
+            +'" src="'
+            //+photosPreURL+first
+            +feature.properties.photos_url.substring(0,106).replace('view?photos=','')
+            +'"></img></div>'
 
-// Socials //
-
-//Facbook
-             /*+'<iframe src="https://www.facebook.com/plugins/share_button.php?href='
-               + feature.properties.photos_url.replace('view?photos=','')
-               +'&layout=button&size=small&mobile_iframe=false&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'
-
-               +'  '
-            //Twitter
-               +'<iframe id="tweet-button" allowtransparency="true" frameborder="0" scrolling="no"  src="http://platform.twitter.com/widgets/tweet_button.html?url='
-               +feature.properties.photos_url.replace('view?photos=','')+
-               '&amp;count=horizontal"   style="width:110px; height:20px;"></iframe></div></div>')*/
-
- +'<div class="row"><div class="col-sm-12 center-block text-center">'
- +'<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>'
- +'<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>'
- +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
-                    +'</div></div></div></div></div>'
+        // Socials //
+         +'<div class="row"><div id="socials" class="col-sm-12 center-block text-center">'
+         +'<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>'
+         +'<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>'
+         +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
+                            +'</div></div></div></div></div>'
 
 )
 

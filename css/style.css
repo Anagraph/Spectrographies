@@ -38,7 +38,7 @@ h3{
 
 }
 
-
+#audioXS { width: 100px; display: block; }
 
 .navbar .navbar-header {
 
@@ -246,6 +246,10 @@ float: left;
 bottom:0;
 }
 
+#socials a {
+color:#428bca !important;
+
+}
 
     .leaflet-popup-close-button {
         display : none
@@ -261,6 +265,7 @@ bottom:0;
     }
     .leaflet-popup-content {
         margin: 0;
+        background-color: rgba(0,255,255,0.5)
     }
     .leaflet-popup-tip-container {
         margin : 0;
@@ -314,17 +319,6 @@ bottom:0;
 }
 
 #myImg:hover {opacity: 0.7;}
-
-
-
-
-
-
-
-
-
-
-
 
 /***************** THE MODAL ********************/
 
