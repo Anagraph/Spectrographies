@@ -150,7 +150,7 @@ $.when(
                   modal.style.display = "none";
               }
         });
-
+console.log()
         /// Bind all the data to the pop ///
         layer.bindPopup(
         '<div id="popUpOpen" class="">'
@@ -166,9 +166,9 @@ $.when(
           +'</h2></a></div>'
           +'<div class="panel-body">'
           +'<h3 style="display:inline">'
-          +feature.properties.genre
+          +feature.properties.genre + ' ' + feature.properties.genre_other
           +' & '
-          +feature.properties.type
+          +feature.properties.type + ' ' + feature.properties.type_other
           +'</h3>'
 
           +'<div class=""><h4> Par : '
@@ -191,11 +191,11 @@ $.when(
                     +'</h2></div>'
                     +'<br>'
                     +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                    +feature.properties.genre
+                    + feature.properties.genre + ' ' + feature.properties.genre_other
                     +'</h4><br><br><h3 style=&quot;display: inline !important;&quot;> Type : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                    +feature.properties.type
+                    + feature.properties.type + ' ' + feature.properties.type_other
                     +'</h4><br><h3> Contexte : </h3><p>'
-                    +feature.properties.description_contexte
+                    +feature.properties.description
                     +'</p>'
                     +'<div class=&quot;panel panel-default &quot; >'
                     +'<div class=&quot;panel-heading col-sm-12 &quot;>'
@@ -208,7 +208,7 @@ $.when(
 
                       +'<div class=&quot; col-sm-6 &quot;>'
                           +'<h3> Relation au lieu : </h3><p>'
-                            +feature.properties.relation_au_lieu_appartenance
+                            +feature.properties.relation_au_lieu
                               +'</p></div>'
 
                       +'<div  class= &quot;col-sm-6 align-content-center&quot;>'
@@ -261,8 +261,6 @@ $.when(
 /**
  * Create a array for every desired properties
  *
- * @param photos_url
- * @returns {string}
  */
           var introMarker = L.geoJSON();
           var pseudoData = [];
@@ -319,7 +317,7 @@ $.when(
           /******* Function that merge others *******/
 
           genreMerged.push.apply(genreMerged, genreAD);
-          // console.log(genreMerged)
+           //console.log(genreMerged)
           typeMerged.push.apply(typeMerged, typeAD);
           //  console.log(typeMerged)
 
@@ -348,6 +346,7 @@ $.when(
           /*-----------------------------*/
 
 
+
           /******* Function that create unique values within the given array *******/
           Array.prototype.unique = function() {
             return this.filter(function (value, index, self) {
@@ -357,6 +356,10 @@ $.when(
 
           /*-----------------------------*/
 
+
+
+          var typeUnique = typeMerged.unique()
+          var genreUnique = genreMerged.unique()
 
         /******* Create a selectBox *******/
 
@@ -370,7 +373,7 @@ $.when(
 
           function tBox() {
             $('#typeBox').select2(
-             {data: typeMerged.unique(),
+             {data: typeUnique,
               allowClear:true,
               placeholder:'Explorer'
                })
@@ -378,7 +381,7 @@ $.when(
 
            function gBox() {
             $('#genreBox').select2(
-             {data: genreMerged.unique(),
+             {data: genreUnique,
               allowClear:true,
               placeholder:'Explorer'
 
@@ -459,6 +462,7 @@ if (feature.properties.status =="Published"){
   onEachFeature: function(feature, layer) {
 
 
+
 var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/";
 // Capture le pop up //
 map.on('popupopen', function (e) {
@@ -501,8 +505,11 @@ map.on('popupopen', function (e) {
 
 ///////// START Bind tout le data dans le pop up /////////
 
+
+
 layer.bindPopup(
 '<div id="popUpOpen" class="">'
+
 
 
 +'<div class="panel panel-default"><div id="selectPopUpPanel" class="panel-heading "> '
@@ -515,9 +522,9 @@ layer.bindPopup(
   +'</h2></a></div>'
   +'<div class="panel-body">'
   +'<h3 style="display:inline">'
-  +feature.properties.genre
+  +feature.properties.genre + feature.properties.genre_other
   +' & '
-  +feature.properties.type
+  +feature.properties.type + feature.properties.type_other
   +'</h3>'
 
   +'<div class=""><h4> Par : '
@@ -540,11 +547,11 @@ layer.bindPopup(
             +'</h2></div>'
             +'<br>'
             +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
-            +feature.properties.genre
+            +feature.properties.genre + feature.properties.genre_other
             +'</h4><br><br><h3 style=&quot;display: inline !important;&quot;> Type : </h3><h4 style=&quot;display: inline !important;&quot;>'
-            +feature.properties.type
+            +feature.properties.type + feature.properties.type_other
             +'</h4><br><h3> Contexte : </h3><p>'
-            +feature.properties.description_contexte
+            +feature.properties.description
             +'</p>'
             +'<div class=&quot;panel panel-default &quot; >'
             +'<div class=&quot;panel-heading col-sm-12 &quot;>'
@@ -557,7 +564,7 @@ layer.bindPopup(
 
               +'<div class=&quot; col-sm-6 &quot;>'
                   +'<h3> Relation au lieu : </h3><p>'
-                    +feature.properties.relation_au_lieu_appartenance
+                    +feature.properties.relation_au_lieu
                       +'</p></div>'
 
               +'<div  class= &quot;col-sm-6 align-content-center&quot;>'
