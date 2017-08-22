@@ -501,6 +501,20 @@ map.on('popupopen', function (e) {
       modal.style.display = "none";
       };
 
+
+
+      ////////Socials function ////////////
+              function fbshareCurrentPage()
+                  		{window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '',
+                  		'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                  		return false; }
+
+              		function tweetCurrentPage()
+                              {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)'+escape(window.location.href),'',
+                              'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                              return false; }
+
+
 });
 
 ///////// START Bind tout le data dans le pop up /////////
@@ -599,8 +613,8 @@ layer.bindPopup(
 
         // Socials //
          +'<div class="row"><div id="socials" class="col-sm-12 center-block text-center">'
-         +'<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>'
-         +'<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>'
+         +'<a class="btn btn-social-icon btn-facebook" href="javascript:fbshareCurrentPage()" target="_blank"><i class="fa fa-facebook"></i></a>'
+         +'<a class="btn btn-social-icon btn-twitter"  href="javascript:tweetCurrentPage()" target="_blank"><i class="fa fa-twitter"></i></a>'
          +'<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>'
                             +'</div></div></div></div></div>'
 
@@ -798,4 +812,11 @@ $(document).click(function(e) {
 
           return divsAsText;
         }
+
+
+
+
+
+
+
 });
