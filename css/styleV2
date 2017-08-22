@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: black;
+  background-color: white;
 }
 
 #popUpPanel{
@@ -74,6 +74,16 @@ border-color: transparent;
   visibility: hidden !important;
 }
 
+#map{
+
+ width: 100% !important;
+ height: 74% !important;
+ bottom: 0 !important;
+ left: 0 !important;
+ margin:0 !important;
+ border-color: black;
+  }
+
 
 }
 
@@ -84,6 +94,15 @@ border-color: transparent;
   #menu{
     display: none !important;
     visibility: hidden !important;
+  }
+
+#map{
+
+ width: 100% !important;
+ height: 84% !important;
+ bottom: 0 !important;
+ left: 0 !important;
+ margin:0 !important;
   }
 
 
@@ -97,6 +116,16 @@ border-color: transparent;
   visibility: hidden !important;
 }
 
+#map{
+
+ width: 100% !important;
+ height: 84% !important;
+ bottom: 0 !important;
+ left: 0 !important;
+ margin:0 !important;
+  }
+
+
 }
 
 
@@ -105,7 +134,22 @@ border-color: transparent;
 
 
 
+#map{
 
+ width: 100% !important;
+ height: 90% !important;
+ bottom: 0 !important;
+ left: 30% !important;
+ margin:0 !important;
+  }
+
+#navBarLeft{
+  height: 95% !important;;
+  width: 30% !important;
+  left: 5px !important;;
+
+
+}
 
 }
 
@@ -114,73 +158,78 @@ border-color: transparent;
 @media (min-width: 992px) and (max-width: 1199px) {
 
 
+#map{
+ border-color: black;
+ width: 100% !important;
+ height: 92% !important;
+ bottom: 0 !important;
+ left: 25% !important;
+ margin:0 !important;
+  }
+
+#navBarLeft{
+  height: 100% !important;;
+  width: 25% !important;
+  left: 5 !important;;
+
+
+}
+
 }
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) and (max-width: 1599px) {
 
+#map{
+ border-color: black;
+ width: 100% !important;
+ height: 93% !important;
+ bottom: 0 !important;
+ left: 20% !important;
+ margin:0 !important;
+  }
+
+#navBarLeft{
+  height: 101% !important;;
+  width: 20% !important;
+  left: 5 !important;;
+
+
+}
 
 }
 
 /* Extra Large desktops and laptops */
 @media (min-width: 1600px) and (max-width: 1980px) {
 
+  .map{
+    border-width: 5px !important  ;
+ border-color: black !important;
+   width: 100% !important;
+   height: 93% !important;
+   bottom: 0 !important;
+   left: 20% !important;
+   margin:0 !important;
+    }
 
+  #navBarLeft{
+    height: 101% !important;;
+    width: 20% !important;
+    left: 5 !important;;
+
+  }
 }
 
 
 #map{
  border-color: black;
  position:absolute;
- bottom:0;
- right:0;
  width:100%;
+ left: 15%;
  height:93%;
  z-index: 0;
  bottom: 0;
   }
-
-#menu{
-position:absolute;
-bottom:2%;
-left:2%;
-height: 85%;
-z-index: 1;
-
-}
-
-#explorateur{
-
-margin-top: 15px !important;
-background: linear-gradient(to bottom right, #3185ce, #70a8d8);
-}
-
-  /************ Menu ***********
-
-  .navbar-fixed-left {
-    width: 15%;
-    position: absolute;
-    border-radius: 0;
-    height: 92%;
-    bottom:0;
-    left:0;
-  }
-
-  .navbar-fixed-left .navbar-nav > li {
-    float: none;
-    width: 139px;
-  }
-
-  .navbar-fixed-left + .container {
-    padding-left: 160px;
-  }
-
-
-  .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
-    margin-top: -50px;
-    margin-left: 140px;
-  }
-*/
 
 
 #togglebtn{
@@ -277,7 +326,7 @@ color:#428bca !important;
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
+    z-index: 1; /* Sit on top */
     left: 0;
     top: 50px !important;
     width: 100%; /* Full width */
@@ -386,7 +435,10 @@ margin-bottom: 50px;
   background-color: grey;
 }
 */
+.panel{
 
+
+}
 
 /***************** END OF THE MODAL ********************/
 
@@ -420,4 +472,21 @@ margin-bottom: 50px;
   background-color: rgb(238,51,255);
   border-radius: 1px;
   margin-top: 33%;
+}
+
+.formContainer{
+left: 15px;
+margin:40 5 15 0;
+}
+
+
+
+#navBarLeft{
+  margin:auto;
+  height: 100%;
+
+  width: 15%;
+  top: 15%;
+  left: 0;
+  bottom: 0;
 }

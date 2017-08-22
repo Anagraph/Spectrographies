@@ -359,21 +359,23 @@ $.when(
             $('#participantBox').select2(
              {data: pseudoData.unique(),
               allowClear:true,
-              placeholder:'Chercher un participant'
+              placeholder:'Explorer'
                     })
            } pBox();
 
           function tBox() {
             $('#typeBox').select2(
              {data: typeMerged.unique(),
-              allowClear:true
+              allowClear:true,
+              placeholder:'Explorer'
                })
            } tBox();
 
            function gBox() {
             $('#genreBox').select2(
              {data: genreMerged.unique(),
-              allowClear:true
+              allowClear:true,
+              placeholder:'Explorer'
 
                })
            }gBox();
@@ -383,7 +385,7 @@ $.when(
              {
                data: titreData.unique(),
                allowClear:true,
-               placeholder:'Chercher un titre'
+               placeholder:'Explorer'
                })
            }titBox();
 
@@ -633,8 +635,8 @@ $(document).click(function(e) {
     .on("select2:select", function(e) {
 
     $("#titreBox").val('').trigger("change");
-    $('#genreBox').val([]).trigger("change");
-    $('#typeBox').val([]).trigger("change");
+    $('#genreBox').val('').trigger("change");
+    $('#typeBox').val('').trigger("change");
 
     value = $(e.currentTarget).val();
 
@@ -663,11 +665,11 @@ $(document).click(function(e) {
 
      $("#titreBox").val('').trigger("change");
      $("#participantBox").val('').trigger("change");
-     $('#genreBox').val([]).trigger("change");
+     $('#genreBox').val('').trigger("change");
 
 
 
-     value = $(e.currentTarget).find("option:selected").val();
+     value = $(e.currentTarget).val();
       map.removeLayer(marker);
       getFilterGeoJSON(value);
       map.removeLayer(filteredMarker)
@@ -675,9 +677,6 @@ $(document).click(function(e) {
     })
 
     .on("select2:unselect", function(e) {
-
-
-
      map.removeLayer(filteredMarker);
      map.removeLayer(marker);
      map.addLayer(marker);
@@ -693,9 +692,9 @@ $(document).click(function(e) {
 
     $("#titreBox").val('').trigger("change");
     $("#participantBox").val('').trigger("change");
-    $('#typeBox').val([]).trigger("change");
+    $('#typeBox').val('').trigger("change");
 
-    value = $(e.currentTarget).find("option:selected").val();
+    value = $(e.currentTarget).val();
 
     map.removeLayer(marker);
     getFilterGeoJSON(value);
@@ -719,6 +718,8 @@ $(document).click(function(e) {
     .on("select2:select", function(e) {
 
     $("#participantBox").val('').trigger("change") ;
+    $("#genreBox").val('').trigger("change");
+    $('#typeBox').val('').trigger("change");
 
     value = $(e.currentTarget).val();
 

@@ -12,8 +12,6 @@
     <!-- Bootstrap CSS -->
    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
     <link rel="stylesheet" href="src/bootstrap-3.3.7/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="src/style/navbar-fixed-side.css" />
-    <link rel="stylesheet" href="src/modal_sidebar.css"  />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
@@ -42,140 +40,125 @@
 
 <body>
 
-    <div class="container-fluid map" id="map"> </div>
+<div class="container-fluid">
+  <div class="row">
+  <nav class="navbar navbar-fixed-top">
+        <div class="navbar-header" id="navBarTop">
+          <div id=toggle-bar>
+              <button type="button" id="togglebtn" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+          </div>
+
+          <div id='title'>
+              <h1>
+                    Spectrographie(s) du territoire
+              </h1>
+              <div>
+                  <div class="collapse navbar-collapse ">
+                      <ul class="nav navbar-nav">
+                          <div class="well well-sm">
+                              <h4> À propos de Spectrographies</h4>
+                              <p>
+                                  Où suis-je ?
+                                  <br> Chez qui suis-je ?
+                                  <br> Que me propose-t-on ?
+                                  <br> Sous quelles conditions ?
+                                  <br> Qu’est-ce qui pourrait m’amener à revenir ?
+                                  <br> L’information est-elle à jour ?
+                                  <br> Puis-je contacter les propriétaires du site ?
+                                  <br> Suis-je arrivé à tout lire sans m’endormir ?
+                                  <br> </p>
+                              <h4> Contact </h4>
+                              <hr>
+                              <p> Natacha Clitandre : <a> + 1 514-555-5555</a>
+                              </p>
+                              <p> Courriel : <a> abcd@gmail.com </a> </p>
+                              <hr>
+                              <p> Agence TOPO : <a> + 1 514-555-5555</a>
+                              </p>
+                              <p> Courriel : <a> abcd@gmail.com </a> </p>
+                          </div><div>
+                      </ul>
 
 
-    <!-- Left Menu -->
+                      <!--USERNAME  could be used for linking to the Fulcrum Admin Page
 
-    <div id="menu" class="container-fluid">
-        <div class="col-sm-6 col-md-6 col-lg-6">
-            <nav class="navbar navbar-default navbar-fixed-side" id="navBarLeft">
+  <div class="navbar-header navbar-right">
+    <p class="navbar-text">
+    <a href="#" class="navbar-link">Username</a>
+    </p>
+  </div>
 
-                <!-- Header -->
-
-                <div class="navbar-header">
-                    <a class="navbar-brand" href=""><h3> Navigation </h3></a>
-                </div>
+  -->
 
 
-                <!-- Select lists -->
-                <div class="container-fluid ">
-                    <div class="well formContainer">
-                        <div class="form-group">
-                            <label for="single" class="control-label">Participant</label>
-                            <select id="participantBox" class="form-control">
-                             <option></option>
-                            </select>
-                        </div>
-                    </div>
+  </nav>
+</div>
 
-                    <div class="well formContainer">
-                        <div class="form-group col">
-                            <label for="single" class="control-label">Type</label>
-                            <select id="typeBox" class="form-control">
-                                <option></option>
-                            </select>
-                        </div>
-                    </div>
+  <div class="row">
+    <!--  The Map -->
 
-
-                    <div class="well formContainer">
-                        <div class="form-group col ">
-                            <label for="single" class="control-label">Genre</label>
-                             <select id="genreBox" class="form-control">
-                                  <option></option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="well formContainer">
-                        <div class="form-group">
-                            <label for="single" class="control-label">Titre</label>
-                            <select id="titreBox" class="form-control">
-                              <option></option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-            </nav>
-
-        </div>
-
+    <div class="col-sm-12" id="map"></div>
     </div>
+      <!-- Left Menu -->
+
+          <div id="menu" class="col-12">
+          <div class="panel panel-primary col-sm-10">
+        <!-- Header -->
+          <div id="explorateur" class="panel-heading"><h3>Explorateur de contenu</h3></div>
+            <!-- Select lists -->
+            <div class="panel-body">
+            <div class="row">
+
+
+                      <div class="well">
+                          <div class="form-group">
+                              <label for="single" class="control-label">Participant</label>
+                              <select id="participantBox" class="form-control">
+                               <option></option>
+                              </select>
+                          </div>
+                      </div>
 
 
 
+                      <div class="well">
+                          <div class="form-group">
+                              <label for="single" class="control-label">Titre</label>
+                              <select id="titreBox" class="form-control">
+                               <option></option>
+                              </select>
+                          </div>
+                      </div>
 
 
-    <nav class="navbar  navbar-fixed-top">
+                      <div class="well">
+                          <div class="form-group">
+                              <label for="single" class="control-label">Type</label>
+                              <select id="typeBox" class="form-control">
+                               <option></option>
+                              </select>
+                          </div>
+                      </div>
 
-          <div class="navbar-header" id="navBarTop">
+                      <div class="well">
+                          <div class="form-group">
+                              <label for="single" class="control-label">Genre</label>
+                              <select id="genreBox" class="form-control">
+                               <option></option>
+                              </select>
+                          </div>
+                      </div>
 
-            <div id=toggle-bar>
-                <button type="button" id="togglebtn" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
+                  </div>
+                  </div>
+                    </div>
+                    </div></div>
 
-            <div id='title'>
-                <h1>
-                      Spectrographie(s) du territoire
-                </h1>
-                <div>
-
-
-
-                    <div class="collapse navbar-collapse ">
-                        <ul class="nav navbar-nav">
-                            <div class="well well-sm">
-
-                                <h4> À propos de Spectrographies</h4>
-
-                                <p>
-
-                                    Où suis-je ?
-                                    <br> Chez qui suis-je ?
-                                    <br> Que me propose-t-on ?
-                                    <br> Sous quelles conditions ?
-                                    <br> Qu’est-ce qui pourrait m’amener à revenir ?
-                                    <br> L’information est-elle à jour ?
-                                    <br> Puis-je contacter les propriétaires du site ?
-                                    <br> Suis-je arrivé à tout lire sans m’endormir ?
-                                    <br> </p>
-
-
-                                <h4> Contact </h4>
-                                <hr>
-                                <p> Natacha Clitandre : <a> + 1 514-555-5555</a>
-                                </p>
-                                <p> Courriel : <a> abcd@gmail.com </a> </p>
-                                <hr>
-                                <p> Agence TOPO : <a> + 1 514-555-5555</a>
-                                </p>
-                                <p> Courriel : <a> abcd@gmail.com </a> </p>
-
-                            </div><div>
-                        </ul>
-
-
-                        <!--USERNAME  could be used for linking to the Fulcrum Admin Page
-
-    <div class="navbar-header navbar-right">
-      <p class="navbar-text">
-      <a href="#" class="navbar-link">Username</a>
-      </p>
-    </div>
-
-    -->
-
-
-    </nav>
-
-
-    <div id="myModal" class="modal">
+      <div id="myModal" class="modal">
         <div id="modalContent" class="container-fluid">
             <div class="row modalContainer">
                 <span class="close">&times;</span>
@@ -204,7 +187,7 @@
 
                 <div class=''>
 
-                    <div id="caption" class="col-sm-5 col-md-6 col-lg-5 col-xl-5"></div>
+                    <div id="caption" class="col-sm-5 col-md-6 col-lg-5 col-xl-5 center-block"></div>
 
                 </div>
 
