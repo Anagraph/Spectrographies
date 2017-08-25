@@ -1,27 +1,14 @@
 $(function() {
 
-var mapZentoken = L.Mapzen.apiKey = 'mapzen-3CAQoBZ';
 
-
-var map = L.Mapzen.map('map', {
-  center: [45.5237019,-73.6197287],
-  zoom: 14,
-  minZoom:10,
-  maxZoom: 18,
-  tangramOptions: {
-    scene: {
-      import: [
-        'https://mapzen.com/carto/refill-style/8/refill-style.zip',
-        'https://mapzen.com/carto/refill-style/8/themes/color-pink.zip'
-      ] } }
-});
-
-//var map = L.map('map', {
- //         zoomControl: true})
+var map = L.map('map', {
+        center: [45.5237019,-73.6197287],
+        zoom: 15,
+        zoomControl: true})
 
 
 
-var mapBoxWhite = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj66rikp37hgc2rltvyo7eepa/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg')
+var mapBoxPink = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj6s1my854xxn2rmzez9mel7z/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg').addTo(map);
 var mapBoxCyber = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj6guz4ve3stv2rp4y9ftqbti/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg')
 var mapBoxDark =  L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj66v7isf7jji2soaolfu28sy/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg')
 var stamenToner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}', {
