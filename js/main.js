@@ -182,8 +182,8 @@ $.when(
           +'<div class="panel-body">'
           +'<h3 style="display:inline">'
           +feature.properties.genre + ' ' + feature.properties.genre_other
-          +' & '
-          +feature.properties.type + ' ' + feature.properties.type_other
+        //  +' & '
+        //  +feature.properties.type + ' ' + feature.properties.type_other
           +'</h3>'
 
           +'<div class=""><h4> Par : '
@@ -207,9 +207,13 @@ $.when(
                     +'<br>'
                     +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
                     + feature.properties.genre + ' ' + feature.properties.genre_other
-                    +'</h4><br><br><h3 style=&quot;display: inline !important;&quot;> Type : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                    + feature.properties.type + ' ' + feature.properties.type_other
-                    +'</h4><br><h3> Contexte : </h3><p>'
+                    +'</h4><br><br>'
+                    //+'<h3 style=&quot;display: inline !important;&quot;> Type : </h3>'
+                    //+'<h4 style=&quot;display: inline !important;&quot;>'
+                    //+ feature.properties.type + ' '
+                    //+feature.properties.type_other
+                    //+'</h4><br>'
+                    +'<h3> Contexte : </h3><p>'
                     +feature.properties.description
                     +'</p>'
                     +'<div class=&quot;panel panel-default &quot; >'
@@ -283,10 +287,10 @@ $.when(
  */
           var introMarker = L.geoJSON();
           var pseudoData = [];
-          var typeData = [];
+        //  var typeData = [];
           var genreData = [];
           var titreData = [];
-          var typeAutreData =[];
+          //var typeAutreData =[];
           var genreAutreData = [];
 
 
@@ -294,18 +298,18 @@ $.when(
       marker.eachLayer(function(layer) {
 
             pseudoData.push(layer.feature.properties.pseudo);
-            typeData.push(layer.feature.properties.type.split(','));
+          //  typeData.push(layer.feature.properties.type.split(','));
             genreData.push(layer.feature.properties.genre.split(',')) ;
             titreData.push(layer.feature.properties.titre);
-            typeAutreData.push(layer.feature.properties.type_other.split(','));
+          //  typeAutreData.push(layer.feature.properties.type_other.split(','));
             genreAutreData.push(layer.feature.properties.genre_other.split(','))
           });
 
 
           /******* Merging the Two Dimentional Arrays *******/
           var genreMerged = [].concat.apply([], genreData);
-          var typeMerged = [].concat.apply([], typeData);
-          var typeAD = [].concat.apply([], typeAutreData);
+        //  var typeMerged = [].concat.apply([], typeData);
+          //var typeAD = [].concat.apply([], typeAutreData);
           var genreAD = [].concat.apply([], genreAutreData);
 
           /*-----------------------------*/
@@ -321,7 +325,7 @@ $.when(
 
           /*-----------------------------*/
 
-          /******* function that delete empty values *******/
+          /******* function that delete empty values *****
           temp = [];
 
           for(let i of typeAD)
@@ -337,7 +341,7 @@ $.when(
 
           genreMerged.push.apply(genreMerged, genreAD);
            //console.log(genreMerged)
-          typeMerged.push.apply(typeMerged, typeAD);
+        //  typeMerged.push.apply(typeMerged, typeAD);
           //  console.log(typeMerged)
 
           /*-----------------------------*/
@@ -353,7 +357,7 @@ $.when(
 
           /*-----------------------------*/
 
-          /******* Function that delete empty values *******/
+          /******* Function that delete empty values ******
           temp = [];
 
           for(let i of typeMerged)
@@ -377,7 +381,7 @@ $.when(
 
 
 
-          var typeUnique = typeMerged.unique()
+        //  var typeUnique = typeMerged.unique()
           var genreUnique = genreMerged.unique()
 
         /******* Create a selectBox *******/
@@ -392,7 +396,7 @@ $.when(
 
           function tBox() {
             $('#typeBox').select2(
-             {data: typeUnique,
+             {data: genreUnique,
               allowClear:true,
               placeholder:'Explorer'
                })
@@ -471,10 +475,10 @@ filter: function(feature, layer) {
 
 if (feature.properties.status =="Published"){
   if (feature.properties.pseudo == value) {return feature.properties.pseudo = value}
-  else if (feature.properties.type.includes(value)) { return feature.properties.type = value}
+//  else if (feature.properties.type.includes(value)) { return feature.properties.type = value}
   else if (feature.properties.genre.includes(value))  { return feature.properties.genre = value }
   else if (feature.properties.titre == value) { return feature.properties.titre = value}
-  else if (feature.properties.type_other.includes(value))  { return feature.properties.type_other = value}
+  //else if (feature.properties.type_other.includes(value))  { return feature.properties.type_other = value}
   else if (feature.properties.genre_other.includes(value))  { return feature.properties.genre_other == value}
 }},
 
@@ -558,8 +562,8 @@ layer.bindPopup(
   +'<div class="panel-body">'
   +'<h3 style="display:inline">'
   +feature.properties.genre + feature.properties.genre_other
-  +' & '
-  +feature.properties.type + feature.properties.type_other
+  //+' & '
+//  +feature.properties.type + feature.properties.type_other
   +'</h3>'
 
   +'<div class=""><h4> Par : '
@@ -583,9 +587,12 @@ layer.bindPopup(
             +'<br>'
             +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
             +feature.properties.genre + feature.properties.genre_other
-            +'</h4><br><br><h3 style=&quot;display: inline !important;&quot;> Type : </h3><h4 style=&quot;display: inline !important;&quot;>'
-            +feature.properties.type + feature.properties.type_other
-            +'</h4><br><h3> Contexte : </h3><p>'
+            +'</h4><br><br>'
+            //+'<h3 style=&quot;display: inline !important;&quot;> Type : </h3>'
+            //+'<h4 style=&quot;display: inline !important;&quot;>'
+            //+feature.properties.type + feature.properties.type_other
+            //+'</h4>'
+            +'<br><h3> Contexte : </h3><p>'
             +feature.properties.description
             +'</p>'
             +'<div class=&quot;panel panel-default &quot; >'
