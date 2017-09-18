@@ -1,23 +1,27 @@
+$(document).click(function(e) {
+    if (!$(e.target).is('a')) {
+        $('.collapse').collapse('hide');
+    }
+});
 $(function() {
 
 
 var map = L.map('map', {
         center: [45.5237019,-73.6197287],
         zoom: 15,
-        zoomControl: true})
+        zoomControl: false})
 
+        L.control.zoom({
+             position:'topright'
+        }).addTo(map);
 
-
-var mapBoxPink = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj6s1my854xxn2rmzez9mel7z/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg').addTo(map);
-var mapBoxCyber = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj6guz4ve3stv2rp4y9ftqbti/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg')
-var mapBoxDark =  L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj66v7isf7jji2soaolfu28sy/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg')
 var stamenToner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}', {
   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   subdomains: 'abcd',
   minZoom: 0,
   maxZoom: 18,
   ext: 'png'
-});
+}).addTo(map);
 
  fbFunction = function fbshareCurrentPage()
         {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '   ',
@@ -28,23 +32,6 @@ var stamenToner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-ba
                 {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)   '+escape(window.location.href),'',
                 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
                 return false; }
-
-
-function toggleLayer() {
- var baseMaps = {
-
-         'MapBox Pink ': mapBoxPink,
-         'MapBox Dark  ': mapBoxDark,
-         'MapBox Cyber ': mapBoxCyber,
-         'Stamen Toner ': stamenToner
-
-
- };
-
- L.control.layers(null,baseMaps).addTo(map);
-}
-toggleLayer();
-
 
 var markerCluster = L.markerClusterGroup({
   spiderfyOnMaxZoom: true,
@@ -213,7 +200,7 @@ $.when(
                     //+ feature.properties.type + ' '
                     //+feature.properties.type_other
                     //+'</h4><br>'
-                    +'<h3> Contexte : </h3><p>'
+                    //+'<h3> Contexte : </h3><p>'
                     +feature.properties.description
                     +'</p>'
                     +'<div class=&quot;panel panel-default &quot; >'
@@ -390,7 +377,7 @@ $.when(
             $('#participantBox').select2(
              {data: pseudoData.unique(),
               allowClear:true,
-              placeholder:'Explorer'
+              placeholder:'...'
                     })
            } pBox();
 
@@ -398,7 +385,7 @@ $.when(
             $('#typeBox').select2(
              {data: genreUnique,
               allowClear:true,
-              placeholder:'Explorer'
+              placeholder:'...'
                })
            } tBox();
 
@@ -406,7 +393,7 @@ $.when(
             $('#genreBox').select2(
              {data: genreUnique,
               allowClear:true,
-              placeholder:'Explorer'
+              placeholder:'...'
 
                })
            }gBox();
@@ -416,7 +403,7 @@ $.when(
              {
                data: titreData.unique(),
                allowClear:true,
-               placeholder:'Explorer'
+               placeholder:'...'
                })
            }titBox();
 
@@ -592,7 +579,7 @@ layer.bindPopup(
             //+'<h4 style=&quot;display: inline !important;&quot;>'
             //+feature.properties.type + feature.properties.type_other
             //+'</h4>'
-            +'<br><h3> Contexte : </h3><p>'
+            //+'<br><h3> Contexte : </h3><p>'
             +feature.properties.description
             +'</p>'
             +'<div class=&quot;panel panel-default &quot; >'

@@ -6,6 +6,131 @@ html, body {
   background-color: white;
 }
 
+h1{
+  font-family: Cambria, Georgia, serif;
+	font-size: 52px! important;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-style: oblique;
+	font-variant:  normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+
+
+#apropos{
+margin-top: 50px;
+background:white !important;
+background-color: white !important;
+width: 100%;
+height: 100%;
+}
+
+#apropos a{
+color : #337ab7 !important;
+}
+
+#apropos h2 {
+  margin-left: 25px;
+}
+
+.lead{
+
+margin-left: 50px;
+margin-right: 50px;
+
+}
+.control-label{
+
+  font-family: Cambria, Georgia, serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+
+
+}
+
+
+.form-control{
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	font-size: 24px;
+  	font-style: normal;
+  	font-variant: normal;
+  	font-weight: 500;
+  	line-height: 26.4px;
+    width: 250px !important;
+
+}
+
+/***************** SELECT 2 OPTIONS ********************/
+
+
+}
+/* Input field */
+.select2 .select2-selection__rendered {  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+
+}
+
+
+
+/* Higlighted (hover) result */
+ .select2-results__option--highlighted {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+
+ }
+
+/* Selected option */
+.select2-results__option {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+
+}
+
+
+// These 2 are special they would require js if you dont want to change the style for each select 2
+/* Around the search field */
+.select2-search {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+  width: 100px;
+
+}
+
+
+/* Search field */
+.select2-search input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+
+ }
+
+ /**************** END SELECT 2 options *********************/
+
+
 #popUpPanel{
 
   background: linear-gradient(to bottom right, #3185ce, #70a8d8);
@@ -19,7 +144,7 @@ html, body {
 }
 
 .panel  a  {
-  color: white!important
+  color: white!important;
 }
 
 h2{
@@ -91,6 +216,7 @@ background-color: rgba(255, 255, 255,1);
    height:88% !important;
     }
 #navBarTop{
+
      height:7% !important;
 }
 
@@ -238,18 +364,27 @@ h3{
 #menu{
 
 position:fixed;
-margin-left: 2%;
-margin-top: 10%;
-max-height: 25%;
-
+margin-left: 6%;
+margin-top: 7%;
 z-index: 1;
 
 }
+
+
+
+#menuPanel{
+  background: rgba(255,255,0,0.7);
+  background-color: rgba(255,255,0,0.7);
+  border-radius: 0;
+  border-color: rgba(0,0,0,0);
+}
+
 
 #explorateur{
 
 margin-top: 15px !important;
 background: linear-gradient(to bottom right, #3185ce, #70a8d8);
+background-color: yellow;
 }
 
   /************ Menu ***********
@@ -483,24 +618,40 @@ margin-bottom: 50px;
 
 /***************** END OF THE MODAL ********************/
 
+.navbar-collapse.collapse{
+    transition: height 0.2s ;
+}
+.navbar-collapse.collapsing {
+    height: 0 !important;
+}
+.navbar-collapse.collapse.in{
+    max-height: none;
+    height: 100vh;
+}
 .navbar-header {
   float: none;
   background-color: white;
+
 }
 .navbar-toggle {
   display: inline-block;
 }
 .navbar-collapse.collapse {
   display: none!important;
+
+
 }
 .navbar-nav {
   float: none!important;
+
 }
 .navbar-nav>li {
   float: none;
+
 }
 .navbar-collapse.collapse.in{
   display:block !important;
+
 }
 
 
@@ -510,7 +661,7 @@ margin-bottom: 50px;
   display: block;
   width: 33px;
   height: 4px;
-  background-color: rgb(238,51,255);
-  border-radius: 1px;
+  background-color: rgb(0,0,0);
+  border-radius: 0px;;
   margin-top: 33%;
 }

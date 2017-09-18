@@ -1,0 +1,35 @@
+
+
+Fiche du récit  :
+
+Titre en Cambria plat noir
+Corps de texte en Helvetica
+Enlever le terme contexte dans la fiche du récit
+Rendre plus visible les flèches droite gauche du carousel
+Améliorer la visibiliter du X pour sortir de la fiche
+Sortir de la fiche en cliquant en dehors
+
+À propos :
+
+-Titre en Cambria italique gras  
+-Corps de texte en Helvetica
+-Sortir du menu Spectrographies en cliquant en dehors
+-Écrire la section à propos et y inclure des hyperliens pour les noms / adresses courriels
+-À propos sur fond blanc
+
+Explorateur de contenu :
+
+-Titre des selecteurs en Cambria plat noir les choix en helvetica
+-Suppression de type et genre dans l"explorateur de contenu"
+-Création de l'explorateur "Catégories"
+-Supprimer le terme explorateur de contenu
+-Rendre l"explorateur de contenu" jaune transparent 70% ffff00
+-Supprimer les filets dans l'explorateur de contenu
+
+Fond de carte :
+
+-Supprimer la selection des couches en haut à droite
+-Changer le fond de carte pour Stamen
+
+
+Clustering apres le reset

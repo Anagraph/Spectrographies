@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  <title>Spectrographie(s) v1</title>
+  <title>Spectrographies du territoire</title>
      <link rel="stylesheet" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
      <!-- Bootstrap CSS -->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
@@ -38,34 +38,78 @@
 
           <div id='title'>
               <h1>
-                    Spectrographie(s) du territoire
+                    Spectrographies du territoire
               </h1>
               <div>
                   <div class="collapse navbar-collapse ">
-                      <ul class="nav navbar-nav">
-                          <div class="well well-sm">
-                              <h4> À propos de Spectrographies</h4>
+
+                          <div class="container-fluid">
+                            <div id="apropos" class="">
+                              <p class="lead"><h2> À PROPOS </h2>
+                              </p>
+                              <br>
+
+                              <div class="row">
+                              <p class="lead text-justify">
+
+                              Produit à l’automne 2017 grâce au soutien de la Ville de Montréal dans le cadre du programme
+                              Initiatives collaboratives en créativité numérique, Spectrographies du territoire est le fruit
+                              d’une collaboration entre l’artiste <a target="_blank" href="http://natachaclitandre.net/">Natacha Clitandre</a> , <a target="_blank" href="http://www.agencetopo.qc.ca/">TOPO
+                              laboratoire d’écritures numériques</a> , <a  target="_blank" href="http://montreal.villeenmouvement.com/">MTL Ville en mouvement</a>
+                              et le <a target="_blank" href="http://www.lrsm.ca/"> Laboratoire sur les récits du soi mobile</a>.
+
+                              </p>
+                              </div>
+
+                              <br>
+
+                              <div  class="row">
+                              <p class="lead text-justify">
+                              Plutôt que de représenter Montréal par ses constructions d'envergure qui en font trop souvent
+                              une synthèse réductrice, l’artiste propose d’explorer de l’intérieur un secteur en pleine mutation,
+                              marqué en son centre par le chantier du Campus MIL de l’<a target="_blank" href="http://campusmil.umontreal.ca/">UdeM </a>.
+                              Lors de balades exploratoires, Natacha Clitandre convie les résidents et travailleurs d’Outremont, la Petite-Patrie, Parc-Extension et Ville Mont-Royal à
+                              aborder leur environnement dans la proximité afin de s’attarder aux détails urbanistiques que
+                              l’on y trouve et qui symbolisent leur relation au territoire. Croisant histoire locale et récits
+                              personnels, cet exercice permettra, au final, de capter l’esprit actuel des lieux.
+                              </p>
+                              </div>
+
+                              <br>
+
+                              <div  class="row">
+                              <p class="lead text-justify">
+                              Volet réalisé en octobre 2017 dans le cadre du festival new-yorkais <a target="_blank" href="http://www.artinoddplaces.org/"> Art in Odd Places </a>
+                            , Spectrographies est une sorte d’instantané de la 14e Rue,
+                              représentée à l’échelle d’objets et artefacts qui y ont été laissés nonchalamment. Cette itération
+                              américaine permettra de localiser différentes interprétations d’un même lot d’objets en fonction
+                              de ce que les passants sondés y projettent.
+                              </p>
+                              </div>
+                              <br>
+
+                              <div  class="row lead">
+                              <p class="text-justify">
+                              Développement technologique : <a target="_blank" href="http://anagraph.io/">Anagraph </a>
+                              </p>
+                              </div>
+
+                            <div class=" lead row">
                               <p>
-                                  Où suis-je ?
-                                  <br> Chez qui suis-je ?
-                                  <br> Que me propose-t-on ?
-                                  <br> Sous quelles conditions ?
-                                  <br> Qu’est-ce qui pourrait m’amener à revenir ?
-                                  <br> L’information est-elle à jour ?
-                                  <br> Puis-je contacter les propriétaires du site ?
-                                  <br> Suis-je arrivé à tout lire sans m’endormir ?
-                                  <br> </p>
-                              <h4> Contact </h4>
-                              <hr>
-                              <p> Natacha Clitandre : <a> + 1 514-555-5555</a>
+                              CONTACT
                               </p>
-                              <p> Courriel : <a> abcd@gmail.com </a> </p>
-                              <hr>
-                              <p> Agence TOPO : <a> + 1 514-555-5555</a>
+                              <p>
+                                <a href="mailto:spectro.territoire@gmail.com?Subject=Spectrographies%20du%20territoires" target="_blank">spectro.territoire@gmail.com</a>
                               </p>
-                              <p> Courriel : <a> abcd@gmail.com </a> </p>
-                          </div><div>
-                      </ul>
+                              <p>514-279-8676
+                              </p>
+                            </div>
+
+                            </div>
+                            </div>
+
+                          </div>
+
 
 
                       <!--USERNAME  could be used for linking to the Fulcrum Admin Page
@@ -90,15 +134,14 @@
       <!-- Left Menu -->
 
           <div id="menu" class="col-12">
-          <div class="panel panel-primary col-sm-10">
+          <div id="menuPanel" class="panel panel-primary col-sm-10">
         <!-- Header -->
-          <div id="explorateur" class="panel-heading"><h3>Explorateur de contenu</h3></div>
-            <!-- Select lists -->
-            <div class="panel-body">
-            <div class="row">
+          <!-- Select lists -->
+            <div id="menuBody" class="panel-body">
+            <div id ="menuRow" class="row">
 
 
-                      <div class="well well-sm">
+                      <div class="">
                           <div class="form-group">
                               <label for="single" class="control-label">Participant</label>
                               <select id="participantBox" class="form-control">
@@ -109,7 +152,7 @@
 
 
 
-                      <div class="well well-sm">
+                      <div class="">
                           <div class="form-group">
                               <label for="single" class="control-label">Titre</label>
                               <select id="titreBox" class="form-control">
@@ -119,19 +162,10 @@
                       </div>
 
 
-                      <div class="well well-sm">
+                      <div class="">
                           <div class="form-group">
-                              <label for="single" class="control-label">Type</label>
+                              <label for="single" class="control-label">Catégorie</label>
                               <select id="typeBox" class="form-control">
-                               <option></option>
-                              </select>
-                          </div>
-                      </div>
-
-                      <div class="well well-sm">
-                          <div class="form-group">
-                              <label for="single" class="control-label">Genre</label>
-                              <select id="genreBox" class="form-control">
                                <option></option>
                               </select>
                           </div>
@@ -179,17 +213,13 @@
         </div>
     </div>
 
-<script type="text/javascript">
-
-    var nua = navigator.userAgent;
-    var is_android = ((nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
-    if(is_android) {
-        $('select.form-control').removeClass('form-control').css('width', '100%');
-
-    }
+    <script type="text/javascript">
 
 
-</script>
+
+
+
+    </script>
 
 </head>
 
