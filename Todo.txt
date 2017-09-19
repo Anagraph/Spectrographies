@@ -25,7 +25,7 @@ Explorateur de contenu :
 -Supprimer le terme explorateur de contenu
 -Rendre l"explorateur de contenu" jaune transparent 70% ffff00
 -Supprimer les filets dans l'explorateur de contenu
-Clustering apres le reset
+-Clustering apres le reset
 
 Fond de carte :
 

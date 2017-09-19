@@ -77,15 +77,17 @@ $.when(
             //** create a custom marker **//
           pointToLayer: function(feature, latlng) {
 
-             var customMarker = new L.ExtraMarkers.icon(
-             {
-                  icon: 'glyphicon-eye-open',
-                  markerColor: 'cyan',
-                  shape: 'penta',
-                  prefix: 'glyphicon'
-                });
+            setColor = {
+             radius:8,
+             fillColor: 'purple',
+             color: '#ffffff',
+             weight: 1,
+             opacity: 1,
+             fillOpacity: 0.5
 
-                return L.marker(latlng, {icon:customMarker})
+            };
+
+                return L.circleMarker(latlng,setColor)//, {icon:customMarker})
               },
 
 
@@ -448,18 +450,23 @@ var menu = document.getElementById('menu');
 filteredMarker = new L.geoJSON(markers,
 {
 
-pointToLayer: function(feature, latlng) {
 
-     var customMarker = new L.ExtraMarkers.icon(
-     {
-          icon: 'glyphicon-eye-open',
-          markerColor: 'yellow',
-          shape: 'penta',
-          prefix: 'glyphicon'
-        });
 
-        return L.marker(latlng, {icon:customMarker})
+  pointToLayer: function(feature, latlng) {
+
+    setColor = {
+     radius:8,
+     fillColor: 'orange',
+     color: '#ffffff',
+     weight: 1,
+     opacity: 1,
+     fillOpacity: 0.5
+
+    };
+
+        return L.circleMarker(latlng,setColor)//, {icon:customMarker})
       },
+
 
 
 
