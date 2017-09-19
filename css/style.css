@@ -53,7 +53,9 @@ margin-right: 150px;
 
 }
 
-
+a #menuChevron {
+  color: black;
+}
 
 
 #collapsedMenu{
@@ -627,6 +629,7 @@ z-index: 1000;
 .glyphicon.glyphicon-plus{
 float:center;
 font-size: 20px;
+color: black;
 
 }
 
