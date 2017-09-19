@@ -1,13 +1,15 @@
 $(document).click(function(e) {
     if (!$(e.target).is('a')) {
-        $('.collapse').collapse('hide');
+        $('.navbar-collapse').collapse('hide');
     }
 });
+
 $(function() {
 
 
+
 var map = L.map('map', {
-        center: [45.5237019,-73.6197287],
+        center: [45.5298026,-73.6183529],
         zoom: 15,
         zoomControl: false})
 
@@ -109,12 +111,12 @@ $.when(
               var modal = document.getElementById('myModal');
               var captionText = document.getElementById("caption");
               var carouselDiv = document.getElementById("carousel-inner");
-
+              var menu = document.getElementById('menu');
 
 
         //** Create the modal on the click function **//
           img.onclick = function(){
-
+        //    menu.style.visibility = 'hidden';
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
@@ -126,6 +128,7 @@ $.when(
 
             h2.onclick = function(){
             map.closePopup();
+          //  menu.style.visibility = 'hidden';
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
 
@@ -136,18 +139,19 @@ $.when(
 
               };
 
-                /* Auto close on click is too strict
+                /* Auto close on click is too strict-*/
 
-                              $('#modalContent').on('click' , function() {
-                                modal.style.display = "none";
-                              });
+                /*$('#myModal').on('click' , function() {
+                        modal.style.display = "none";
+                      });*/
 
-                */
             var span = document.getElementsByClassName("close")[0];
               span.onclick = function() {
                   modal.style.display = "none";
+                  menu.style.visibility = 'visible';
               }
         });
+
 
 
         /// Bind all the data to the pop ///
@@ -192,7 +196,7 @@ $.when(
                     +feature.properties.titre
                     +'</h2></div>'
                     +'<br>'
-                    +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
+                    +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Catégorie(s) : </h3><h4 style=&quot;display: inline !important;&quot;>'
                     + feature.properties.genre + ' ' + feature.properties.genre_other
                     +'</h4><br><br>'
                     //+'<h3 style=&quot;display: inline !important;&quot;> Type : </h3>'
@@ -438,7 +442,8 @@ $.when(
      })(theGeoJSON);
 
 markers = theGeoJSON.features;
-
+var menu = document.getElementById('menu');
+  menu.style.visibility = 'visible';
 /////  L.Geojson //////
 filteredMarker = new L.geoJSON(markers,
 {
@@ -482,10 +487,11 @@ map.on('popupopen', function (e) {
       var modal = document.getElementById('myModal');
       var captionText = document.getElementById("caption");
       var carouselDiv = document.getElementById("carousel-inner");
+      var menu = document.getElementById('menu');
 
   //** Create the modal on the click function **//
           img.onclick = function(){
-
+        //    menu.style.visibility = 'hidden';
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
@@ -496,6 +502,7 @@ map.on('popupopen', function (e) {
           };
 
           h2.onclick = function(){
+          //  menu.style.visibility = 'hidden';
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
@@ -511,6 +518,7 @@ map.on('popupopen', function (e) {
       var span = document.getElementsByClassName("close")[0];
       span.onclick = function() {
       modal.style.display = "none";
+      menu.style.visibility = 'visisble';
       };
 
 
@@ -572,7 +580,7 @@ layer.bindPopup(
             +feature.properties.titre
             +'</h2></div>'
             +'<br>'
-            +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Genre : </h3><h4 style=&quot;display: inline !important;&quot;>'
+            +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Catégorie(s) : </h3><h4 style=&quot;display: inline !important;&quot;>'
             +feature.properties.genre + feature.properties.genre_other
             +'</h4><br><br>'
             //+'<h3 style=&quot;display: inline !important;&quot;> Type : </h3>'
@@ -688,18 +696,22 @@ $(document).click(function(e) {
 
     map.removeLayer(marker);
     getFilterGeoJSON(value);
-    map.removeLayer(filteredMarker)
+
 
     })
 
     .on("select2:unselect", function(e) {
 
      $('#participantBox').select2("close");
-     map.removeLayer(filteredMarker);
+     filteredMarker.clearLayers();
+     markerCluster.clearLayers();
      map.removeLayer(marker);
-     map.addLayer(marker);
+     map.removeLayer(filteredMarker)
+     markerCluster.addLayer(marker);
+     map.addLayer(markerCluster)
+     map.fitBounds(markerCluster.getBounds())
     // map.setView([45.5237019,-73.6197287], 15)
-    map.flyTo([45.5237019,-73.6197287], 15)
+    //map.flyTo([45.5237019,-73.6197287], 15)
     });
 /*-----------------------------*/
 
@@ -716,17 +728,24 @@ $(document).click(function(e) {
 
 
      value = $(e.currentTarget).val();
-      map.removeLayer(marker);
-      getFilterGeoJSON(value);
-      map.removeLayer(filteredMarker)
-
-    })
-
-    .on("select2:unselect", function(e) {
-     map.removeLayer(filteredMarker);
      map.removeLayer(marker);
-     map.addLayer(marker);
-     map.flyTo([45.5237019,-73.6197287], 15)
+     getFilterGeoJSON(value);
+
+
+     })
+
+     .on("select2:unselect", function(e) {
+
+      $('#participantBox').select2("close");
+      filteredMarker.clearLayers();
+      markerCluster.clearLayers();
+      map.removeLayer(marker);
+      map.removeLayer(filteredMarker)
+      markerCluster.addLayer(marker);
+      map.addLayer(markerCluster)
+      map.fitBounds(markerCluster.getBounds())
+     // map.setView([45.5237019,-73.6197287], 15)
+    // map.flyTo([45.5237019,-73.6197287], 15)
 
     });
 /*-----------------------------*/
@@ -744,15 +763,22 @@ $(document).click(function(e) {
 
     map.removeLayer(marker);
     getFilterGeoJSON(value);
-    map.removeLayer(filteredMarker)
+
+
     })
 
-     .on("select2:unselect", function(e) {
+    .on("select2:unselect", function(e) {
 
-     map.removeLayer(filteredMarker);
+     $('#participantBox').select2("close");
+     filteredMarker.clearLayers();
+     markerCluster.clearLayers();
      map.removeLayer(marker);
-     map.addLayer(marker);
-     map.flyTo([45.5237019,-73.6197287], 15)
+     map.removeLayer(filteredMarker)
+     markerCluster.addLayer(marker);
+     map.addLayer(markerCluster)
+     map.fitBounds(markerCluster.getBounds())
+    // map.setView([45.5237019,-73.6197287], 15)
+    //map.flyTo([45.5237019,-73.6197287], 15)
 
     });
 
@@ -771,15 +797,22 @@ $(document).click(function(e) {
 
     map.removeLayer(marker);
     getFilterGeoJSON(value);
-    map.removeLayer(filteredMarker)
+
+
     })
 
     .on("select2:unselect", function(e) {
 
-     map.removeLayer(filteredMarker);
+     $('#participantBox').select2("close");
+     filteredMarker.clearLayers();
+     markerCluster.clearLayers();
      map.removeLayer(marker);
-     map.addLayer(marker);
-     map.flyTo([45.5237019,-73.6197287], 15)
+     map.removeLayer(filteredMarker)
+     markerCluster.addLayer(marker);
+     map.addLayer(markerCluster)
+     map.fitBounds(markerCluster.getBounds())
+    // map.setView([45.5237019,-73.6197287], 15)
+    //map.flyTo([45.5237019,-73.6197287], 15)
     });
 
 

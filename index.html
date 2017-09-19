@@ -41,9 +41,8 @@
                     Spectrographies du territoire
               </h1>
               <div>
-                  <div class="collapse navbar-collapse ">
-
-                          <div class="container-fluid">
+                  <div id="aproposMenu" class="collapse navbar-collapse">
+                          <div id="aproposMain" class="container-fluid">
                             <div id="apropos" class="">
                               <p class="lead"><h2> À PROPOS </h2>
                               </p>
@@ -133,18 +132,21 @@
 
       <!-- Left Menu -->
 
-          <div id="menu" class="col-12">
+          <div id="menu" class="col-12 ">
           <div id="menuPanel" class="panel panel-primary col-sm-10">
+
         <!-- Header -->
           <!-- Select lists -->
             <div id="menuBody" class="panel-body">
             <div id ="menuRow" class="row">
-
-
-                      <div class="">
-                          <div class="form-group">
+              <div>
+              <i id="menuChevron" class="glyphicon glyphicon-plus" data-toggle="collapse" href="#collapsedMenu"></i>
+            </div>
+              <div id="collapsedMenu" class="collapse">
+                        <div class="">
+                          <div class="form-group select2">
                               <label for="single" class="control-label">Participant</label>
-                              <select id="participantBox" class="form-control">
+                              <select id="participantBox" class="select2">
                                <option></option>
                               </select>
                           </div>
@@ -155,7 +157,7 @@
                       <div class="">
                           <div class="form-group">
                               <label for="single" class="control-label">Titre</label>
-                              <select id="titreBox" class="form-control">
+                              <select id="titreBox" class="select2">
                                <option></option>
                               </select>
                           </div>
@@ -165,7 +167,7 @@
                       <div class="">
                           <div class="form-group">
                               <label for="single" class="control-label">Catégorie</label>
-                              <select id="typeBox" class="form-control">
+                              <select id="genreBox" class="select2">
                                <option></option>
                               </select>
                           </div>
@@ -173,14 +175,13 @@
 
                   </div>
                   </div>
-                    </div>
+                    </div></div>
                     </div></div>
 
-      <div id="myModal" class="modal">
+      <div id="myModal" class="modal" tabindex="-1" role="dialog">
+          <span class="close">&times;</span>
         <div id="modalContent" class="container-fluid">
             <div class="row modalContainer">
-                <span class="close">&times;</span>
-
 
                 <div id="imgContainer" class=" col-sm-7 col-md-6 col-lg-7 col-xl-7">
                      <!--<img class="img-responsive" id="img01">-->
@@ -212,14 +213,6 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-
-
-
-
-
-    </script>
 
 </head>
 

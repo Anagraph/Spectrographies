@@ -2,12 +2,12 @@
 
 Fiche du récit  :
 
-Titre en Cambria plat noir
-Corps de texte en Helvetica
-Enlever le terme contexte dans la fiche du récit
-Rendre plus visible les flèches droite gauche du carousel
-Améliorer la visibiliter du X pour sortir de la fiche
-Sortir de la fiche en cliquant en dehors
+-Titre en Cambria plat noir
+-Corps de texte en Helvetica
+-Enlever le terme contexte dans la fiche du récit
+-Rendre plus visible les flèches droite gauche du carousel
+-Améliorer la visibiliter du X pour sortir de la fiche
+-Sortir de la fiche en cliquant en dehors
 
 À propos :
 
@@ -25,6 +25,7 @@ Explorateur de contenu :
 -Supprimer le terme explorateur de contenu
 -Rendre l"explorateur de contenu" jaune transparent 70% ffff00
 -Supprimer les filets dans l'explorateur de contenu
+Clustering apres le reset
 
 Fond de carte :
 
@@ -32,4 +33,4 @@ Fond de carte :
 -Changer le fond de carte pour Stamen
 
 
-Clustering apres le reset
+
