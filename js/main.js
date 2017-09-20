@@ -17,23 +17,7 @@ var map = L.map('map', {
              position:'topright'
         }).addTo(map);
 
-var stamenToner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}', {
-  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  subdomains: 'abcd',
-  minZoom: 0,
-  maxZoom: 18,
-  ext: 'png'
-}).addTo(map);
-
- fbFunction = function fbshareCurrentPage()
-        {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '   ',
-        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-        return false; }
-
- tweetFunction =    function tweetCurrentPage()
-                {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)   '+escape(window.location.href),'',
-                'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-                return false; }
+var mapBoxBW = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj6s1my854xxn2rmzez9mel7z/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg').addTo(map);
 
 var markerCluster = L.markerClusterGroup({
   spiderfyOnMaxZoom: true,
