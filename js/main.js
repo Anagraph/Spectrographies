@@ -19,7 +19,19 @@ var map = L.map('map', {
 
 var mapBoxBW = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj6s1my854xxn2rmzez9mel7z/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg').addTo(map);
 
+var markerCluster = L.markerClusterGroup({
 
+       iconCreateFunction: function (cluster) {
+        var markerCluster = cluster.getAllChildMarkers();
+        var html = '<div class="circle">' + markerCluster.length + '</div>';
+        return L.divIcon({ html: html, className: 'mycluster', iconSize: L.point(25, 25) });
+    },
+    spiderfyOnMaxZoom: true,
+    showCoverageOnHover: true,
+    zoomToBoundsOnClick: true,
+    removeOutsideVisibleBounds: true,
+    maxClusterRadius: 6
+ });
 
 var group = L.layerGroup();
 var marker = L.geoJSON();
@@ -394,26 +406,14 @@ $.when(
                })
            }titBox();
 
-           var markers = L.markerClusterGroup({
 
-                  iconCreateFunction: function (cluster) {
-                   var markers = cluster.getAllChildMarkers();
-                   var html = '<div class="circle">' + markers.length + '</div>';
-                   return L.divIcon({ html: html, className: 'mycluster', iconSize: L.point(25, 25) });
-               },
-               spiderfyOnMaxZoom: true,
-               showCoverageOnHover: true,
-               zoomToBoundsOnClick: true,
-               removeOutsideVisibleBounds: true,
-               maxClusterRadius: 6
-            });
 
 
 
         //return _filteredMarker.addTo(map)
-        markers.addLayer(marker);
+        markerCluster.addLayer(marker);
         //group.addLayer(marker);
-        map.addLayer(markers);
+        map.addLayer(markerCluster);
         //map.fitBounds(markerCluster.getBounds())
 
        })
