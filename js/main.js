@@ -19,14 +19,7 @@ var map = L.map('map', {
 
 var mapBoxBW = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj6s1my854xxn2rmzez9mel7z/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg').addTo(map);
 
-var markerCluster = L.markerClusterGroup({
-  spiderfyOnMaxZoom: true,
-  showCoverageOnHover: false,
-  zoomToBoundsOnClick: true,
-  removeOutsideVisibleBounds: true,
-  maxClusterRadius: 50
 
-});
 
 var group = L.layerGroup();
 var marker = L.geoJSON();
@@ -145,10 +138,10 @@ $.when(
 
 
 
-        '<div id=&quot;popUpOpen" class="">'
+        '<div id=&quot;popUpOpen">'
 
 
-        +'<div class="panel panel-default"><div id="popUpPanel" class="panel-heading "> '
+        +'<div class="panel panel-popup"><div id="popUpPanel" class="panel-heading"> '
         +'<a href="#" id="titrePopUp">'
         +'<h2>'
 
@@ -163,7 +156,7 @@ $.when(
         //  +feature.properties.type + ' ' + feature.properties.type_other
           +'</h3>'
 
-          +'<div class=""><h4> Par : '
+          +'<div class=""><h4> par : '
           +feature.properties.pseudo
           +'</h4></div></div>'
 
@@ -174,7 +167,7 @@ $.when(
 
 
             // Image section
-            +'<div id="popUpImg" class="media"><img class=" img-thumbnail img-responsive d-flex center-block" id="myImg"'
+            +'<div id="popUpImg" class="media"><img class=" img-responsive d-flex center-block" id="myImg"'
             // Alt section with all the data for the modal popup
                     +' alt="'
                     +'<div class=&quot;panel &quot; id=&quot;panelRecit&quot;><div class=&quot;panel-heading text-justify&quot;'
@@ -192,7 +185,7 @@ $.when(
                     +'<div class=&quot;panel &quot; style=&quot;background-color:rgba(255,255,255,0)!important;&quot; >'
                     +'<div class=&quot;panel-heading col-sm-12 &quot;>'
 
-                    +'<div class= &quot;col align-content-center&quot;>'
+                    +'<div class= &quot;col&quot;>'
                         +'<img  id=&quot;selfie&quot; class=&quot;  img-responsive  d-flex  &quot; src=&quot;'
                           +feature.properties.autoportrait_url.replace('view?photos=','')
                           +'&quot;</img>'
@@ -250,7 +243,7 @@ $.when(
          +'fbFunction()'
          +'"><i class="fa fa-facebook"></i></a>'
          +'<a class="btn btn-social-icon btn-twitter"  href="javascript:tweetFunction()" target="_blank"><i class="fa fa-twitter"></i></a>'
-         +'<a class="btn btn-social-icon" href="mailto:?subject=Spectrographie(s)&amp;body=Visitez&nbsp;notre&nbsp;page&nbsp;internet&nbsp;Spetrographies&nbsp;-&nbsp;Visit&nbsp;our&nbsp;webpage&nbsp;Spectrographies&nbsp;%0D%0A %0D%0A http://vt.anagraph.io/static/Spectrographies" target="_blank""><i class="fa fa-envelope-o"></i></a>'
+         +'<a class="btn btn-social-icon" href="mailto:spectro.terrritoire@gmail.com?subject=Spectrographies&amp;body=Visitez&nbsp;notre&nbsp;page&nbsp;internet&nbsp;Spetrographies&nbsp;-&nbsp;Visit&nbsp;our&nbsp;webpage&nbsp;Spectrographies&nbsp;%0D%0A %0D%0A http://spectrographies.org" target="_blank""><i class="fa fa-envelope-o"></i></a>'
                             +'</div></div></div></div></div>'
 
       ),{autoPan:true}
@@ -401,10 +394,26 @@ $.when(
                })
            }titBox();
 
+           var markers = L.markerClusterGroup({
+
+                  iconCreateFunction: function (cluster) {
+                   var markers = cluster.getAllChildMarkers();
+                   var html = '<div class="circle">' + markers.length + '</div>';
+                   return L.divIcon({ html: html, className: 'mycluster', iconSize: L.point(25, 25) });
+               },
+               spiderfyOnMaxZoom: true,
+               showCoverageOnHover: true,
+               zoomToBoundsOnClick: true,
+               removeOutsideVisibleBounds: true,
+               maxClusterRadius: 6
+            });
+
+
+
         //return _filteredMarker.addTo(map)
-        markerCluster.addLayer(marker);
-        group.addLayer(marker);
-        map.addLayer(markerCluster);
+        markers.addLayer(marker);
+        //group.addLayer(marker);
+        map.addLayer(markers);
         //map.fitBounds(markerCluster.getBounds())
 
        })
@@ -542,10 +551,10 @@ var tweetFunction =    function tweetCurrentPage()
 
 
 
-                '<div id=&quot;popUpOpen" class="">'
+                '<div id=&quot;popUpOpen">'
 
 
-                +'<div class="panel panel-default"><div id="popUpPanel" class="panel-heading "> '
+                +'<div class="panel panel-popup"><div id="popUpPanel" class="panel-heading"> '
                 +'<a href="#" id="titrePopUp">'
                 +'<h2>'
 
@@ -560,7 +569,7 @@ var tweetFunction =    function tweetCurrentPage()
                 //  +feature.properties.type + ' ' + feature.properties.type_other
                   +'</h3>'
 
-                  +'<div class=""><h4> Par : '
+                  +'<div class=""><h4> par : '
                   +feature.properties.pseudo
                   +'</h4></div></div>'
 
@@ -571,7 +580,7 @@ var tweetFunction =    function tweetCurrentPage()
 
 
                     // Image section
-                    +'<div id="popUpImg" class="media"><img class=" img-thumbnail img-responsive d-flex center-block" id="myImg"'
+                    +'<div id="popUpImg" class="media"><img class=" img-responsive d-flex center-block" id="myImg"'
                     // Alt section with all the data for the modal popup
                             +' alt="'
                             +'<div class=&quot;panel &quot; id=&quot;panelRecit&quot;><div class=&quot;panel-heading text-justify&quot;'
@@ -589,7 +598,7 @@ var tweetFunction =    function tweetCurrentPage()
                             +'<div class=&quot;panel &quot; style=&quot;background-color:rgba(255,255,255,0)!important;&quot; >'
                             +'<div class=&quot;panel-heading col-sm-12 &quot;>'
 
-                            +'<div class= &quot;col align-content-center&quot;>'
+                            +'<div class= &quot;col &quot;>'
                                 +'<img  id=&quot;selfie&quot; class=&quot;  img-responsive  d-flex  &quot; src=&quot;'
                                   +feature.properties.autoportrait_url.replace('view?photos=','')
                                   +'&quot;</img>'
@@ -647,7 +656,7 @@ var tweetFunction =    function tweetCurrentPage()
                  +'fbFunction()'
                  +'"><i class="fa fa-facebook"></i></a>'
                  +'<a class="btn btn-social-icon btn-twitter"  href="javascript:tweetFunction()" target="_blank"><i class="fa fa-twitter"></i></a>'
-                 +'<a class="btn btn-social-icon" href="mailto:?subject=Spectrographie(s)&amp;body=Visitez&nbsp;notre&nbsp;page&nbsp;internet&nbsp;Spetrographies&nbsp;-&nbsp;Visit&nbsp;our&nbsp;webpage&nbsp;Spectrographies&nbsp;%0D%0A %0D%0A http://vt.anagraph.io/static/Spectrographies" target="_blank""><i class="fa fa-envelope-o"></i></a>'
+                 +'<a class="btn btn-social-icon" href="mailto:spectro.terrritoire@gmail.com?subject=Spectrographies&amp;body=Visitez&nbsp;notre&nbsp;page&nbsp;internet&nbsp;Spetrographies&nbsp;-&nbsp;Visit&nbsp;our&nbsp;webpage&nbsp;Spectrographies&nbsp;%0D%0A %0D%0A http://spectrographies.org" target="_blank""><i class="fa fa-envelope-o"></i></a>'
                                     +'</div></div></div></div></div>'
 
               ),{autoPan:true}
