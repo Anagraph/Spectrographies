@@ -177,53 +177,59 @@ $.when(
             +'<div id="popUpImg" class="media"><img class=" img-thumbnail img-responsive d-flex center-block" id="myImg"'
             // Alt section with all the data for the modal popup
                     +' alt="'
-                    +'<div class=&quot;panel panel-default&quot;><div class=&quot;panel-heading&quot;>'
+                    +'<div class=&quot;panel &quot; id=&quot;panelRecit&quot;><div class=&quot;panel-heading text-justify&quot;'
                     +'<h2>'
                     +feature.properties.titre
                     +'</h2></div>'
-                    +'<br>'
-                    +'<div class=&quot;panel-body&quot; ><h3 style=&quot;display: inline !important;&quot;> Catégorie(s) : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                    + feature.properties.genre + ' ' + feature.properties.genre_other
-                    +'</h4><br><br>'
-                    //+'<h3 style=&quot;display: inline !important;&quot;> Type : </h3>'
-                    //+'<h4 style=&quot;display: inline !important;&quot;>'
-                    //+ feature.properties.type + ' '
-                    //+feature.properties.type_other
-                    //+'</h4><br>'
-                    //+'<h3> Contexte : </h3><p>'
+                    +'<div class=&quot;panel-body text-justify &quot;>'
                     +feature.properties.description
-                    +'</p>'
-                    +'<div class=&quot;panel panel-default &quot; >'
-                    +'<div class=&quot;panel-heading col-sm-12 &quot;>'
-                    +'<h3 style=&quot;display: inline !important;&quot;> Auteur : </h3><h4 style=&quot;display: inline !important;&quot;>'
-                    +feature.properties.pseudo
-                     // Autoportrait //
-                    +'</h4></div>'
-                    +'<div class=&quot;panel-body&quot;>'
-                      +'<div class=&quot; row &quot;>'
+                    +'<br><br><h3 style=&quot;display: inline !important; font-weight: bold; &quot;> Catégorie(s) : </h3><p style=&quot;display: inline !important;&quot;>'
+                    + feature.properties.genre + ' ' + feature.properties.genre_other
+                    +'</p><br><br>'
 
-                      +'<div class=&quot; col-sm-6 &quot;>'
-                          +'<h3> Relation au lieu </h3><p>'
+                        // Autoportrait //
+
+                    +'<div class=&quot;panel &quot; style=&quot;background-color:rgba(255,255,255,0)!important;&quot; >'
+                    +'<div class=&quot;panel-heading col-sm-12 &quot;>'
+
+                    +'<div class= &quot;col align-content-center&quot;>'
+                        +'<img  id=&quot;selfie&quot; class=&quot;  img-responsive  d-flex center-block &quot; src=&quot;'
+                          +feature.properties.autoportrait_url.replace('view?photos=','')
+                          +'&quot;</img>'
+                        +'</div></div>'
+
+                          // Autoportrait -- Auteur()//
+
+                        +'<div class=&quot;panel-body&quot;>'
+                          +'<div class=&quot; row text-justify &quot;>'
+                        +'<h3  style=&quot;display: inline !important font-weight: bold; ;&quot;> Auteur(e)(s) : </h3><p style=&quot;display: inline !important;&quot;>'
+                    +feature.properties.pseudo
+
+                        // Autoportrait -- Relation au lieu()//
+
+                      +'</p><div class=&quot; col &quot;>'
+                          +'<h3 style=&quot;display: inline !important font-weight: bold; ;&quot;>  Relation au lieu : </h3><p>'
                             +feature.properties.relation_au_lieu
                               +'</p></div>'
-
-                      +'<div  class= &quot;col-sm-6 align-content-center&quot;>'
-                          +'<h3></h3><img  id=&quot;selfie&quot; class=&quot;  img-thumbnail  d-flex center-block &quot; src=&quot;'
-                            +feature.properties.autoportrait_url.replace('view?photos=','')
-                            +'&quot;</img>'
-                          +'</div>'
-
                     +'</div></div>'
 
-                    // Audio //
+
+                        // Audio //
+
                     +'<div class=&quot;row &quot;>'
-                    +'<div class=&quot; hidden-xs col-sm-10 col-sm-push-1 well text-center&quot;>'
+
+                            // Audio visisble en mode tablette et desktop //
+
+                    +'<div class=&quot; hidden-sm col-sm-10 col-sm-push-1 text-center&quot;>'
                     //+'<audio controls controls controlsList=&quot;nodownload&quot;><source src=&quot;'
                     +'<audio controls  controls controlsList=&quot;nodownload&quot;><source src=&quot;'
                     +feature.properties.audio_url.replace('view?audio=','')
                     //+feature.properties.audio_url.replace('view?audio=','')
                     +'&quot;</audio></div>'
-                    +'<div class=&quot;visible-xs well col-xs-8 col-xs-push-2 align-content-center&quot;>'
+
+                            // Audio visible en mode cellulaire //
+
+                    +'<div class=&quot;visible-sm col-xs-8 col-xs-push-2 align-content-center&quot;>'
                     +'<audio id=&quot;audioXS&quot; controls><source src=&quot;'
                     +feature.properties.audio_url.replace('view?audio=','')
 
@@ -239,7 +245,6 @@ $.when(
 
         // Socials //
          +'<div class="row"><div id="socials" class="col-sm-12 center-block text-center">'
-
          +'<a class="btn btn-social-icon btn-facebook" href="'
          +'javascript:'
          +'fbFunction()'
