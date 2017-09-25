@@ -650,6 +650,11 @@ color:#428bca !important;
 
  }*/
 
+ .carousel-inner > .item > img {
+   max-width:auto;
+   max-height: 66%;
+ }
+
 #imgContainer{
 z-index: 1000;
 }
@@ -663,8 +668,8 @@ z-index: 1000;
 
 #myImg {
 
-    width: 66%;
-    height: auto;
+    max-width: 66%;
+    max-height: auto;
 
 }
 
