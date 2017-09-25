@@ -42,15 +42,17 @@ margin-left: 75px;
 margin-right: 150px;
 }
 
+
+
+/**************** Explorateur de contenu ******************/
+
 .control-label{
 
   font-family: Cambria, Georgia, serif;
 	font-size: 18px;
-	font-style: normal;
+	font-style: italic;
 	font-variant: normal;
 	font-weight: bold;
-
-
 }
 
 a #menuChevron {
@@ -59,10 +61,112 @@ a #menuChevron {
 
 
 #collapsedMenu{
-  z-index: 1000;
+z-index: 1000;
 margin-left: 20px;
 margin-right: -5px;
 }
+
+/***************** SELECT 2 OPTIONS ********************/
+
+.select2{
+  width: 225px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  background-color: rgba(255,255,255,0)!important;
+  border-radius: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+}
+
+
+/* Input field */
+.select2 .select2-selection__rendered {  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+  background-color: rgba(255,255,0,0.5)!important;
+  border-radius: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+}
+
+.select2-selection__rendered[title]{
+
+  border-radius: 0 !important;
+  border-width: 0 !important;
+}
+
+
+/* Higlighted (hover) result */
+ .select2-results__option--highlighted {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+  border-radius: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  background-color: rgba(255,0,255,0.5)!important;
+
+
+ }
+
+/* Selected option */
+.select2-results__option {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+  background-color: rgba(255,255,0,0.5)!important;
+  border-radius: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+
+}
+
+
+/* Around the search field */
+.select2-search {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+  width: 225px;
+  background-color: rgba(255,255,0,0.5)!important;
+  border-radius: 0 !important;
+  border-width: 0 !important;
+
+}
+
+
+/* Search field */
+.select2-search input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+  background-color: rgba(255,255,255,0)!important;
+  border-radius: 0 !important;
+  border-width: 0 !important;
+
+
+ }
+
+ /**************** END SELECT 2 options *********************/
+
 
 
 /******************** FICHE RÉCIT **********************/
@@ -105,90 +209,12 @@ background-color: rgba(255,255,255,0.85)
   font-style: normal;
   font-variant: normal;
   line-height: 26.4px;
-
+  display: inline;
+  font-weight: bold;
 }
 
 
-/***************** SELECT 2 OPTIONS ********************/
 
-.select2{
-  width: 225px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  line-height: 26.4px;
-}
-
-/* Input field */
-.select2 .select2-selection__rendered {  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26.4px;
-  background-color: rgba(255,255,0,0.0);
-}
-
-.select2-selection__rendered[title]{
-  background-color: none;
-}
-
-
-/* Higlighted (hover) result */
- .select2-results__option--highlighted {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26.4px;
-
-
-
- }
-
-/* Selected option */
-.select2-results__option {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26.4px;
-
-
-}
-
-
-/* Around the search field */
-.select2-search {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26.4px;
-  width: 225px;
-
-
-}
-
-
-/* Search field */
-.select2-search input {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26.4px;
-
-
-
- }
-
- /**************** END SELECT 2 options *********************/
 
 
 #popUpPanel{
@@ -552,32 +578,6 @@ background: linear-gradient(to bottom right, #3185ce, #70a8d8);
 background-color: yellow;
 }
 
-  /************ Menu ***********
-
-  .navbar-fixed-left {
-    width: 15%;
-    position: absolute;
-    border-radius: 0;
-    height: 92%;
-    bottom:0;
-    left:0;
-  }
-
-  .navbar-fixed-left .navbar-nav > li {
-    float: none;
-    width: 139px;
-  }
-
-  .navbar-fixed-left + .container {
-    padding-left: 160px;
-  }
-
-
-  .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
-    margin-top: -50px;
-    margin-left: 140px;
-  }
-*/
 
 
 #togglebtn{
@@ -650,7 +650,7 @@ color:#428bca !important;
 
  }*/
 
- .carousel-inner > .item > img {
+.carousel-inner > .item > img {
    max-width:auto;
    max-height: 66%;
  }
@@ -852,8 +852,6 @@ margin: -5px;
   display:block !important;
 
 }
-
-
 
 
 .navbar-toggle .icon-bar {

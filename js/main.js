@@ -207,8 +207,8 @@ $.when(
 
                         // Autoportrait -- Relation au lieu()//
 
-                      +'</p><div class=&quot; col &quot;>'
-                          +'<h3 style=&quot;display: inline !important font-weight: bold; ;&quot;>  Relation au lieu : </h3><p>'
+                      +'</p><div class=&quot; text-justify &quot;>'
+                          +'<h3 style=&quot;display: inline !important font-weight: bold; ;&quot;>  Relation au lieu : </h3><p style=&quot;display: inline !important;&quot;>'
                             +feature.properties.relation_au_lieu
                               +'</p></div>'
                     +'</div></div>'
@@ -535,6 +535,8 @@ var tweetFunction =    function tweetCurrentPage()
                 {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)'+escape(window.location.href),'',
                 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
                 return false; }
+
+
                 /// Bind all the data to the pop ///
                 layer.bindPopup(
 
@@ -602,8 +604,8 @@ var tweetFunction =    function tweetCurrentPage()
 
                                 // Autoportrait -- Relation au lieu()//
 
-                              +'</p><div class=&quot; col &quot;>'
-                                  +'<h3 style=&quot;display: inline !important font-weight: bold; ;&quot;>  Relation au lieu : </h3><p>'
+                              +'</p><div class=&quot; text-justify &quot;>'
+                                  +'<h3 style=&quot;display: inline !important font-weight: bold; ;&quot;>  Relation au lieu : </h3><p style=&quot;display: inline !important;&quot;>'
                                     +feature.properties.relation_au_lieu
                                       +'</p></div>'
                             +'</div></div>'
@@ -652,6 +654,7 @@ var tweetFunction =    function tweetCurrentPage()
                    }
                  });
                 ////////***** End of marker *****////////
+
 
     markerCluster.clearLayers();
     map.removeLayer(markerCluster);
