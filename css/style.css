@@ -400,30 +400,45 @@ background-color: rgba(255,255,255,0.85)
 }
 
 
+
 #popUpPanel{
 
   font-family: Cambria, Georgia, serif;
-	font-size: 52px! important;
-  color: black;
+	font-size: 9px;
 	font-style: oblique;
-	font-variant:  normal;
-	font-weight: 500;
-	line-height: 26.4px;
-  background: transparent;
+	font-variant: normal;
+	font-weight: bold;
+  margin-bottom: -25px !important;
   /*background: linear-gradient(to bottom right, #3185ce, #70a8d8);*/
 
 }
 
 #selectPopUpPanel{
   font-family: Cambria, Georgia, serif;
-	font-size: 52px! important;
-  color: black;
+	font-size: 9px;
 	font-style: oblique;
-	font-variant:  normal;
-	font-weight: 500;
-	line-height: 26.4px;
-  background: transparent;
-/*  background: linear-gradient(to bottom right, #ffae00,#ffcb5e);*/
+	font-variant: normal;
+	font-weight: bold;
+  margin-bottom: -25px !important;
+  /*background: linear-gradient(to bottom right, #3185ce, #70a8d8);*/
+
+}
+
+
+.panel-body h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-size: 14px;
+	font-style: Bold;
+	font-variant: normal;
+  margin-top: 0 !important ;
+}
+
+.panel-body h4 {
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+ font-size: 14px;
+ font-style: Bold;
+ font-variant: normal;
+margin-top: 0 !important ;
 }
 
 #popUpOpen .panel{
@@ -452,7 +467,7 @@ a{
 		}
 
 
-.panel-heading h2{
+.control-label h2{
 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 24px;
@@ -462,6 +477,8 @@ a{
 	line-height: 26.4px;
 
 }
+
+
 
 .panel-heading h3{
 
@@ -1015,11 +1032,27 @@ margin: -5px;
 
 .glyphicon.glyphicon-chevron-right {
     font-size: 50px;
-    color :white !important;
+    color : rgba(255,255,0,1) !important ;
 }
 .glyphicon.glyphicon-chevron-left {
     font-size: 50px;
-    color :white !important;
+    color :rgba(255,255,0,1) !important ;
+}
+
+.carousel-control {
+  color: rgba(255,255,255,0.0);
+  background: rgba(255,255,255,0.0);
+  background-color: rgba(255,255,255,0.0);
+}
+
+.carousel-control .active {
+  color: rgba(255,255,255,0.0);
+  background: rgba(255,255,255,0.0);
+  background-color: rgba(255,255,255,0.0);
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
 }
 /***************** END OF THE MODAL ********************/
 
