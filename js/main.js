@@ -33,6 +33,16 @@ var markerCluster = L.markerClusterGroup({
     maxClusterRadius: 6
  });
 
+ fbFunction = function fbshareCurrentPage()
+        {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '',
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+        return false; }
+
+ tweetFunction =    function tweetCurrentPage()
+                {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographies du territoire'+escape(window.location.href),'',
+                'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                return false; }
+
 var group = L.layerGroup();
 var marker = L.geoJSON();
 
@@ -245,8 +255,11 @@ $.when(
 
     };
 
-
-
+descr = feature.properties.description
+    function escapeHtml(descr) {
+    return descr
+         .replace(/"/g, "&quot;")
+ }
 
 
         /// Bind all the data to the pop ///
@@ -664,15 +677,7 @@ map.on('popupopen', function (e) {
 ///////// START Bind tout le data dans le pop up /////////
 
 
-var fbFunction = function fbshareCurrentPage()
-        {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '',
-        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-        return false; }
 
-var tweetFunction =    function tweetCurrentPage()
-                {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)'+escape(window.location.href),'',
-                'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-                return false; }
 
 
                 function colorPopup(categories){
@@ -708,7 +713,15 @@ var tweetFunction =    function tweetCurrentPage()
                 };
 
 
+                var fbFunction = function fbshareCurrentPage()
+                        {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '',
+                        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                        return false; }
 
+                var tweetFunction =    function tweetCurrentPage()
+                                {window.open("https://twitter.com/intent/tweet?title="+document.title+'&text= Spectrographie(s)'+escape(window.location.href),'',
+                                'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                                return false; }
                     /// Bind all the data to the pop ///
                     layer.bindPopup(
 
@@ -746,7 +759,7 @@ var tweetFunction =    function tweetCurrentPage()
                             +feature.properties.titre
                             +'</h2></div>'
                             +'<div class=&quot;panel-body text-justify &quot;>'
-                            +feature.properties.description
+                            +feature.properties.description.replace('\\"', '/x22' )
                             +'<br><br><h3 style=&quot;display: inline !important; font-weight: bold; &quot;> Catégorie(s) : </h3><p style=&quot;display: inline !important;&quot;>'
                             + feature.properties.genre + ' ' + feature.properties.genre_other
                             +'</p><br><br>'
