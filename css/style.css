@@ -345,9 +345,51 @@ background-color: rgba(255,255,255,0.85)
   font-weight: bold;
 }
 
+
+/************* POP UP PANEL COLOR DEPENDING ON THE CATEGORY ****************/
 .panel-popup{
-  background-color: transparent !important;
+  background-color: blue !important;
 }
+
+.panel-Anecdote
+{
+  background-color: red !important;
+}
+.panel-Comment
+{
+  background-color: green !important;
+}
+.panel-Memory
+{
+  background-color: yellow !important;
+}
+.panel-Narrative
+{
+  background-color: rgba(255,255,0,0.5) !important;
+}
+.panel-Historical
+{
+  background-color: rgba(255,255,0,0.5) !important;
+}
+.panel-Creation
+{
+  background-color: rgba(255,255,0,0.5) !important;
+}
+.panel-Observation
+{
+  background-color: rgba(255,255,0,0.5) !important;
+}
+.panel-Creation
+{
+  background-color: rgba(255,255,0,0.5) !important;
+}
+.panel-Reflection
+{
+  background-color: rgba(255,255,0,0.5) !important;
+}
+
+
+/******************************************************************************/
 
 #popUpOpen .panel{
   background-color: grey;

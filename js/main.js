@@ -54,6 +54,9 @@ $.when(
                 }
              })(theGeoJSON);
 
+             geojsonMarkerOptions = {
+
+             };
 
 
 
@@ -66,18 +69,89 @@ $.when(
             //** create a custom marker **//
           pointToLayer: function(feature, latlng) {
 
-            setColor = {
-             radius:8,
-             fillColor: 'purple',
-             color: '#ffffff',
-             weight: 1,
-             opacity: 1,
-             fillOpacity: 0.5
-
-            };
-
-                return L.circleMarker(latlng,setColor)//, {icon:customMarker})
-              },
+            switch (feature.properties.genre) {
+                  case "Anecdote / Anecdote":
+                  return L.circleMarker(latlng, {
+                  color: "#ffff00",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  case "Commentaire / Comment":
+                  return L.circleMarker(latlng, {
+                  color: "#ff6600",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  case "Souvenir / Memory":
+                  return L.circleMarker(latlng, {
+                  color: "#ff0000",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  case "Récit / Narrative":
+                  return L.circleMarker(latlng, {
+                  color: "#ff00ff",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  case "Référence historique / Historical reference":
+                  return L.circleMarker(latlng, {
+                  color: "cc00ff",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  case "Création / Creation":
+                  return L.circleMarker(latlng, {
+                  color: "#0000ff",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  case "Observation / Observation":
+                  return L.circleMarker(latlng, {
+                  color: "#000099",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  case "Réflexion / Reflection":
+                  return L.circleMarker(latlng, {
+                  color: "#000000",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  case "Observation / Observation":
+                  return L.circleMarker(latlng, {
+                  color: "#000099",
+                  radius:8,
+                  weight: 1,
+                  opacity: 1,
+                  fillOpacity: 0.5
+                  });
+                  default:
+                  return L.circleMarker(latlng, {
+                      color: 'grey',
+                      radius:8,
+                      weight: 1,
+                      opacity: 1,
+                      fillOpacity: 0.5
+                  });
+                }
+             },
 
 
               filter: function(feature, layer) {
@@ -103,6 +177,7 @@ $.when(
               var captionText = document.getElementById("caption");
               var carouselDiv = document.getElementById("carousel-inner");
               var menu = document.getElementById('menu');
+
 
 
         //** Create the modal on the click function **//
@@ -141,19 +216,60 @@ $.when(
                   modal.style.display = "none";
                   menu.style.visibility = 'visible';
               }
-        });
 
 
+              });
 
-        /// Bind all the data to the pop ///
+              
+              var catAsText = '';
+              var currentDiv = '';
+
+
+              /// Bind all the data to the pop ///
+              function testq(q){
+
+                  if (feature.properties.genre == q) {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Anecdote&quot;>';
+                  }
+                  else if (feature.properties.genre == q) {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Comment&quot;>';
+                  }
+                  else if (feature.properties.genre == q) {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Memory&quot;>';
+                  }
+                    else if (feature.properties.genre == q) {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Narrative&quot;>';
+                  }
+                    else if (feature.properties.genre == 'Référence historique / Historical reference') {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Historical&quot;>';
+                  }
+                    else if (feature.properties.genre == 'Création / Creation') {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Creation&quot;>';
+                  }
+                    else if (feature.properties.genre == 'Observation / Observation') {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Observation&quot;>';
+                  }
+                    else if (feature.properties.genre == 'Création / Réflexion / Reflection') {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Reflection&quot;>';
+                  }
+
+                  else  {
+                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-popup&quot;>';
+                  }
+
+                    catAsText = catAsText + currentDiv
+
+
+                  return catAsText;
+                };
+
         layer.bindPopup(
 
 
+          testq(feature.properties.genre)
 
-        '<div id=&quot;popUpOpen">'
-
-
-        +'<div class="panel panel-popup"><div id="popUpPanel" class="panel-heading"> '
+      /*  +'<div class="panel panel-popup">'*/
+        +'<div id="popUpPanel" class="panel-heading"> '
         +'<a href="#" id="titrePopUp">'
         +'<h2>'
 
@@ -289,6 +405,7 @@ $.when(
             titreData.push(layer.feature.properties.titre);
           //  typeAutreData.push(layer.feature.properties.type_other.split(','));
             genreAutreData.push(layer.feature.properties.genre_other.split(','))
+
           });
 
 
@@ -451,18 +568,89 @@ filteredMarker = new L.geoJSON(markers,
 
   pointToLayer: function(feature, latlng) {
 
-    setColor = {
-     radius:8,
-     fillColor: 'orange',
-     color: '#ffffff',
-     weight: 1,
-     opacity: 1,
-     fillOpacity: 0.5
-
-    };
-
-        return L.circleMarker(latlng,setColor)//, {icon:customMarker})
-      },
+    switch (feature.properties.genre) {
+          case "Anecdote / Anecdote":
+          return L.circleMarker(latlng, {
+          color: "#ffff00",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          case "Commentaire / Comment":
+          return L.circleMarker(latlng, {
+          color: "#ff6600",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          case "Souvenir / Memory":
+          return L.circleMarker(latlng, {
+          color: "#ff0000",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          case "Récit / Narrative":
+          return L.circleMarker(latlng, {
+          color: "#ff00ff",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          case "Référence historique / Historical reference":
+          return L.circleMarker(latlng, {
+          color: "cc00ff",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          case "Création / Creation":
+          return L.circleMarker(latlng, {
+          color: "#0000ff",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          case "Observation / Observation":
+          return L.circleMarker(latlng, {
+          color: "#000099",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          case "Réflexion / Reflection":
+          return L.circleMarker(latlng, {
+          color: "#000000",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          case "Observation / Observation":
+          return L.circleMarker(latlng, {
+          color: "#000099",
+          radius:8,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          });
+          default:
+          return L.circleMarker(latlng, {
+              color: 'grey',
+              radius:8,
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.5
+          });
+        }
+     },
 
 
 
@@ -492,6 +680,7 @@ map.on('popupopen', function (e) {
       var captionText = document.getElementById("caption");
       var carouselDiv = document.getElementById("carousel-inner");
       var menu = document.getElementById('menu');
+      var categories = feature.properties.genres;
 
   //** Create the modal on the click function **//
           img.onclick = function(){
@@ -552,6 +741,7 @@ var tweetFunction =    function tweetCurrentPage()
 
 
                 '<div id=&quot;popUpOpen">'
+
 
 
                 +'<div class="panel panel-popup"><div id="popUpPanel" class="panel-heading"> '
