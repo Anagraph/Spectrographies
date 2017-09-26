@@ -174,7 +174,7 @@ $.when(
                catAsText =''
 
 
-                console.log(test())
+
         //** Create the modal on the click function **//
           img.onclick = function(){
         //    menu.style.visibility = 'hidden';
@@ -213,7 +213,7 @@ $.when(
               }
     });
 
-    function test(categories){
+    function colorPopup(categories){
         if (categories === "Anecdote / Anecdote") {
           return currentDiv = '<div id="popUpOpen"><div class="panel panel-Anecdote">';
         }
@@ -250,7 +250,7 @@ $.when(
         /// Bind all the data to the pop ///
         layer.bindPopup(
 
-          test(feature.properties.genre)
+          colorPopup(feature.properties.genre)
 
       /*  +'<div class="panel panel-popup">'*/
         +'<div id="popUpPanel" class="panel-heading"> '
@@ -651,6 +651,8 @@ if (feature.properties.status =="Published"){
 
   onEachFeature: function(feature, layer) {
 
+    var categories ;
+    var catAsText ;
 
 
 var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/";
@@ -718,18 +720,49 @@ var tweetFunction =    function tweetCurrentPage()
                 return false; }
 
 
-                /// Bind all the data to the pop ///
-                layer.bindPopup(
+                function colorPopup(categories){
+                    if (categories === "Anecdote / Anecdote") {
+                      return currentDiv = '<div id="popUpOpen"><div class="panel panel-Anecdote">';
+                    }
+                    else if (categories === 'Commentaire / Comment') {
+                        return currentDiv = '<div id="popUpOpen"><div class="panel panel-Comment">';
+                    }
+                    else if (categories === 'Souvenir / Memory') {
+                      return currentDiv = '<div id="popUpOpen"><div class="panel panel-Memory">';
+                    }
+                       else if (categories === 'Récit / Narrative') {
+                      return currentDiv = '<div id="popUpOpen"><div class="panel panel-Narrative">';
+                    }
+                       else if (categories === 'Référence historique / Historical reference') {
+                      return currentDiv = '<div id="popUpOpen"><div class="panel panel-Historical">';
+                    }
+                       else if (categories === 'Création / Creation') {
+                      return currentDiv = '<div id="popUpOpen"><div class="panel panel-Creation">';
+                    }
+                       else if (categories === 'Observation / Observation') {
+                      return currentDiv = '<div id="popUpOpen"><div class="panel panel-Observation">';
+                    }
+                       else if (categories === 'Réflexion / Reflection') {
+                      return currentDiv = '<div id="popUpOpen"><div class="panel panel-Reflection">';
+                    }
+
+                    else  {
+                      return currentDiv = '<div id="popUpOpen"><div class="panel panel-popup">';
+                    }
+
+                };
 
 
 
-                '<div id=&quot;popUpOpen">'
+                    /// Bind all the data to the pop ///
+                    layer.bindPopup(
 
+                      colorPopup(feature.properties.genre)
 
-
-                +'<div class="panel panel-popup"><div id="popUpPanel" class="panel-heading"> '
-                +'<a href="#" id="titrePopUp">'
-                +'<h2>'
+                  /*  +'<div class="panel panel-popup">'*/
+                    +'<div id="popUpPanel" class="panel-heading"> '
+                    +'<a href="#" id="titrePopUp">'
+                    +'<h2>'
 
                 // Pop Up Content
 

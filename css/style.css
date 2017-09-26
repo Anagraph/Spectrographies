@@ -852,10 +852,6 @@ color:black !important;
 
 
 
-.carousel-inner > .item > img {
-   max-width:auto;
-   max-height: 66%;
- }
 
 #imgContainer{
 z-index: 1000;
@@ -1003,16 +999,18 @@ margin-bottom: 50px;
 /* CAROUSEL CONTROLS */
 
 .carousel-control{
-
+color: white !important;
 margin: -5px;
 
 }
 
 .glyphicon.glyphicon-chevron-right {
     font-size: 50px;
+    color :white !important;
 }
 .glyphicon.glyphicon-chevron-left {
     font-size: 50px;
+    color :white !important;
 }
 /***************** END OF THE MODAL ********************/
 
