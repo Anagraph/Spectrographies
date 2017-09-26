@@ -851,7 +851,13 @@ color:black !important;
 
 
 
+    .carousel img {
+      width: auto;
+      height: 600px !important;
+      display: block;
+      margin: 0 auto;
 
+    }
 
 #imgContainer{
 z-index: 1000;
