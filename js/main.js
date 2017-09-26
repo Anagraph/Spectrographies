@@ -247,6 +247,8 @@ $.when(
 
 
 
+
+
         /// Bind all the data to the pop ///
         layer.bindPopup(
 
@@ -325,9 +327,9 @@ $.when(
 
                             // Audio visisble en mode tablette et desktop //
 
-                    +'<div class=&quot; hidden-sm col-sm-10 &quot;>'
+                    +'<div class=&quot;audio-player hidden-sm col-sm-10 &quot;>'
                     //+'<audio controls controls controlsList=&quot;nodownload&quot;><source src=&quot;'
-                    +'<audio controls  controls controlsList=&quot;nodownload&quot;><source src=&quot;'
+                    +'<audio id=&quot;audio-player&quot; controls  controls controlsList=&quot;nodownload&quot;><source src=&quot;'
                     +feature.properties.audio_url.replace('view?audio=','')
                     //+feature.properties.audio_url.replace('view?audio=','')
                     +'&quot;</audio></div>'
@@ -409,26 +411,10 @@ $.when(
           genreAD = temp;
           delete temp;
 
-          /*-----------------------------*/
-
-          /******* function that delete empty values *****
-          temp = [];
-
-          for(let i of typeAD)
-              i && temp.push(i); // copy each non-empty value to the 'temp' array
-
-          typeAD = temp;
-          delete temp;
-
-          /*-----------------------------*/
-
 
           /******* Function that merge others *******/
 
           genreMerged.push.apply(genreMerged, genreAD);
-           //console.log(genreMerged)
-        //  typeMerged.push.apply(typeMerged, typeAD);
-          //  console.log(typeMerged)
 
           /*-----------------------------*/
 
@@ -441,20 +427,6 @@ $.when(
           genreMerged = temp;
           delete temp;
 
-          /*-----------------------------*/
-
-          /******* Function that delete empty values ******
-          temp = [];
-
-          for(let i of typeMerged)
-              i && temp.push(i); // copy each non-empty value to the 'temp' array
-
-          typeMerged = temp;
-          delete temp;
-
-          /*-----------------------------*/
-
-
 
           /******* Function that create unique values within the given array *******/
           Array.prototype.unique = function() {
@@ -464,8 +436,6 @@ $.when(
           };
 
           /*-----------------------------*/
-
-
 
         //  var typeUnique = typeMerged.unique()
           var genreUnique = genreMerged.unique()
@@ -508,13 +478,8 @@ $.when(
 
 
 
-
-
-        //return _filteredMarker.addTo(map)
         markerCluster.addLayer(marker);
-        //group.addLayer(marker);
         map.addLayer(markerCluster);
-        //map.fitBounds(markerCluster.getBounds())
 
        })
   }
@@ -554,7 +519,7 @@ filteredMarker = new L.geoJSON(markers,
     switch (feature.properties.genre) {
           case "Anecdote / Anecdote":
           return L.circleMarker(latlng, {
-          color: "#ffff00",
+          color: 'rgb(255,255,0)' ,
           radius:8,
           weight: 1,
           opacity: 1,
@@ -562,7 +527,7 @@ filteredMarker = new L.geoJSON(markers,
           });
           case "Commentaire / Comment":
           return L.circleMarker(latlng, {
-          color: "#ff6600",
+          color: "rgb(255,102,0)",
           radius:8,
           weight: 1,
           opacity: 1,
@@ -570,7 +535,7 @@ filteredMarker = new L.geoJSON(markers,
           });
           case "Souvenir / Memory":
           return L.circleMarker(latlng, {
-          color: "#ff0000",
+          color: "rgb(255,0,0)",
           radius:8,
           weight: 1,
           opacity: 1,
@@ -578,7 +543,7 @@ filteredMarker = new L.geoJSON(markers,
           });
           case "Récit / Narrative":
           return L.circleMarker(latlng, {
-          color: "#ff00ff",
+          color: "rgb(255,0,255)",
           radius:8,
           weight: 1,
           opacity: 1,
@@ -586,7 +551,7 @@ filteredMarker = new L.geoJSON(markers,
           });
           case "Référence historique / Historical reference":
           return L.circleMarker(latlng, {
-          color: "cc00ff",
+          color: " rgb(204,0,255)",
           radius:8,
           weight: 1,
           opacity: 1,
@@ -594,7 +559,7 @@ filteredMarker = new L.geoJSON(markers,
           });
           case "Création / Creation":
           return L.circleMarker(latlng, {
-          color: "#0000ff",
+          color: "rgb(0,0,255)",
           radius:8,
           weight: 1,
           opacity: 1,
@@ -602,7 +567,7 @@ filteredMarker = new L.geoJSON(markers,
           });
           case "Observation / Observation":
           return L.circleMarker(latlng, {
-          color: "#000099",
+          color: "rgb(0,0,153) ",
           radius:8,
           weight: 1,
           opacity: 1,
@@ -610,15 +575,7 @@ filteredMarker = new L.geoJSON(markers,
           });
           case "Réflexion / Reflection":
           return L.circleMarker(latlng, {
-          color: "#000000",
-          radius:8,
-          weight: 1,
-          opacity: 1,
-          fillOpacity: 0.5
-          });
-          case "Observation / Observation":
-          return L.circleMarker(latlng, {
-          color: "#000099",
+          color: "rgb(0,0,0)",
           radius:8,
           weight: 1,
           opacity: 1,
@@ -626,7 +583,7 @@ filteredMarker = new L.geoJSON(markers,
           });
           default:
           return L.circleMarker(latlng, {
-              color: 'grey',
+              color: 'rgb(66, 244, 226)',
               radius:8,
               weight: 1,
               opacity: 1,
@@ -642,10 +599,8 @@ filter: function(feature, layer) {
 
 if (feature.properties.status =="Published"){
   if (feature.properties.pseudo == value) {return feature.properties.pseudo = value}
-//  else if (feature.properties.type.includes(value)) { return feature.properties.type = value}
   else if (feature.properties.genre.includes(value))  { return feature.properties.genre = value }
   else if (feature.properties.titre == value) { return feature.properties.titre = value}
-  //else if (feature.properties.type_other.includes(value))  { return feature.properties.type_other = value}
   else if (feature.properties.genre_other.includes(value))  { return feature.properties.genre_other == value}
 }},
 
@@ -780,9 +735,6 @@ var tweetFunction =    function tweetCurrentPage()
                   +'</h4></div></div>'
 
                  // Modal Section Content //
-
-
-
 
 
                     // Image section
