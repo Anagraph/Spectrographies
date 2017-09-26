@@ -72,7 +72,7 @@ $.when(
             switch (feature.properties.genre) {
                   case "Anecdote / Anecdote":
                   return L.circleMarker(latlng, {
-                  color: "#ffff00",
+                  color: 'rgb(255,255,0)' ,
                   radius:8,
                   weight: 1,
                   opacity: 1,
@@ -80,7 +80,7 @@ $.when(
                   });
                   case "Commentaire / Comment":
                   return L.circleMarker(latlng, {
-                  color: "#ff6600",
+                  color: "rgb(255,102,0)",
                   radius:8,
                   weight: 1,
                   opacity: 1,
@@ -88,7 +88,7 @@ $.when(
                   });
                   case "Souvenir / Memory":
                   return L.circleMarker(latlng, {
-                  color: "#ff0000",
+                  color: "rgb(255,0,0)",
                   radius:8,
                   weight: 1,
                   opacity: 1,
@@ -96,7 +96,7 @@ $.when(
                   });
                   case "Récit / Narrative":
                   return L.circleMarker(latlng, {
-                  color: "#ff00ff",
+                  color: "rgb(255,0,255)",
                   radius:8,
                   weight: 1,
                   opacity: 1,
@@ -104,7 +104,7 @@ $.when(
                   });
                   case "Référence historique / Historical reference":
                   return L.circleMarker(latlng, {
-                  color: "cc00ff",
+                  color: " rgb(204,0,255)",
                   radius:8,
                   weight: 1,
                   opacity: 1,
@@ -112,7 +112,7 @@ $.when(
                   });
                   case "Création / Creation":
                   return L.circleMarker(latlng, {
-                  color: "#0000ff",
+                  color: "rgb(0,0,255)",
                   radius:8,
                   weight: 1,
                   opacity: 1,
@@ -120,7 +120,7 @@ $.when(
                   });
                   case "Observation / Observation":
                   return L.circleMarker(latlng, {
-                  color: "#000099",
+                  color: "rgb(0,0,153) ",
                   radius:8,
                   weight: 1,
                   opacity: 1,
@@ -128,15 +128,7 @@ $.when(
                   });
                   case "Réflexion / Reflection":
                   return L.circleMarker(latlng, {
-                  color: "#000000",
-                  radius:8,
-                  weight: 1,
-                  opacity: 1,
-                  fillOpacity: 0.5
-                  });
-                  case "Observation / Observation":
-                  return L.circleMarker(latlng, {
-                  color: "#000099",
+                  color: "rgb(0,0,0)",
                   radius:8,
                   weight: 1,
                   opacity: 1,
@@ -144,7 +136,7 @@ $.when(
                   });
                   default:
                   return L.circleMarker(latlng, {
-                      color: 'grey',
+                      color: 'rgb(66, 244, 226)',
                       radius:8,
                       weight: 1,
                       opacity: 1,
@@ -163,7 +155,8 @@ $.when(
 
         //** create a custom marker **//
           onEachFeature: function(feature, layer) {
-
+            var categories ;
+            var catAsText ;
         map.on('popupopen', function (e) {
 
           /***** !! Auto Pan to the center of the popup ToolTip !! *****/
@@ -177,9 +170,11 @@ $.when(
               var captionText = document.getElementById("caption");
               var carouselDiv = document.getElementById("carousel-inner");
               var menu = document.getElementById('menu');
+               categories = e.popup._source.feature.properties.genre
+               catAsText =''
 
 
-
+                console.log(test())
         //** Create the modal on the click function **//
           img.onclick = function(){
         //    menu.style.visibility = 'hidden';
@@ -216,57 +211,46 @@ $.when(
                   modal.style.display = "none";
                   menu.style.visibility = 'visible';
               }
+    });
+
+    function test(categories){
+        if (categories === "Anecdote / Anecdote") {
+          return currentDiv = '<div id="popUpOpen"><div class="panel panel-Anecdote">';
+        }
+        else if (categories === 'Commentaire / Comment') {
+            return currentDiv = '<div id="popUpOpen"><div class="panel panel-Comment">';
+        }
+        else if (categories === 'Souvenir / Memory') {
+          return currentDiv = '<div id="popUpOpen"><div class="panel panel-Memory">';
+        }
+           else if (categories === 'Récit / Narrative') {
+          return currentDiv = '<div id="popUpOpen"><div class="panel panel-Narrative">';
+        }
+           else if (categories === 'Référence historique / Historical reference') {
+          return currentDiv = '<div id="popUpOpen"><div class="panel panel-Historical">';
+        }
+           else if (categories === 'Création / Creation') {
+          return currentDiv = '<div id="popUpOpen"><div class="panel panel-Creation">';
+        }
+           else if (categories === 'Observation / Observation') {
+          return currentDiv = '<div id="popUpOpen"><div class="panel panel-Observation">';
+        }
+           else if (categories === 'Réflexion / Reflection') {
+          return currentDiv = '<div id="popUpOpen"><div class="panel panel-Reflection">';
+        }
+
+        else  {
+          return currentDiv = '<div id="popUpOpen"><div class="panel panel-popup">';
+        }
+
+    };
 
 
-              });
 
-              
-              var catAsText = '';
-              var currentDiv = '';
-
-
-              /// Bind all the data to the pop ///
-              function testq(q){
-
-                  if (feature.properties.genre == q) {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Anecdote&quot;>';
-                  }
-                  else if (feature.properties.genre == q) {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Comment&quot;>';
-                  }
-                  else if (feature.properties.genre == q) {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Memory&quot;>';
-                  }
-                    else if (feature.properties.genre == q) {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Narrative&quot;>';
-                  }
-                    else if (feature.properties.genre == 'Référence historique / Historical reference') {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Historical&quot;>';
-                  }
-                    else if (feature.properties.genre == 'Création / Creation') {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Creation&quot;>';
-                  }
-                    else if (feature.properties.genre == 'Observation / Observation') {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Observation&quot;>';
-                  }
-                    else if (feature.properties.genre == 'Création / Réflexion / Reflection') {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-Reflection&quot;>';
-                  }
-
-                  else  {
-                    currentDiv = '<div id=&quot;popUpOpen&quot;><div class=&quot;panel panel-popup&quot;>';
-                  }
-
-                    catAsText = catAsText + currentDiv
-
-
-                  return catAsText;
-                };
-
+        /// Bind all the data to the pop ///
         layer.bindPopup(
 
-
-          testq(feature.properties.genre)
+          test(feature.properties.genre)
 
       /*  +'<div class="panel panel-popup">'*/
         +'<div id="popUpPanel" class="panel-heading"> '
@@ -405,7 +389,6 @@ $.when(
             titreData.push(layer.feature.properties.titre);
           //  typeAutreData.push(layer.feature.properties.type_other.split(','));
             genreAutreData.push(layer.feature.properties.genre_other.split(','))
-
           });
 
 

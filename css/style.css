@@ -348,44 +348,41 @@ background-color: rgba(255,255,255,0.85)
 
 /************* POP UP PANEL COLOR DEPENDING ON THE CATEGORY ****************/
 .panel-popup{
-  background-color: blue !important;
+  background-color: rgba(66, 244, 226,0.5) !important;
 }
 
 .panel-Anecdote
 {
-  background-color: red !important;
+  background-color: rgba(255,255,0,0.5) !important;
 }
 .panel-Comment
 {
-  background-color: green !important;
+  background-color: rgba(255,102,0,0.5) !important;
 }
 .panel-Memory
 {
-  background-color: yellow !important;
+  background-color: rgba(255,0,0,0.5) !important;
 }
 .panel-Narrative
 {
-  background-color: rgba(255,255,0,0.5) !important;
+  background-color: rgba(255,0,255,0.5) !important;
 }
 .panel-Historical
 {
-  background-color: rgba(255,255,0,0.5) !important;
+  background-color: rgba(204,0,255,0.5) !important;
 }
 .panel-Creation
 {
-  background-color: rgba(255,255,0,0.5) !important;
+  background-color: rgba(0,0,255,0.5) !important;
 }
 .panel-Observation
 {
-  background-color: rgba(255,255,0,0.5) !important;
+  background-color: rgba(0,0,153,0.5) !important;
 }
-.panel-Creation
-{
-  background-color: rgba(255,255,0,0.5) !important;
-}
+
 .panel-Reflection
 {
-  background-color: rgba(255,255,0,0.5) !important;
+  background-color: rgba(0,0,0,0.5) !important;
 }
 
 
@@ -445,13 +442,13 @@ a{
       text-align: center;
     	font-size: 16px! important;
       border-radius: 50%;
-      background-color: rgba(49,49,49,0.5);
+
       color: white;
       text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
       border-radius: 50%;
-      background-color: rgba(30,30,30,0.3);
+      background-color: rgba(15, 15, 15,0.5);
       border: 2px solid rgba(225,225,225,0.3);
-      box-shadow: 0 0 0 2px rgba(49,49,49,0.3);
+      box-shadow: 0 0 0 2px rgba(15, 15, 15,0.5);
 		}
 
 
