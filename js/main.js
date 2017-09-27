@@ -202,8 +202,8 @@ $.when(
 
         //** Create the modal on the click function **//
           img.onclick = function(){
-        //    menu.style.visibility = 'hidden';
-            map.closePopup();
+            menu.style.visibility = 'hidden';
+            // map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
 
@@ -213,8 +213,8 @@ $.when(
           };
 
             h2.onclick = function(){
-            map.closePopup();
-          //  menu.style.visibility = 'hidden';
+            // map.closePopup();
+            menu.style.visibility = 'hidden';
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
 
@@ -653,8 +653,8 @@ map.on('popupopen', function (e) {
 
   //** Create the modal on the click function **//
           img.onclick = function(){
-        //    menu.style.visibility = 'hidden';
-            map.closePopup();
+            menu.style.visibility = 'hidden';
+          //  map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
 
@@ -664,8 +664,8 @@ map.on('popupopen', function (e) {
           };
 
           h2.onclick = function(){
-          //  menu.style.visibility = 'hidden';
-            map.closePopup();
+            menu.style.visibility = 'hidden';
+            // map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
 

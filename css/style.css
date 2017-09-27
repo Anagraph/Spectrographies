@@ -334,7 +334,8 @@ border: 0px solid rgba(0,0,0,0);
 #panelRecit {
 border-radius: 0;
 border-width: 0;
-background-color: rgba(255,255,255,0.85)
+background-color: rgba(255,255,255,0.85);
+margin-right : 50px !important;
 
 }
 
