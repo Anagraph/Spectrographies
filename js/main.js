@@ -169,6 +169,19 @@ $.when(
             var catAsText ;
         map.on('popupopen', function (e) {
 
+      /*    function test() {
+
+            if (layer._popup.isClosed()){
+            return false
+
+            }
+            else if (layer._popup.isOpen()){
+            map.closePopup();
+
+            }
+
+          }test();*/
+
           /***** !! Auto Pan to the center of the popup ToolTip !! *****/
           var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
           px.y -= e.popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
@@ -210,7 +223,7 @@ $.when(
 
               };
 
-              map.onclick(map.closePopup());
+
                 /* Auto close on click is too strict-*/
 
                 /*$('#myModal').on('click' , function() {
@@ -838,11 +851,11 @@ map.on('popupopen', function (e) {
                 ////////***** End of marker *****////////
 
 
-    markerCluster.clearLayers();
+  //  markerCluster.clearLayers();
     map.removeLayer(markerCluster);
     map.removeLayer(filteredMarker);
     markerCluster.addLayer(filteredMarker);
-    group.addLayer(filteredMarker);
+  //  group.addLayer(filteredMarker);
     map.addLayer(filteredMarker) ;
     map.flyToBounds(filteredMarker)
 
@@ -871,6 +884,8 @@ $(document).click(function(e) {
 
 
 /********  PARTICIPANT ********/
+var filteredMarker ;
+
     $("#participantBox")
     .on("select2:select", function(e) {
 
@@ -879,26 +894,38 @@ $(document).click(function(e) {
     $('#typeBox').val('').trigger("change");
 
     value = $(e.currentTarget).val();
+    function testLayer (){
+      if (map.hasLayer(filteredMarker)){
+        return map.removeLayer(filteredMarker)
+      }
 
+      else {
+      return true
+      }
+    ;}
+    testLayer()
     map.removeLayer(marker);
-    getFilterGeoJSON(value);
-
-
+    getFilterGeoJSON(value)
     })
 
     .on("select2:unselect", function(e) {
 
      $('#participantBox').select2("close");
-     filteredMarker.clearLayers();
-     markerCluster.clearLayers();
-     map.removeLayer(marker);
+     function testLayer (){
+       if (map.hasLayer(filteredMarker)){
+         return map.removeLayer(filteredMarker)
+       }
+
+       else {
+       return true
+       }
+     ;}
+     testLayer()
      map.removeLayer(filteredMarker)
-     markerCluster.addLayer(marker);
-     map.addLayer(markerCluster)
-     map.fitBounds(markerCluster.getBounds())
-    // map.setView([45.5237019,-73.6197287], 15)
-    //map.flyTo([45.5237019,-73.6197287], 15)
-    });
+     map.addLayer(marker)
+     map.flyToBounds(marker)
+      })
+
 /*-----------------------------*/
 
 /********  TYPE ********/
@@ -914,26 +941,37 @@ $(document).click(function(e) {
 
 
      value = $(e.currentTarget).val();
+     function testLayer (){
+       if (map.hasLayer(filteredMarker)){
+         return map.removeLayer(filteredMarker)
+       }
+
+       else {
+       return true
+       }
+     ;}
+     testLayer()
      map.removeLayer(marker);
-     getFilterGeoJSON(value);
-
-
+     getFilterGeoJSON(value)
      })
 
      .on("select2:unselect", function(e) {
 
       $('#participantBox').select2("close");
-      filteredMarker.clearLayers();
-      markerCluster.clearLayers();
-      map.removeLayer(marker);
-      map.removeLayer(filteredMarker)
-      markerCluster.addLayer(marker);
-      map.addLayer(markerCluster)
-      map.fitBounds(markerCluster.getBounds())
-     // map.setView([45.5237019,-73.6197287], 15)
-    // map.flyTo([45.5237019,-73.6197287], 15)
+      function testLayer (){
+        if (map.hasLayer(filteredMarker)){
+          return map.removeLayer(filteredMarker)
+        }
 
-    });
+        else {
+        return true
+        }
+      ;}
+      testLayer()
+      map.removeLayer(filteredMarker)
+       map.addLayer(marker)
+       map.flyToBounds(marker)
+       })
 /*-----------------------------*/
 
 /********  GENRE ********/
@@ -946,27 +984,37 @@ $(document).click(function(e) {
     $('#typeBox').val('').trigger("change");
 
     value = $(e.currentTarget).val();
+    function testLayer (){
+      if (map.hasLayer(filteredMarker)){
+        return map.removeLayer(filteredMarker)
+      }
 
+      else {
+      return true
+      }
+    ;}
+    testLayer()
     map.removeLayer(marker);
-    getFilterGeoJSON(value);
-
-
+    getFilterGeoJSON(value)
     })
 
     .on("select2:unselect", function(e) {
 
      $('#participantBox').select2("close");
-     filteredMarker.clearLayers();
-     markerCluster.clearLayers();
-     map.removeLayer(marker);
-     map.removeLayer(filteredMarker)
-     markerCluster.addLayer(marker);
-     map.addLayer(markerCluster)
-     map.fitBounds(markerCluster.getBounds())
-    // map.setView([45.5237019,-73.6197287], 15)
-    //map.flyTo([45.5237019,-73.6197287], 15)
+     function testLayer (){
+       if (map.hasLayer(filteredMarker)){
+         return map.removeLayer(filteredMarker)
+       }
 
-    });
+       else {
+       return true
+       }
+     ;}
+     testLayer()
+     map.removeLayer(filteredMarker)
+      map.addLayer(marker)
+      map.flyToBounds(marker)
+      })
 
 /*-----------------------------*/
 
@@ -980,26 +1028,39 @@ $(document).click(function(e) {
     $('#typeBox').val('').trigger("change");
 
     value = $(e.currentTarget).val();
+    function testLayer (){
+      if (map.hasLayer(filteredMarker)){
+        return map.removeLayer(filteredMarker)
+      }
 
+      else {
+      return true
+      }
+    ;}
+    testLayer()
     map.removeLayer(marker);
-    getFilterGeoJSON(value);
-
-
+    getFilterGeoJSON(value)
     })
 
     .on("select2:unselect", function(e) {
 
      $('#participantBox').select2("close");
-     filteredMarker.clearLayers();
-     markerCluster.clearLayers();
-     map.removeLayer(marker);
+     function testLayer (){
+       if (map.hasLayer(filteredMarker)){
+         return map.removeLayer(filteredMarker)
+       }
+
+       else {
+       return true
+       }
+     ;}
+     testLayer()
      map.removeLayer(filteredMarker)
-     markerCluster.addLayer(marker);
-     map.addLayer(markerCluster)
-     map.fitBounds(markerCluster.getBounds())
-    // map.setView([45.5237019,-73.6197287], 15)
-    //map.flyTo([45.5237019,-73.6197287], 15)
-    });
+     map.addLayer(marker)
+     map.flyToBounds(marker)
+
+      })
+
 
 
 /**

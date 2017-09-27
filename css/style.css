@@ -364,10 +364,11 @@ background-color: rgba(255,255,255,0.85)
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
+  font-weight: bold !important;
   font-variant: normal;
   line-height: 26.4px;
   display: inline;
-  font-weight: bold;
+
 }
 
 
