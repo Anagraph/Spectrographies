@@ -17,7 +17,7 @@ var map = L.map('map', {
              position:'topright'
         }).addTo(map);
 
-var mapBoxBW = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj6s1my854xxn2rmzez9mel7z/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg').addTo(map);
+var mapBoxBW = L.tileLayer('https://api.mapbox.com/styles/v1/clementg123/cj7t110a70sfy2snvbs73dnsk/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2xlbWVudGcxMjMiLCJhIjoiY2o2M3ZhODh3MWxwNDJxbnJnaGZxcWNoMiJ9.YroDniTcealGFJgHtQ2hDg').addTo(map);
 
 var markerCluster = L.markerClusterGroup({
 
@@ -167,9 +167,10 @@ $.when(
           onEachFeature: function(feature, layer) {
             var categories ;
             var catAsText ;
+
         map.on('popupopen', function (e) {
 
-      /*    function test() {
+      /*   function test() {
 
             if (layer._popup.isClosed()){
             return false
@@ -180,7 +181,8 @@ $.when(
 
             }
 
-          }test();*/
+          }
+          test();  */
 
           /***** !! Auto Pan to the center of the popup ToolTip !! *****/
           var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
@@ -317,7 +319,7 @@ descr = feature.properties.description
                     +'</h2></div>'
                     +'<div class=&quot;panel-body text-justify &quot;>'
                     +feature.properties.description
-                    +'<br><br><h3 style=&quot;display: inline !important; font-weight: bold; &quot;> Catégorie(s) : </h3><p style=&quot;display: inline !important;&quot;>'
+                    +'<br><br><h3 style=&quot;display: inline !important; font-weight: bold;  &quot;> Catégorie(s) : </h3><p style=&quot;display: inline !important;&quot;>'
                     + feature.properties.genre + ' ' + feature.properties.genre_other
                     +'</p><br><br>'
 
@@ -336,13 +338,13 @@ descr = feature.properties.description
 
                         +'<div class=&quot;panel-body&quot;>'
                           +'<div class=&quot; row text-justify &quot;>'
-                        +'<h3  style=&quot;display: inline !important font-weight: bold; ;&quot;> Auteur(e)(s) : </h3><p style=&quot;display: inline !important;&quot;>'
+                        +'<h3  style=&quot;display: inline !important font-weight: bold; margin-left:-10px; ;&quot;> Auteur(e)(s) : </h3><p style=&quot;display: inline !important;&quot;>'
                     +feature.properties.pseudo
 
                         // Autoportrait -- Relation au lieu()//
 
                       +'</p><div class=&quot; text-justify &quot;>'
-                          +'<h3 style=&quot;display: inline !important font-weight: bold; ;&quot;>  Relation au lieu : </h3><p style=&quot;display: inline !important;&quot;>'
+                          +'<h3 style=&quot;display: inline !important font-weight: bold; margin-left:-10px; ;&quot;>  Relation au lieu : </h3><p style=&quot;display: inline !important;&quot;>'
                             +feature.properties.relation_au_lieu
                               +'</p></div>'
                     +'</div></div>'
@@ -794,13 +796,13 @@ map.on('popupopen', function (e) {
 
                                 +'<div class=&quot;panel-body&quot;>'
                                   +'<div class=&quot; row text-justify &quot;>'
-                                +'<h3  style=&quot;display: inline !important font-weight: bold; ;&quot;> Auteur(e)(s) : </h3><p style=&quot;display: inline !important;&quot;>'
+                                +'<h3  style=&quot;display: inline !important font-weight: bold; margin-left:-10px; &quot;> Auteur(e)(s) : </h3><p style=&quot;display: inline !important;&quot;>'
                             +feature.properties.pseudo
 
                                 // Autoportrait -- Relation au lieu()//
 
                               +'</p><div class=&quot; text-justify &quot;>'
-                                  +'<h3 style=&quot;display: inline !important font-weight: bold; ;&quot;>  Relation au lieu : </h3><p style=&quot;display: inline !important;&quot;>'
+                                  +'<h3 style=&quot;display: inline !important font-weight: boldmargin-left:-10px; &quot;>  Relation au lieu : </h3><p style=&quot;display: inline !important;&quot;>'
                                     +feature.properties.relation_au_lieu
                                       +'</p></div>'
                             +'</div></div>'
