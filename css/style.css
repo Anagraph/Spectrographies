@@ -435,9 +435,8 @@ background-color: rgba(255,255,255,0.85)
 #popUpPanel{
 
   font-family: Cambria, Georgia, serif;
-	font-size: 9px;
+	font-size: 10px;
 	font-style: oblique;
-	font-variant: normal;
 	font-weight: bold;
   margin-bottom: -25px !important;
   /*background: linear-gradient(to bottom right, #3185ce, #70a8d8);*/
@@ -446,9 +445,8 @@ background-color: rgba(255,255,255,0.85)
 
 #selectPopUpPanel{
   font-family: Cambria, Georgia, serif;
-	font-size: 9px;
+	font-size: 10px;
 	font-style: oblique;
-	font-variant: normal;
 	font-weight: bold;
   margin-bottom: -25px !important;
   /*background: linear-gradient(to bottom right, #3185ce, #70a8d8);*/
