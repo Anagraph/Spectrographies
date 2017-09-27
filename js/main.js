@@ -9,9 +9,9 @@ $(function() {
 
 
 var map = L.map('map', {
-        center: [45.5298026,-73.6183529],
-        zoom: 15,
-        zoomControl: false})
+        center: [place.lat,place.lon],
+        zoom: place.zoom,
+        zoomControl: false});
 
         L.control.zoom({
              position:'topright'
