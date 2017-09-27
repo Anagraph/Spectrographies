@@ -30,17 +30,23 @@ height: 100% !important;
 }
 
 #apropos a{
-color : #337ab7 !important;
+color : black !important;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 16px;
+font-weight: bold;
 }
 
 #apropos h2 {
-  margin-left: 25px;
+  font-family: Cambria, Georgia, serif;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: bold;
+  font-size: 20px;
+  }
 }
 
-.lead{
-margin-left: 75px;
-margin-right: 150px;
-}
+
+
 
 
 

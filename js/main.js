@@ -210,6 +210,7 @@ $.when(
 
               };
 
+              map.onclick(map.closePopup());
                 /* Auto close on click is too strict-*/
 
                 /*$('#myModal').on('click' , function() {
@@ -660,12 +661,13 @@ map.on('popupopen', function (e) {
 
 
 
-    // Fonction pour fermer le modal //
-      var span = document.getElementsByClassName("close")[0];
-      span.onclick = function() {
-      modal.style.display = "none";
-      menu.style.visibility = 'visisble';
-      };
+
+          // Fonction pour fermer le modal //
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+            modal.style.display = "none";
+            menu.style.visibility = 'visisble';
+            };
 
 
 
