@@ -43,7 +43,7 @@ font-weight: bold;
 
 #aproposMain
 {
-overflow: scroll!important;
+overflow-y: auto !important;
 height: 500px !important;
 margin-bottom: 150px;
 
