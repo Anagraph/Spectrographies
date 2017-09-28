@@ -202,7 +202,8 @@ $.when(
 
         //** Create the modal on the click function **//
           img.onclick = function(){
-            menu.style.visibility = 'hidden';
+
+            //menu.style.visibility = 'hidden';  /! seems not to work on ipad!/
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
@@ -214,7 +215,7 @@ $.when(
 
             h2.onclick = function(){
             map.closePopup();
-            menu.style.visibility = 'hidden';
+          //  menu.style.visibility = 'hidden'; /! seems not to work on ipad!/
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
 
@@ -235,7 +236,7 @@ $.when(
             var span = document.getElementsByClassName("close")[0];
               span.onclick = function() {
                   modal.style.display = "none";
-                  menu.style.visibility = 'visible';
+                  //menu.style.visibility = 'visible';
               }
     });
 
@@ -653,7 +654,7 @@ map.on('popupopen', function (e) {
 
   //** Create the modal on the click function **//
           img.onclick = function(){
-            menu.style.visibility = 'hidden';
+            //menu.style.visibility = 'hidden';/! seems not to work on ipad!/
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
@@ -664,7 +665,7 @@ map.on('popupopen', function (e) {
           };
 
           h2.onclick = function(){
-            menu.style.visibility = 'hidden';
+          //  menu.style.visibility = 'hidden';/! seems not to work on ipad!/
             map.closePopup();
             modal.style.display = "block";
             captionText.innerHTML = img.alt;
