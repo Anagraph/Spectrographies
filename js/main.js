@@ -549,14 +549,15 @@ $(function () {
      */
     function divsFromPhotosUrl(photos_url) {
         var baseURL = "https://web.fulcrumapp.com/shares/3a4bbd0435c58166/photos/";
+        var EndURL = "/thumbnail.jpg"
         var photos = photos_uuid(photos_url);
         var divsAsText = '';
         var currentDiv;
         for (var i = 0; i < photos.length; i++) {
             if (i == 0) {
-                currentDiv = '<div class="item active"><img class="d-block img-fluid" src="' + baseURL + photos[i] + '" id="img' + i + '" ></div>';
+                currentDiv = '<div class="item active"><img class="d-block img-fluid" src="' + baseURL + photos[i] +  '" id="img' + i + '" ></div>';
             } else {
-                currentDiv = '<div class="item"><img class="d-block img-fluid" src="' + baseURL + photos[i] + '" id="img' + i + '" ></div>';
+                currentDiv = '<div class="item"><img class="d-block img-fluid" src="' + baseURL + photos[i] +  '" id="img' + i + '" ></div>';
             }
 
             divsAsText = divsAsText + currentDiv;
@@ -707,8 +708,8 @@ $(function () {
             // Caroussel
             + '" src="'
             //+photosPreURL+first
-            + feature.properties.photos_url.substring(0, 106).replace('view?photos=', '')
-            + '"></img></div>'
+            + feature.properties.photos_url.substring(0, 106).replace('view?photos=', '') 
+            + '/thumbnail.jpg"></img></div>'
 
             // Socials //
             + '<div class="row"><div id="socials" class="col-sm-12 center-block text-center">'
