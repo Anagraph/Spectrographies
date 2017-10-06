@@ -17,6 +17,29 @@ h1{
 	line-height: 26.4px;
 }
 
+.aproposDIV{
+    display: inline-flex;
+    align-items: center;
+
+}
+
+.aproposIMG{
+  width: 125px;
+  height: auto;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+}
+
+.aproposAnagraph{
+  width: 75px !important ;
+  height: auto;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+}
 
 #apropos{
 margin-top: 50px;
