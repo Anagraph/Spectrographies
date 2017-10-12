@@ -5,7 +5,7 @@ var place = {
     zoom: 15
 };
 
-$(document).ready(function dynamicTitle(){
+function dynamicTitle(){
     var x = document.URL;
     var title = "Spectrographies of the territory"
     var titre =  "Spectrographies du territoire"
@@ -16,5 +16,3 @@ $(document).ready(function dynamicTitle(){
     else {
         return document.getElementById("dynamicTitle").innerHTML = titre;
     };
-
-});

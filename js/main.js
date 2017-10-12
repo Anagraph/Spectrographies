@@ -12,7 +12,7 @@ $(document).ready(function(){
     });
 });
 
-
+/*
 $(document).ready(function dynamicTitle(){
     var x = document.URL;
     var title = "Spectrographies of the territory"
@@ -25,7 +25,7 @@ $(document).ready(function dynamicTitle(){
         return true
     };
 
-});
+});*/
 
 
 
