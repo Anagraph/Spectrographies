@@ -15,4 +15,5 @@ function dynamicTitle(){
     }
     else {
         return document.getElementById("dynamicTitle").innerHTML = titre;
-    };
+        }
+};
