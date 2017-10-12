@@ -4,4 +4,17 @@ var place = {
     lon: -74.00611,
     zoom: 15
 };
-var titre = "Spectrographies of the territory"
+
+$(document).ready(function dynamicTitle(){
+    var x = document.URL;
+    var title = "Spectrographies of the territory"
+    var titre =  "Spectrographies du territoire"
+
+    if (x == 'www.spectrographies.org/newyork/') {
+        return document.getElementById("dynamicTitle").innerHTML = title;
+    }
+    else {
+        return document.getElementById("dynamicTitle").innerHTML = titre;
+    };
+
+});
