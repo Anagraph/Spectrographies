@@ -22,7 +22,7 @@ $(document).ready(function dynamicTitle(){
         return document.getElementById("dynamicTitle").innerHTML = title;
     }
     else {
-        return document.getElementById("dynamicTitle").innerHTML = titre;
+        return true
     };
 
 });
@@ -649,7 +649,7 @@ $(function () {
             + '</h2></div>'
             + '<div class="panel-body text-justify ">'
             + feature.properties.description
-            + '<br><br><h3 style="display: inline !important; font-weight: bold;  "> Catégorie(s) : </h3><p style="display: inline !important;">'
+            + '<br><br><h3 style="display: inline !important; font-weight: bold;  "> Catégorie(s) / Category(ies) : </h3><p style="display: inline !important;">'
             + feature.properties.genre + ' ' + feature.properties.genre_other
             + '</p><br><br>'
 
