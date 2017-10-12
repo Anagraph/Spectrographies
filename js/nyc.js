@@ -4,3 +4,4 @@ var place = {
     lon: -74.00611,
     zoom: 15
 };
+var titre = "Spectrographies of the territory"

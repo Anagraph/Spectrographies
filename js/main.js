@@ -18,7 +18,7 @@ $(document).ready(function dynamicTitle(){
     var title = "Spectrographies of the territory"
     var titre =  "Spectrographies du territoire"
 
-    if (x == 'http://www.spectrographies.org/newyork/') {
+    if (x == 'www.spectrographies.org/newyork/') {
         return document.getElementById("dynamicTitle").innerHTML = title;
     }
     else {

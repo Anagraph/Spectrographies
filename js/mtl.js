@@ -4,3 +4,5 @@ var place = {
     lon: -73.6183529,
     zoom: 15
 };
+
+var titre = "Spectrographies du territoires"
