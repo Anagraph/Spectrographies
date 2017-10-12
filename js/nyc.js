@@ -7,14 +7,15 @@ var place = {
 
 function dynamicTitle(){
     var x = document.URL;
+    console.log(x);
     var title = "Spectrographies of the territory"
     var titre =  "Spectrographies du territoire"
 
-    if (x == 'www.spectrographies.org/newyork/') {
+    if (x == 'http://www.spectrographies.org/newyork/') {
         return document.getElementById("dynamicTitle").innerHTML = title;
     }
     else {
-        return document.getElementById("dynamicTitle").innerHTML = titre;
-    }
+        return true
+        }
 };
 dynamicTitle()
