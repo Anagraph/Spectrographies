@@ -1,8 +1,33 @@
-$(document).click(function (e) {
+/*$(document).click(function (e) {
     if (!$(e.target).is('a')) {
         $('.navbar-collapse').collapse('hide');
     }
+});*/
+
+
+$(document).ready(function(){
+    $(".nav-tabs a").click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+    });
 });
+
+
+$(document).ready(function dynamicTitle(){
+    var x = document.URL;
+    var title = "Spectrographies of the territory"
+    var titre =  "Spectrographies du territoire"
+
+    if (x == 'http://www.spectrographies.org/newyork/') {
+        return document.getElementById("dynamicTitle").innerHTML = title;
+    }
+    else {
+        return document.getElementById("dynamicTitle").innerHTML = titre;
+    };
+
+});
+
+
 
 $(function () {
 
@@ -356,8 +381,10 @@ $(function () {
             }
 
             testLayer()
+
             map.removeLayer(filteredMarker)
-            map.addLayer(marker)
+            markerCluster.addLayer(marker);
+            map.addLayer(markerCluster)
             map.flyToBounds(marker)
         })
 
@@ -409,7 +436,8 @@ $(function () {
 
             testLayer()
             map.removeLayer(filteredMarker)
-            map.addLayer(marker)
+            markerCluster.addLayer(marker);
+            map.addLayer(markerCluster)
             map.flyToBounds(marker)
         })
     /*-----------------------------*/
@@ -458,7 +486,8 @@ $(function () {
 
             testLayer()
             map.removeLayer(filteredMarker)
-            map.addLayer(marker)
+            markerCluster.addLayer(marker);
+            map.addLayer(markerCluster)
             map.flyToBounds(marker)
         })
 
@@ -508,7 +537,8 @@ $(function () {
 
             testLayer()
             map.removeLayer(filteredMarker)
-            map.addLayer(marker)
+            markerCluster.addLayer(marker);
+            map.addLayer(markerCluster)
             map.flyToBounds(marker)
 
         })
@@ -638,13 +668,13 @@ $(function () {
 
             + '<div class="panel-body">'
             + '<div class=" row text-justify ">'
-            + '<h3  style="display: inline !important font-weight: bold; margin-left:-10px; ;"> Auteur(e)(s) : </h3><p style="display: inline !important;">'
+            + '<h3  style="display: inline !important font-weight: bold; margin-left:-10px; ;"> Auteur(e)(s) / Author(s): </h3><p style="display: inline !important;">'
             + feature.properties.pseudo
 
             // Autoportrait -- Relation au lieu()//
 
             + '</p><div class=" text-justify ">'
-            + '<h3 style="display: inline !important font-weight: bold; margin-left:-10px; ;">  Relation au lieu : </h3><p style="display: inline !important;">'
+            + '<h3 style="display: inline !important font-weight: bold; margin-left:-10px; ;">  Relation au lieu / Relationship to the area : </h3><p style="display: inline !important;">'
             + feature.properties.relation_au_lieu
             + '</p></div>'
             + '</div></div>'
@@ -708,7 +738,7 @@ $(function () {
             // Caroussel
             + '" src="'
             //+photosPreURL+first
-            + feature.properties.photos_url.substring(0, 106).replace('view?photos=', '') 
+            + feature.properties.photos_url.substring(0, 106).replace('view?photos=', '')
             + '/thumbnail.jpg"></img></div>'
 
             // Socials //

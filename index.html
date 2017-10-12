@@ -46,123 +46,217 @@
           </div>
 
           <div id='title'>
-              <h1>
+              <h1 id='dynamicTitle'>
                     Spectrographies du territoire
               </h1>
               <div>
-                  <div id="aproposMenu" class="collapse navbar-collapse right">
-                          <div id="aproposMain" class="container-fluid">
-                            <div id="apropos" class="wrapper col-sm-10">
-                              <p class=""><h2> À propos </h2>
-                              </p>
-                              <br>
-
-                              <div class="row">
-                                <div class="col-sm-8 col-md-9 col-lg-8">
-                              <p class="text-justify" >
-
-                              Produit à l’automne 2017 grâce au soutien de la Ville de Montréal dans le cadre du programme
-                              Initiatives collaboratives en créativité numérique, Spectrographies du territoire est le fruit
-                              d’une collaboration entre l’artiste <a target="_blank" href="http://natachaclitandre.net/">Natacha Clitandre</a> , <a target="_blank" href="http://www.agencetopo.qc.ca/">TOPO
-                              laboratoire d’écritures numériques</a> , <a  target="_blank" href="http://montreal.villeenmouvement.com/">MTL Ville en mouvement</a>
-                              et le <a target="_blank" href="http://www.lrsm.ca/"> Laboratoire sur les récits du soi mobile</a>.
-
-                              </p>
-                              </div>
-                              </div>
-
-                              <br>
-
-                              <div  class="row">
-                                <div class="col-sm-8 col-md-9 col-lg-8">
-                              <p class="text-justify ">
-                              Plutôt que de représenter Montréal par ses constructions d'envergure qui en font trop souvent
-                              une synthèse réductrice, l’artiste propose d’explorer de l’intérieur un secteur en pleine mutation,
-                              marqué en son centre par le chantier du Campus MIL de l’<a target="_blank" href="http://campusmil.umontreal.ca/">UdeM </a>.
-                              Lors de balades exploratoires, Natacha Clitandre convie les résidents et travailleurs d’Outremont, la Petite-Patrie, Parc-Extension et Ville Mont-Royal à
-                              aborder leur environnement dans la proximité afin de s’attarder aux détails urbanistiques que
-                              l’on y trouve et qui symbolisent leur relation au territoire. Croisant histoire locale et récits
-                              personnels, cet exercice permettra, au final, de capter l’esprit actuel des lieux.
-                              </p>
-                              </div>
-                              </div>
-
-                              <br>
-
-                              <div  class="row">
-                                <div class="col-sm-8 col-md-9 col-lg-8">
-                              <p class="text-justify">
-                              Volet réalisé en octobre 2017 dans le cadre du festival new-yorkais <a target="_blank" href="http://www.artinoddplaces.org/">Art in Odd Places</a>, <a target="_blank" href="http://www.spectrographies.org/newyork"> Spectrographies </a> est une sorte d’instantané de la 14e Rue,
-                              représentée à l’échelle d’objets et artefacts qui y ont été laissés nonchalamment. Cette itération
-                              américaine permettra de localiser différentes interprétations d’un même lot d’objets en fonction
-                              de ce que les passants sondés y projettent.
-                              </p>
-                              </div>
-                              </div>
-                              <br>
-
-                              <div  class="row">
-                                <div class="col-sm-8 col-md-9 col-lg-8">
-                                  <p class="text-justify" style="display:inline-block">
-                                    Ce projet est rendu possible avec le soutien de la mesure <a target="_blank" href="http://ville.montreal.qc.ca/culture/initiatives-collaboratives-en-creativite-numerique">« Initiatives collaboratives en créativité numérique »</a> de la Ville de Montréal dans le cadre de l'<a target="_blank" href="https://www.mcc.gouv.qc.ca/index.php?id=1471"> Entente sur le développement culturel de Montréal et du Plan numérique du Québec</a>
-                                  </p>
-                                </div>
-                              </div>
-                              <br>
-
-                            <div class="row">
-                              <div class="col-sm-8 col-md-9 col-lg-8">
-                              <h2> Avec la participation de : </h2>
-                              <div class="aproposDIV" >
-                                <a target="_blank" href="http://www.agencetopo.qc.ca"><img  class="img-responsive aproposIMG" src="img/TOPO.png"> </a>
-                              </div>
-                              <div class="aproposDIV" >
-                              <a target="_blank" href="http://lrsm.ca">  <img  class="img-responsive aproposIMG" src="img/LRSM.png"> </a>
-                              </div>
-                              <div class="aproposDIV" >
-                                <a target="_blank" href="http://ville.montreal.qc.ca/">  <img  class="img-responsive aproposIMG" src="img/MONTREAL.png"> </a>
-                              </div>
-                              <div class="aproposDIV" >
-                                <a target="_blank" href="http://www.gouv.qc.ca">  <img  class="img-responsive aproposIMG" src="img/QUEBEC.jpg"> </a>
-                              </div>
+                <div id="aproposMenu" class="collapse navbar-collapse right">
+                   <div id="aproposMain" class="container-fluid">
+                      <div id="apropos" class="wrapper col-sm-10">
+                         <div class="card">
+                            <ul class="nav nav-tabs">
+                               <li class="nav-item active">
+                                  <a class="nav-link active" href="#aproposFR" role="tab" data-toggle="tab">
+                                     <h2> À propos </h2>
+                                  </a>
+                               </li>
+                               <li class="nav-item">
+                                  <a class="nav-link" href="#aproposEN" role="tab">
+                                     <h2> About </h2>
+                                  </a>
+                               </li>
+                            </ul>
+                         </div>
+                         <br>
+                         <!-- FRANCAIS --><!-- FRANCAIS --><!-- FRANCAIS --><!-- FRANCAIS --><!-- FRANCAIS --><!-- FRANCAIS -->
+                         <div class="tab-content">
+                            <div class="tab-pane active" id="aproposFR" role="tabpanel">
+                               <div class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <p class="text-justify" >
+                                        Produit à l’automne 2017 grâce au soutien de la Ville de Montréal dans le cadre du programme
+                                        Initiatives collaboratives en créativité numérique, Spectrographies du territoire est le fruit
+                                        d’une collaboration entre l’artiste <a target="_blank" href="http://natachaclitandre.net/">Natacha Clitandre</a> , <a target="_blank" href="http://www.agencetopo.qc.ca/">TOPO
+                                        laboratoire d’écritures numériques</a> , <a  target="_blank" href="http://montreal.villeenmouvement.com/">MTL Ville en mouvement</a>
+                                        et le <a target="_blank" href="http://www.lrsm.ca/"> Laboratoire sur les récits du soi mobile</a>.
+                                     </p>
+                                  </div>
+                               </div>
+                               <br>
+                               <div  class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <p class="text-justify ">
+                                        Plutôt que de représenter Montréal par ses constructions d'envergure qui en font trop souvent
+                                        une synthèse réductrice, l’artiste propose d’explorer de l’intérieur un secteur en pleine mutation,
+                                        marqué en son centre par le chantier du Campus MIL de l’<a target="_blank" href="http://campusmil.umontreal.ca/">UdeM </a>.
+                                        Lors de balades exploratoires, Natacha Clitandre convie les résidents et travailleurs d’Outremont, la Petite-Patrie, Parc-Extension et Ville Mont-Royal à
+                                        aborder leur environnement dans la proximité afin de s’attarder aux détails urbanistiques que
+                                        l’on y trouve et qui symbolisent leur relation au territoire. Croisant histoire locale et récits
+                                        personnels, cet exercice permettra, au final, de capter l’esprit actuel des lieux.
+                                     </p>
+                                  </div>
+                               </div>
+                               <br>
+                               <div  class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <p class="text-justify">
+                                        Volet réalisé en octobre 2017 dans le cadre du festival new-yorkais <a target="_blank" href="http://www.artinoddplaces.org/">Art in Odd Places</a>, <a target="_blank" href="http://www.spectrographies.org/newyork"> Spectrographies </a> est une sorte d’instantané de la 14e Rue,
+                                        représentée à l’échelle d’objets et artefacts qui y ont été laissés nonchalamment. Cette itération
+                                        américaine permettra de localiser différentes interprétations d’un même lot d’objets en fonction
+                                        de ce que les passants sondés y projettent.
+                                     </p>
+                                  </div>
+                               </div>
+                               <br>
+                               <div  class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <p class="text-justify" style="display:inline-block">
+                                        Ce projet est rendu possible avec le soutien de la mesure <a target="_blank" href="http://ville.montreal.qc.ca/culture/initiatives-collaboratives-en-creativite-numerique">« Initiatives collaboratives en créativité numérique »</a> de la Ville de Montréal dans le cadre de l'<a target="_blank" href="https://www.mcc.gouv.qc.ca/index.php?id=1471"> Entente sur le développement culturel de Montréal et du Plan numérique du Québec</a>
+                                     </p>
+                                  </div>
+                               </div>
+                               <br>
+                               <div class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2> Avec la participation de : </h2>
+                                     <div class="aproposDIV" >
+                                        <a target="_blank" href="http://www.agencetopo.qc.ca"><img  class="img-responsive aproposIMG" src="img/TOPO.png"> </a>
+                                     </div>
+                                     <div class="aproposDIV" >
+                                        <a target="_blank" href="http://lrsm.ca">  <img  class="img-responsive aproposIMG" src="img/LRSM.png"> </a>
+                                     </div>
+                                     <div class="aproposDIV" >
+                                        <a target="_blank" href="http://ville.montreal.qc.ca/">  <img  class="img-responsive aproposIMG" src="img/MONTREAL.png"> </a>
+                                     </div>
+                                     <div class="aproposDIV" >
+                                        <a target="_blank" href="http://www.gouv.qc.ca">  <img  class="img-responsive aproposIMG" src="img/QUEBEC.jpg"> </a>
+                                     </div>
+                                  </div>
+                               </div>
+                               <br>
+                               <div  class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2 class="text-justify">
+                                        Développement technologique :
+                                     </h2>
+                                     <div class="col-sm-8 col-md-9 col-lg-8" >
+                                        <a target="_blank" href="http://anagraph.io/">  <img class="img-responsive aproposAnagraph img-rounded" src="img/ANAGRAPH.jpg"> </a>
+                                     </div>
+                                  </div>
+                               </div>
+                               <div class="row" >
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2 class="">
+                                        Contact
+                                     </h2>
+                                     <p style="">
+                                        <a href="mailto:spectro.territoire@gmail.com?Subject=Spectrographies%20du%20territoires" target="_blank">spectro.territoire@gmail.com</a>
+                                     </p>
+                                     <p style="display:inline">514-279-8676
+                                     </p>
+                                  </div>
+                               </div>
                             </div>
-                          </div>
-
-                              <br>
-
-                              <div  class="row">
-                                <div class="col-sm-8 col-md-9 col-lg-8">
-
-                              <h2 class="text-justify">
-                              Développement technologique :</h2>
-                                <div class="col-sm-8 col-md-9 col-lg-8" >
-                                  <a target="_blank" href="http://anagraph.io/">  <img class="img-responsive aproposAnagraph img-rounded" src="img/ANAGRAPH.jpg"> </a>
-                                </div>
-
-                              </div>
-                              </div>
-
-                            <div class="row" >
-                              <div class="col-sm-8 col-md-9 col-lg-8">
-                              <h2 class="">
-                              Contact
-                            </h2>
-                              <p style="">
-                                <a href="mailto:spectro.territoire@gmail.com?Subject=Spectrographies%20du%20territoires" target="_blank">spectro.territoire@gmail.com</a>
-                              </p>
-                              <p style="display:inline">514-279-8676
-                              </p>
+                            <!-- ANGLAIS --><!-- ANGLAIS --><!-- ANGLAIS --><!-- ANGLAIS --><!-- ANGLAIS --><!-- ANGLAIS -->
+                            <div class="tab-pane" id="aproposEN" role="tabpanel">
+                               <div class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2> Spectrographies of the Territory </h2>
+                                     <p class="text-justify" >
+                                        <b>New York</b> – October 14-16, 2017
+                                        <br>
+                                        <br>
+                                        Shown in October 2017 during the <a target="_blank" href="http://www.artinoddplaces.org/">Art in Odd Places festival</a>, in New York,
+                                        Spectrographies offers a sort of snapshot of 14th Street, represented at the scale of objects and artefacts that were casually left there. This
+                                        American iteration makes it possible to locate different interpretations of a single grouping of objects as a function of what passersby asked about it project onto the grouping.
+                                     </p>
+                                  </div>
+                               </div>
+                               <br>
+                               <div  class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2> Spectrographies of the Territory </h2>
+                                     <p class="text-justify">
+                                        <b>Montréal</b> – September/October 2017
+                                        <br>
+                                        <br>
+                                        Rather than portray Montreal by its large structures that too often
+                                        form a reductive synthesis of the city, Natacha Clitandre proposes
+                                        to explore from the inside an area that is undergoing profound
+                                        transformations, at the centre of which is the construction site for
+                                        the <a target="_blank" href="http://campusmil.umontreal.ca/">Université de Montréal’s Campus MIL</a>.
+                                        During exploratory strolls, Clitandre asks residents and workers
+                                        from the Outremont, Petite-Patrie, Parc-Extension, and Ville Mont-
+                                        Royal districts to address their environment by looking at the
+                                        urbanistic details found there and how they symbolize their
+                                        relationship with the territory. This exercise, intermingling local
+                                        history and personal stories, will ultimately capture the current
+                                        spirit of the area.
+                                     </p>
+                                  </div>
+                               </div>
+                               <br>
+                               <div  class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2> Credits </h2>
+                                     <p class="text-justify" style="display:inline-block">
+                                        This project was made possible with the support of the measure of
+                                        the <a target="_blank" href="https://www.mcc.gouv.qc.ca/index.php?id=1471"> Entente sur le développement culturel de Montréal</a> and the<a target="_blank" href="http://ville.montreal.qc.ca/culture/initiatives-collaboratives-en-creativite-numerique"> Plan
+                                        numérique du Québec.</a>
+                                     </p>
+                                  </div>
+                               </div>
+                               <br>
+                               <div class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2>  With the participation of : </h2>
+                                     <div class="aproposDIV" >
+                                        <a target="_blank" href="http://www.agencetopo.qc.ca"><img  class="img-responsive aproposIMG" src="img/TOPO.png"> </a>
+                                     </div>
+                                     <div class="aproposDIV" >
+                                        <a target="_blank" href="http://lrsm.ca">  <img  class="img-responsive aproposIMG" src="img/LRSM.png"> </a>
+                                     </div>
+                                     <div class="aproposDIV" >
+                                        <a target="_blank" href="http://ville.montreal.qc.ca/">  <img  class="img-responsive aproposIMG" src="img/MONTREAL.png"> </a>
+                                     </div>
+                                     <div class="aproposDIV" >
+                                        <a target="_blank" href="http://www.gouv.qc.ca">  <img  class="img-responsive aproposIMG" src="img/QUEBEC.jpg"> </a>
+                                     </div>
+                                  </div>
+                               </div>
+                               <br>
+                               <div  class="row">
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2 class="text-justify">
+                                        Technological developement :
+                                     </h2>
+                                     <div class="col-sm-8 col-md-9 col-lg-8" >
+                                        <a target="_blank" href="http://anagraph.io/">  <img class="img-responsive aproposAnagraph img-rounded" src="img/ANAGRAPH.jpg"> </a>
+                                     </div>
+                                  </div>
+                               </div>
+                               <div class="row" >
+                                  <div class="col-sm-8 col-md-9 col-lg-8">
+                                     <h2 class="">
+                                        Contact
+                                     </h2>
+                                     <p style="">
+                                        <a href="mailto:spectro.territoire@gmail.com?Subject=Spectrographies%20du%20territoires" target="_blank">spectro.territoire@gmail.com</a>
+                                     </p>
+                                     <p style="display:inline">514-279-8676
+                                     </p>
+                                  </div>
+                               </div>
                             </div>
-
-                            </div>
-
-
-                            </div>
-                            </div>
-
-                          </div>
-  </nav>
-</div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </nav>
+                </div>
 
   <div class="row">
     <!--  The Map -->
@@ -195,7 +289,7 @@
 
                       <div class="">
                           <div class="form-group">
-                              <label for="single" class="control-label">Titre</label>
+                              <label for="single" class="control-label">Titre / Title</label>
                               <select id="titreBox" class="select2">
                                <option></option>
                               </select>
@@ -205,7 +299,7 @@
 
                       <div class="">
                           <div class="form-group">
-                              <label for="single" class="control-label">Catégorie</label>
+                              <label for="single" class="control-label">Catégorie / Category</label>
                               <select id="genreBox" class="select2">
                                <option></option>
                               </select>
@@ -258,6 +352,8 @@
 
 
 </body>
+
+
 
 
 
