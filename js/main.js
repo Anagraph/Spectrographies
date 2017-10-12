@@ -12,21 +12,6 @@ $(document).ready(function(){
     });
 });
 
-/*
-$(document).ready(function dynamicTitle(){
-    var x = document.URL;
-    var title = "Spectrographies of the territory"
-    var titre =  "Spectrographies du territoire"
-
-    if (x == 'www.spectrographies.org/newyork/') {
-        return document.getElementById("dynamicTitle").innerHTML = title;
-    }
-    else {
-        return true
-    };
-
-});*/
-
 
 
 $(function () {
