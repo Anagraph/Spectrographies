@@ -17,3 +17,4 @@ function dynamicTitle(){
         return document.getElementById("dynamicTitle").innerHTML = titre;
     }
 };
+dynamicTitle()
