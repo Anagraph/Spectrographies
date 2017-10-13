@@ -8,14 +8,14 @@ var place = {
 function dynamicTitle(){
     var x = document.URL;
     console.log(x);
-    var title = "Spectrographies of the territory"
+    var title = "Spectrographies"
     var titre =  "Spectrographies du territoire"
 
     if (x == 'http://www.spectrographies.org/newyork/') {
         return document.getElementById("dynamicTitle").innerHTML = title;
     }
     else {
-        return true
+      return document.getElementById("dynamicTitle").innerHTML = titre;
         }
 };
 dynamicTitle()
