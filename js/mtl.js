@@ -4,7 +4,7 @@ var place = {
     lon: -73.6183529,
     zoom: 15
 };
-
+/*
 function dynamicTitle(){
     var x = document.URL;
     console.log(x);
@@ -18,4 +18,4 @@ function dynamicTitle(){
         return document.getElementById("dynamicTitle").innerHTML = titre;
         }
 };
-dynamicTitle()
+dynamicTitle()*/

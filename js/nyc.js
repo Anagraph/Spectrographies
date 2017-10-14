@@ -1,10 +1,10 @@
 var place = {
     name: "New York",
-    lat:40.714444,
-    lon: -74.00611,
+    lat:40.73665,
+    lon: -73.9905327,
     zoom: 15
 };
-
+/*
 function dynamicTitle(){
     var x = document.URL;
     console.log(x);
@@ -18,4 +18,4 @@ function dynamicTitle(){
       return document.getElementById("dynamicTitle").innerHTML = titre;
         }
 };
-dynamicTitle()
+dynamicTitle()*/
